@@ -199,8 +199,17 @@ class tinymce_texteditor extends texteditor {
         
         //XTEC ************ AFEGIT - To include Wiris buttons to TinyMCE editor
         //2012.08.22  @sarjona
+<<<<<<< HEAD
         $params['plugins'] .= ",tiny_mce_wiris";
         $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].",|,tiny_mce_wiris_formulaEditor,tiny_mce_wiris_CAS";
+=======
+        if ( (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) || (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) ){
+            $params['plugins'] .= ",tiny_mce_wiris";
+            $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].',|';
+            if (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_formulaEditor';
+            if (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_CAS';
+        }
+>>>>>>> a635fcb... Updated wiris version to 3.18.2 and hidden Wiris buttons when the filter is not enabled.
         //************ FI
         
         return $params;
