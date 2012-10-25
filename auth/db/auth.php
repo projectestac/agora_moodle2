@@ -46,6 +46,15 @@ class auth_plugin_db extends auth_plugin_base {
         $extusername = textlib::convert($username, 'utf-8', $this->config->extencoding);
         $extpassword = textlib::convert($password, 'utf-8', $this->config->extencoding);
 
+        $authdb = $this->db_init();
+
+        //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
+        //2012.10.25  @aperez16
+        if (!isset($_REQUEST['parm'])) {
+            $this->config->passtype = 'md5';
+        }
+        //************ FI 
+
         if ($this->is_internal()) {
             // lookup username externally, but resolve
             // password locally -- to support backend that
@@ -119,6 +128,23 @@ class auth_plugin_db extends auth_plugin_base {
     }
 
     function db_init() {
+        //XTEC ************ AFEGIT - Add automatically external db information if the school has intranet
+        //2012.08.28  @sarjona
+        if (is_agora()) {
+            global $agora, $school_info;
+            if (empty($this->config->host) && array_key_exists('id_intranet', $school_info)) {
+                $this->config->type = $agora['intranet']['dbtype'];
+                $this->config->host = $agora['intranet']['host'];
+                $this->config->user = $agora['intranet']['username'];
+                $this->config->pass = $agora['intranet']['userpwd'];
+                $this->config->name = $agora['intranet']['userprefix'] . $school_info['id_intranet'];
+                $this->config->table = 'zk_users';
+                $this->config->fielduser = 'pn_uname';
+                $this->config->fieldpass = 'pn_pass';
+                $this->config->passtype = 'plaintext';
+            }
+        }
+        //************ FI     
         // Connect to the external database (forcing new connection)
         $authdb = ADONewConnection($this->config->type);
         if (!empty($this->config->debugauthdb)) {
@@ -787,4 +813,5 @@ class auth_plugin_db extends auth_plugin_base {
     }
 }
 
+}
 
