@@ -66,6 +66,15 @@ class auth_plugin_db extends auth_plugin_base {
         $extusername = core_text::convert($username, 'utf-8', $this->config->extencoding);
         $extpassword = core_text::convert($password, 'utf-8', $this->config->extencoding);
 
+        //XTEC ************ AFEGIT - detect if validation comes from file index_iw.php
+        //2012.10.25  @aperez16
+        if (!isset($_REQUEST['parm'])) {
+            $this->config->passtype = 'md5';
+        } else{
+            $this->config->passtype = 'plaintext';
+        }
+        //************ FI 
+        
         if ($this->is_internal()) {
             // Lookup username externally, but resolve
             // password locally -- to support backend that
@@ -116,6 +125,16 @@ class auth_plugin_db extends auth_plugin_base {
                 $extpassword = sha1($extpassword);
             }
 
+            // XTEC ************ AFEGIT - Patch for authentication in Zikula 1.3
+            // 2013.07.02 @aginard
+            if (is_agora()) {
+                global $school_info;
+                if (($this->config->passtype != 'plaintext') && isset($school_info['id_intranet'])) {
+                    $extpassword = '1$$' . $extpassword;
+                }
+            }
+            // ************ FI
+
             $rs = $authdb->Execute("SELECT *
                                       FROM {$this->config->table}
                                      WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."'
@@ -150,6 +169,26 @@ class auth_plugin_db extends auth_plugin_base {
             throw new moodle_exception('auth_dbcantconnect', 'auth_db');
         }
 
+        // XTEC ************ AFEGIT - Add automatically external db information if the school has intranet
+        // 2012.08.28 @sarjona
+        // 2013.05.24 @aginard
+        if (is_agora()) {
+
+            global $agora, $school_info;
+
+            if (isset($school_info['id_intranet'])) {
+                $this->config->type = $agora['intranet']['dbtype'];
+                $this->config->host = $school_info['dbhost_intranet'];
+                $this->config->user = $agora['intranet']['username'];
+                $this->config->pass = $agora['intranet']['userpwd'];
+                $this->config->name = $agora['intranet']['userprefix'] . $school_info['id_intranet'];
+                $this->config->table = 'users';
+                $this->config->fielduser = 'uname';
+                $this->config->fieldpass = 'pass';
+            }
+        }
+
+        // ************ FI
         // Connect to the external database (forcing new connection).
         $authdb = ADONewConnection($this->config->type);
         if (!empty($this->config->debugauthdb)) {
