@@ -2109,8 +2109,18 @@ abstract class plugininfo_base {
         $plugins = get_plugin_list($type);
         $ondisk = array();
         foreach ($plugins as $pluginname => $pluginrootdir) {
+            //XTEC ************ MODIFICAT - Added function to check which modules can appear in the list
+            //2012.11.05  @sarjona
+            if (is_enabled_in_agora($pluginname)) {
+                $ondisk[$pluginname] = plugininfo_default_factory::make($type, $typerootdir,
+                    $pluginname, $pluginrootdir, $typeclass);
+            }
+            //************ ORIGINAL 
+            /*
             $ondisk[$pluginname] = plugininfo_default_factory::make($type, $typerootdir,
                 $pluginname, $pluginrootdir, $typeclass);
+            */
+            //************ FI
         }
         return $ondisk;
     }
@@ -2295,7 +2305,6 @@ abstract class plugininfo_base {
      * @return string one of plugin_manager::PLUGIN_STATUS_xxx constants
      */
     public function get_status() {
-
         if (is_null($this->versiondb) and is_null($this->versiondisk)) {
             return plugin_manager::PLUGIN_STATUS_NODB;
 
@@ -2858,6 +2867,13 @@ class plugininfo_mod extends plugininfo_base {
             if (isset($modules[$modulename])) {
                 continue;
             }
+            //XTEC ************ AFEGIT - Only enabled modules has to be showed
+            //2012.11.06  @sarjona
+            if (!is_enabled_in_agora($modulename) ){
+                continue;
+            }
+            //************ FI
+            
             $plugin                 = new $typeclass();
             $plugin->type           = $type;
             $plugin->typerootdir    = $typerootdir;
