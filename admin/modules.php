@@ -93,6 +93,13 @@
         $plugininfo = $pluginmanager->get_plugin_info('mod_'.$module->name);
         $status = $plugininfo->get_status();
 
+        //XTEC ************ AFEGIT - Only enabled modules has to be showed
+        //2012.11.06  @sarjona
+        if (!is_enabled_in_agora($module->name) ){
+            continue;
+        }
+        //************ FI
+
         if ($status === core_plugin_manager::PLUGIN_STATUS_MISSING) {
             $strmodulename = '<span class="notifyproblem">'.$module->name.' ('.get_string('missingfromdisk').')</span>';
             $missing = true;
