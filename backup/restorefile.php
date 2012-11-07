@@ -168,4 +168,17 @@ if (!empty($automatedbackups)) {
     echo $OUTPUT->container_end();
 }
 
+//XTEC ************ AFEGIT - To let import from Moodle 1.9
+//2012.07.13  @sarjona    
+require_once($CFG->dirroot.'/local/agora/lib.php');
+$import19lib = $CFG->dirroot.'/local/agora/import19/lib.php';
+if (file_exists($import19lib)) {
+    require_once($import19lib);
+    echo $OUTPUT->heading_with_help(get_string('choosefilefrommoodle19', 'local_agora'), 'choosefilefrommoodle19', 'local_agora');
+    echo $OUTPUT->container_start();
+    echo import19_course_selector($contextid);
+    echo $OUTPUT->container_end();
+}
+//************ FI
+
 echo $OUTPUT->footer();
