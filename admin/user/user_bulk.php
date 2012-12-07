@@ -43,6 +43,12 @@ if ($data = $actionform->get_data()) {
     if (array_key_exists($data->action, $bulkactions)) {
         redirect($bulkactions[$data->action]->url);
     }
+    //XTEC ************ AFEGIT - To allow capitalize user names
+    //2012.12.07  @sarjona
+    //TODO: Implement again
+    //case 9: redirect($CFG->wwwroot.'/'.$CFG->admin.'/user/user_bulk_capitalize.php');
+    //************ FI    
+
 
 }
 
@@ -90,6 +96,7 @@ if ($data = $userbulkform->get_data()) {
     unset($_POST);
     $userbulkform = new user_bulk_form(null, get_selection_data($ufiltering));
 }
+// do output
 echo $OUTPUT->header();
 
 $ufiltering->display_add();
