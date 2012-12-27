@@ -2,12 +2,14 @@
 	
     require_once(INSTALL_BASE.'/html/config/dblib-mysql.php');
 	
+    // Debug code
     $debug_enabled = isset($_GET['debug']) ? $_GET['debug']: 'off';
     define('DEBUG_ENABLED', $debug_enabled);
     xtec_debug("DEBUG ENABLED: $debug_enabled");
     
     $dbsource = isset($_GET['dbsource']) ? $_GET['dbsource']: $agora['dbsource']['defaulttype'];
     xtec_debug("Selected source: $dbsource");
+    // End debug
 	
     //Get info from cookie if exists
     $centre = $_REQUEST['ccentre'];
@@ -55,6 +57,14 @@
     if (!isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
         header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
         exit(0);
+    } else {
+        $currenthour = date('G');
+        if ($agora['server']['enviroment'] == 'FRM') {
+            // Change id for usu1 for training environment if is an odd hour (usu1 regenerates every odd hour)
+            if ($school_info['id_moodle2'] == 1 && $currenthour % 2 != 0) {
+                $school_info['id_moodle2'] = 10000;
+            }
+        }
     }
 
     $CFG->dbname    = $school_info['database_moodle2'];
