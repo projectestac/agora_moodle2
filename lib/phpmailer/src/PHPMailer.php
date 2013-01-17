@@ -511,29 +511,59 @@ class PHPMailer
      *
      * @var array
      */
+    //XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
+    //17.01.2013 @aginard
+    //2018.05.27 @svallde2
+    public $to = [];
+    //************ ORIGINAL
+    /*
     protected $to = [];
-
+    */
+    //************ FI
     /**
      * The array of 'cc' names and addresses.
      *
      * @var array
      */
+    //XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
+    //17.01.2013 @aginard
+    //2018.05.26  @svallde2
+    public $cc = [];
+    //************ ORIGINAL
+    /*
     protected $cc = [];
+    */
+    //************ FI
 
     /**
      * The array of 'bcc' names and addresses.
      *
      * @var array
      */
+    //XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
+    //17.01.2013 @aginard
+    //2018.05.26  @svallde2
+    public $bcc = [];
+    //************ ORIGINAL
+    /*
     protected $bcc = [];
+    */
+    //************ FI
 
     /**
      * The array of reply-to names and addresses.
      *
      * @var array
      */
+    //XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
+    //17.01.2013 @aginard
+    //2018.05.26  @svallde2
+    public $ReplyTo = [];
+    //************ ORIGINAL
+    /*
     protected $ReplyTo = [];
-
+    */
+    //************ FI
     /**
      * An array of all kinds of addresses.
      * Includes all of $to, $cc, $bcc.
