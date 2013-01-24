@@ -213,6 +213,17 @@ function edit_module_post_actions($moduleinfo, $course) {
     $hasgrades = plugin_supports('mod', $moduleinfo->modulename, FEATURE_GRADE_HAS_GRADE, false);
     $hasoutcomes = plugin_supports('mod', $moduleinfo->modulename, FEATURE_GRADE_OUTCOMES, true);
 
+
+    //XTEC ************ AFEGIT - Added patch for course format "Simple"
+    //2010.07.12 @aginard (patch provided by UPCnet)
+    //@PATCH SIMPLE: Actualitza la icona al sistema de fitxers
+    //Adds icon to filesystem
+    if(isset($moduleinfo->simple_image)){
+        require_once($CFG->dirroot.'/course/format/simple/lib.php');
+        simple_update_module_image($moduleinfo);
+    }
+   //************ FI
+
     // Sync idnumber with grade_item.
     if ($hasgrades && $grade_item = grade_item::fetch(array('itemtype'=>'mod', 'itemmodule'=>$moduleinfo->modulename,
                  'iteminstance'=>$moduleinfo->instance, 'itemnumber'=>0, 'courseid'=>$course->id))) {
