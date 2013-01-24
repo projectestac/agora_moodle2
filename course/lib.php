@@ -1729,7 +1729,7 @@ function course_delete_module($cmid) {
     // Delete all tag instances associated with the instance of this module.
     tag_delete_instances('mod_' . $modulename, $modcontext->id);
 
-    // Delete the context.
+     // Delete the context.
     context_helper::delete_instance(CONTEXT_MODULE, $cm->id);
 
     // Delete the module from the course_modules table.
