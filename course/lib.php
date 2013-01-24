@@ -1795,7 +1795,7 @@ function course_delete_module($cmid) {
     // Notify the competency subsystem.
     \core_competency\api::hook_course_module_deleted($cm);
 
-    // Delete the context.
+     // Delete the context.
     context_helper::delete_instance(CONTEXT_MODULE, $cm->id);
 
     // Delete the module from the course_modules table.
