@@ -1720,6 +1720,15 @@ function course_delete_module($cmid) {
     $DB->delete_records('course_completion_criteria', array('moduleinstance' => $cm->id,
                                                             'criteriatype' => COMPLETION_CRITERIA_TYPE_ACTIVITY));
 
+//XTEC ************ AFEGIT - Added patch for course format "Simple"
+//2010.07.12 @aginard (patch provided by UPCnet)
+
+	//@PATCH SIMPLE: Eliminar la imatge si existeix
+	require_once($CFG->dirroot.'/course/format/simple/lib.php');
+	simple_delete_module_image($id);
+
+//************ FI
+
     // Delete the context.
     context_helper::delete_instance(CONTEXT_MODULE, $cm->id);
 
