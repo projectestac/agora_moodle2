@@ -181,6 +181,13 @@ class user_editadvanced_form extends moodleform {
         } else {
             $user = false;
         }
+        
+        //XTEC ************ AFEGIT - To avoid admin changes its own username
+        //2013.02.06  @sarjona
+        if ($mform->getElementValue('username') == 'admin'){
+            $mform->freeze('username');
+        }
+        //************ FI
 
         // User can not change own auth method.
         if ($userid == $USER->id) {
