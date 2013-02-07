@@ -1390,7 +1390,7 @@ function format_text_email($text, $format) {
         case FORMAT_WIKI:
             // there should not be any of these any more!
             $text = wikify_links($text);
-            return textlib::entities_to_utf8(strip_tags($text), true);
+            return strtr(strip_tags($text), array_flip(get_html_translation_table(HTML_ENTITIES)));
             break;
 
         case FORMAT_HTML:
@@ -1401,7 +1401,7 @@ function format_text_email($text, $format) {
         case FORMAT_MARKDOWN:
         default:
             $text = wikify_links($text);
-            return textlib::entities_to_utf8(strip_tags($text), true);
+            return strtr(strip_tags($text), array_flip(get_html_translation_table(HTML_ENTITIES)));
             break;
     }
 }
@@ -1584,21 +1584,8 @@ function is_purify_html_necessary($text) {
 function purify_html($text, $options = array()) {
     global $CFG;
 
-    static $purifiers = array();
-    static $caches = array();
-
     $type = !empty($options['allowid']) ? 'allowid' : 'normal';
-
-    if (!array_key_exists($type, $caches)) {
-        $caches[$type] = cache::make('core', 'htmlpurifier', array('type' => $type));
-    }
-    $cache = $caches[$type];
-
-    $filteredtext = $cache->get($text);
-    if ($filteredtext !== false) {
-        return $filteredtext;
-    }
-
+    static $purifiers = array();
     if (empty($purifiers[$type])) {
 
         // make sure the serializer dir exists, it should be fine if it disappears later during cache reset
@@ -1646,17 +1633,15 @@ function purify_html($text, $options = array()) {
 
     $multilang = (strpos($text, 'class="multilang"') !== false);
 
-    $filteredtext = $text;
     if ($multilang) {
-        $filteredtext = preg_replace('/<span(\s+lang="([a-zA-Z0-9_-]+)"|\s+class="multilang"){2}\s*>/', '<span xxxlang="${2}">', $filteredtext);
+        $text = preg_replace('/<span(\s+lang="([a-zA-Z0-9_-]+)"|\s+class="multilang"){2}\s*>/', '<span xxxlang="${2}">', $text);
     }
-    $filteredtext = $purifier->purify($filteredtext);
+    $text = $purifier->purify($text);
     if ($multilang) {
-        $filteredtext = preg_replace('/<span xxxlang="([a-zA-Z0-9_-]+)">/', '<span lang="${1}" class="multilang">', $filteredtext);
+        $text = preg_replace('/<span xxxlang="([a-zA-Z0-9_-]+)">/', '<span lang="${1}" class="multilang">', $text);
     }
-    $cache->set($text, $filteredtext);
 
-    return $filteredtext;
+    return $text;
 }
 
 /**
