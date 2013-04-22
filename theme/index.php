@@ -133,7 +133,14 @@ if (!empty($CFG->enabledevicedetection) && empty($device)) {
         $deviceurl = new moodle_url('/theme/index.php', array('device' => $thedevice, 'sesskey' => sesskey()));
 
         $select = '';
+        //XTEC ************ MODIFICAT - To avoid schools can change the theme
+        //2013.04.22  @sarjona
+        if (get_protected_agora() && !$themelocked) {
+        //************ ORIGINAL
+        /*
         if (!$themelocked) {
+        */
+        //************ FI
             $select = $OUTPUT->render(new single_button($deviceurl, $strthemeselect, 'get'));
         }
 
