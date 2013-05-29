@@ -106,6 +106,7 @@ class auth_plugin_db extends auth_plugin_base {
 <<<<<<< HEAD
 =======
             
+<<<<<<< HEAD
             // XTEC ************ AFEGIT - Detection of Zikula 1.3
             // 2013.05.24 @aginard
             if ($this->config->table == 'users') {
@@ -114,6 +115,8 @@ class auth_plugin_db extends auth_plugin_base {
             // ************ FI     
 
 >>>>>>> 473596b... Added Single Sign On with IWmoodle for Zikula 1.3
+=======
+>>>>>>> 532ada9... Fixed Zikula 1.3 login (Synced from IWmoodle repo)
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                 WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."'
                                   AND {$this->config->fieldpass} = '".$this->ext_addslashes($extpassword)."' ");
@@ -832,5 +835,4 @@ class auth_plugin_db extends auth_plugin_base {
         return $text;
     }
 }
-
 
