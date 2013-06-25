@@ -4010,7 +4010,7 @@ function create_user_record($username, $password, $auth = 'manual') {
     $newuser = new stdClass();
     //XTEC ************ MODIFICAT - To retrive data from XTEC LDAP
     //2012.06.20 @sarjona
-    if ( ($auth == 'ldap' && $newinfo = $authplugin->get_userinfo($username, $password)) || 
+    if ( ( ($auth == 'ldap' || $auth == 'odissea') && $newinfo = $authplugin->get_userinfo($username, $password)) || 
             ($newinfo = $authplugin->get_userinfo($username)) ) {
     //************ ORIGINAL
     /*
@@ -4046,7 +4046,16 @@ function create_user_record($username, $password, $auth = 'manual') {
     }
 
     $newuser->auth = $auth;
+    //XTEC ************ AFEGIT - To change username if auth method has another different (for Odissea)
+    //2012.06.20 @sarjona
+    if ($auth == 'odissea' && !empty($newuser->username)){
+        $newuser->username = mb_convert_case($newuser->username, MB_CASE_LOWER, 'UTF-8');    	
+    }
+    //************ ORIGINAL
+    /*
     $newuser->username = $username;
+    */
+    //************ FI
 
     // Fix for MDL-8480
     // user CFG lang for user if $newuser->lang is empty
@@ -4059,6 +4068,16 @@ function create_user_record($username, $password, $auth = 'manual') {
     $newuser->timecreated = time();
     $newuser->timemodified = $newuser->timecreated;
     $newuser->mnethostid = $CFG->mnet_localhost_id;
+
+    //XTEC ************ AFEGIT - To change username if auth method has another different (for Odissea)
+    //2013.06.21 @sarjona
+    if ($auth == 'odissea' && $newuser->username != $username){
+	if ($user = get_complete_user_data('username', $newuser->username, $CFG->mnet_localhost_id)) {
+            // User exists, so it's not necessary create it (because the username is not the one specified for the user in the form) 
+            return $user;
+        }
+    }
+    //************ FI
 
     $newuser->id = user_create_user($newuser, false, false);
 
