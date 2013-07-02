@@ -46,7 +46,7 @@ class auth_plugin_db extends auth_plugin_base {
         $extusername = textlib::convert($username, 'utf-8', $this->config->extencoding);
         $extpassword = textlib::convert($password, 'utf-8', $this->config->extencoding);
 
-        //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
+        //XTEC ************ AFEGIT - detect if validation comes from file index_iw.php
         //2012.10.25  @aperez16
         if (!isset($_REQUEST['parm'])) {
             $this->config->passtype = 'md5';
@@ -96,6 +96,7 @@ class auth_plugin_db extends auth_plugin_base {
 
         } else {
             // normal case: use external db for both usernames and passwords
+
             $authdb = $this->db_init();
 
             if ($this->config->passtype === 'md5') {   // Re-format password accordingly
@@ -103,20 +104,17 @@ class auth_plugin_db extends auth_plugin_base {
             } else if ($this->config->passtype === 'sha1') {
                 $extpassword = sha1($extpassword);
             }
-<<<<<<< HEAD
-=======
-            
-<<<<<<< HEAD
-            // XTEC ************ AFEGIT - Detection of Zikula 1.3
-            // 2013.05.24 @aginard
-            if ($this->config->table == 'users') {
-                $extpassword = '1$$' . $extpassword;
-            }
-            // ************ FI     
 
->>>>>>> 473596b... Added Single Sign On with IWmoodle for Zikula 1.3
-=======
->>>>>>> 532ada9... Fixed Zikula 1.3 login (Synced from IWmoodle repo)
+            // XTEC ************ AFEGIT - Patch for authentication in Zikula 1.3
+            // 2013.07.02 @aginard
+            if (is_agora()) {
+                global $school_info;
+                if (($this->config->passtype != 'plaintext') && array_key_exists('id_intranet', $school_info) && ($school_info['version_intranet'] != '128')) {
+                    $extpassword = '1$$' . $extpassword;
+                }
+            }
+            // ************ FI
+
             $rs = $authdb->Execute("SELECT * FROM {$this->config->table}
                                 WHERE {$this->config->fielduser} = '".$this->ext_addslashes($extusername)."'
                                   AND {$this->config->fieldpass} = '".$this->ext_addslashes($extpassword)."' ");
