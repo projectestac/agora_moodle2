@@ -8147,6 +8147,7 @@ function forum_get_courses_user_posted_in($user, $discussionsonly = false, $incl
             FROM {course} c
             $ctxjoin
             WHERE c.id IN ($subquery)";
+
     $courses = $DB->get_records_sql($sql, $params, $limitfrom, $limitnum);
     if ($includecontexts) {
         array_map('context_helper::preload_from_record', $courses);
