@@ -6959,3 +6959,4 @@ function forum_grading_areas_list() {
         'forum' => get_string('grade_forum_header', 'forum'),
     ];
 }
+
