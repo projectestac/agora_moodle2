@@ -1589,6 +1589,7 @@ $string['summary_help'] = 'Irakasgaia testu motz batean laburtzearen asmoa da ik
 $string['summaryof'] = '{$a}-ren laburpena';
 $string['supplyinfo'] = 'Xehetasun gehiago';
 $string['switchdevicedefault'] = 'Aldatu itxura estandarrera';
+$string['switchdevicerecommended'] = 'Zure tresnarako gomendatzen den itxurara aldatu';
 $string['switchrolereturn'] = 'Nire ohiko rolera itzuli';
 $string['switchroleto'] = 'Aukeratu beste rol bat';
 $string['tag'] = 'Etiketa';
