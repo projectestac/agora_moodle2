@@ -6155,7 +6155,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         //add message to mailsender
         if (!$sender->add($message)){
                 mtrace('ERROR: '.' Impossible to add message to mailsender');
-                add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. ' Impossible to add message to mailsender');
+                add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. ' Impossible to add message to mailsender');
                 return false;
         }
         //send messages
@@ -6215,7 +6215,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         return false;
     }
     */
-    //************ FI    
+    //************ FI
 }
 
 /**
