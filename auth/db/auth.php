@@ -73,8 +73,8 @@ class auth_plugin_db extends auth_plugin_base {
         } else{
             $this->config->passtype = 'plaintext';
         }
-        //************ FI 
-        
+        //************ FI
+
         if ($this->is_internal()) {
             // Lookup username externally, but resolve
             // password locally -- to support backend that
