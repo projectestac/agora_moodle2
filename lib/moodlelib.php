@@ -3986,15 +3986,12 @@ function create_user_record($username, $password, $auth = 'manual') {
     }
 
     $newuser->auth = $auth;
+    $newuser->username = $username;
     //XTEC ************ AFEGIT - To change username if auth method has another different (for Odissea)
     //2012.06.20 @sarjona
     if ($auth == 'odissea' && !empty($newuser->username)){
-        $newuser->username = mb_convert_case($newuser->username, MB_CASE_LOWER, 'UTF-8');    	
+        $newuser->username = mb_convert_case($newuser->username, MB_CASE_LOWER, 'UTF-8');
     }
-    //************ ORIGINAL
-    /*
-    $newuser->username = $username;
-    */
     //************ FI
 
     // Fix for MDL-8480
@@ -4013,7 +4010,7 @@ function create_user_record($username, $password, $auth = 'manual') {
     //2013.06.21 @sarjona
     if ($auth == 'odissea' && $newuser->username != $username){
 	if ($user = get_complete_user_data('username', $newuser->username, $CFG->mnet_localhost_id)) {
-            // User exists, so it's not necessary create it (because the username is not the one specified for the user in the form) 
+            // User exists, so it's not necessary create it (because the username is not the one specified for the user in the form)
             return $user;
         }
     }
@@ -6247,6 +6244,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
     //XTEC ************ MODIFICAT - Use apligest system to send mails if it's configured
     //28.04.2011 @fcasanel
     //14.03.2012 @aginard
+    //17.01.2013 @aginard: added global $FULLME;
+    global $FULLME;
+
     if (!empty($CFG->apligestmail)) {
         try{
             require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
