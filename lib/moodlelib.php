@@ -3993,6 +3993,10 @@ function create_user_record($username, $password, $auth = 'manual') {
     } else {
     	$newuser->username = $username;
     }
+    //************ ORIGINAL
+    /*
+    $newuser->username = $username;
+    */
     //************ FI
 
     // Fix for MDL-8480
