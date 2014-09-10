@@ -251,7 +251,7 @@ function get_table_row(\core\plugininfo\filter $plugininfo, $state, $isfirstrow,
 	//XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2013.11.12  @sarjona
     } else {
-        $row[] = '';        
+        $row[] = '';
     }
     //************ FI
 
