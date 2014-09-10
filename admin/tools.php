@@ -76,12 +76,6 @@ foreach ($plugins as $plugin => $name) {
     if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('tool_'.$plugin, 'manage')) {
         $uninstall = html_writer::link($uninstallurl, $struninstall);
     }
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
-    //2012.08.20 @sarjona
-    if (!get_protected_agora()) {
-        $uninstall = "";
-    }
-    //************ FI
 
     if (!isset($versions[$plugin])) {
         if (file_exists("$CFG->dirroot/$CFG->admin/tool/$plugin/version.php")) {

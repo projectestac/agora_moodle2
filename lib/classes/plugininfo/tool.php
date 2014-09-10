@@ -33,12 +33,13 @@ defined('MOODLE_INTERNAL') || die();
 class tool extends base {
 
     public function is_uninstall_allowed() {
-        // Some mobile settings are used by the core.
-        if ($this->name === 'mobile') {
+        //XTEC ************ AFEGIT - Disable uninstalling
+        //2014.09.09  @pferre22
+        if (!get_protected_agora()) {
             return false;
-        } else {
-            return true;
         }
+        //************ FI
+        return true;
     }
 
     /**

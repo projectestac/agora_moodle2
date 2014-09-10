@@ -151,7 +151,6 @@ $table->define_columns(array('behaviour', 'numqas', 'version', 'requires',
 $table->define_headers(array(get_string('behaviour', 'question'), get_string('numqas', 'question'),
         get_string('version'), get_string('requires', 'admin'),
         get_string('availableq', 'question'), get_string('uninstallplugin', 'core_admin')));
-//************ FI
 $table->set_attribute('id', 'qbehaviours');
 $table->set_attribute('class', 'generaltable admintable');
 $table->setup();
