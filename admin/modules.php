@@ -88,8 +88,8 @@
     $table->setup();
 
     foreach ($modules as $module) {
-        
-        //XTEC ************ AFEGIT - Only enabled modules has to be showed
+
+        //XTEC ************ AFEGIT - Only enabled modules has to be shown
         //2012.11.06  @sarjona
         if (!is_enabled_in_agora($module->name) ){
             continue;
