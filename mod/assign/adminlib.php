@@ -178,17 +178,18 @@ class assign_plugin_manager {
         $table->define_baseurl($this->pageurl);
         $table->define_columns(array('pluginname', 'version', 'hideshow', 'order',
                 'settings', 'uninstall'));
-	//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-	//2012.08.20 @sarjona
-        if (!get_protected_agora()) {
-            $strdelete = '';
-        } else{
-            $strdelete = get_string('uninstallplugin', 'core_admin');
-        }
-        $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
+		//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+		//2012.08.20 @sarjona
+        if (get_protected_agora()) {
+	        $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
                 get_string('version'), get_string('hideshow', 'assign'),
-                get_string('order'), get_string('settings'), $strdelete));;
-	//************ ORIGINAL
+                get_string('order'), get_string('settings'), get_string('uninstallplugin', 'core_admin')));
+        } else{
+	        $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
+                get_string('version'), get_string('hideshow', 'assign'),
+                get_string('order'), get_string('settings'), ""));
+        }
+		//************ ORIGINAL
         /*
         $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
                 get_string('version'), get_string('hideshow', 'assign'),
@@ -230,21 +231,22 @@ class assign_plugin_manager {
             $row[] = $movelinks;
 
             $exists = file_exists($CFG->dirroot . '/mod/assign/' . $shortsubtype . '/' . $plugin . '/settings.php');
-            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
-            //2012.08.20 @sarjona
-            if ($row[1] != '' && $exists && get_protected_agora()) {
-            //************ ORIGINAL
-            /*
             if ($row[1] != '' && $exists) {
-             */
-            //************ FI
                 $row[] = html_writer::link(new moodle_url('/admin/settings.php',
                         array('section' => $this->subtype . '_' . $plugin)), get_string('settings'));
             } else {
                 $row[] = '&nbsp;';
             }
 
-            $row[] = $this->format_icon_link('delete', $plugin, 't/delete', get_string('uninstallplugin', 'core_admin'));
+            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+            //2012.08.20 @sarjona
+            if (get_protected_agora()) {
+            //************ FI
+                $row[] = $this->format_icon_link('delete', $plugin, 't/delete', get_string('uninstallplugin', 'core_admin'));
+            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+            //2012.08.20 @sarjona
+            }
+            //************ FI
 
             $table->add_data($row, $class);
         }
