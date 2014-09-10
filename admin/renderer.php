@@ -1741,14 +1741,15 @@ class core_admin_renderer extends plugin_renderer_base {
                 }
                 $settings = new html_table_cell($settings);
 
-                if ($uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
-                    $uninstall = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'));
-                //XTEC ************ AFEGIT - To let access only to xtecadmin user
+                //XTEC ************ MODIFICAT - To let access only to xtecadmin user
                 //2012.06.12  @sarjona
-                if (!get_protected_agora()) {
-                    $uninstall = '';
-                }
+                if (get_protected_agora() && $uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
+                //************ ORIGINAL
+                /*
+                if ($uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
+                */
                 //************ FI
+                    $uninstall = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'));
                 } else {
                     $uninstall = '';
                 }

@@ -344,7 +344,7 @@
                 //XTEC ************ MODIFICAT - To let access only to xtecadmin user
                 //2012.07.17  @sarjona
                 //2018.05.26  @svallde2
-                if ( (is_siteadmin($USER) or !is_siteadmin($user) ) && (is_xtecadmin($USER) or !is_xtecadmin($user)) ) {                     
+                if ( (is_siteadmin($USER) or !is_siteadmin($user) ) && (is_xtecadmin($USER) or !is_xtecadmin($user)) ) {
                 //************ ORIGINAL
                 /*
                 if (is_siteadmin($USER) or !is_siteadmin($user)) {
