@@ -619,8 +619,8 @@ setup_validate_php_configuration();
 try{
     setup_DB();
 } catch(Exception $e){
-    if (isset($CFG->usu1repofiles) && !empty($CFG->usu1repofiles)) {
-        $logdir = $CFG->usu1repofiles.'/adodberror';
+    $logdir = get_admin_datadir_folder('adodberror', false);
+    if ($logdir) {
         $logfile = $logdir.'/'.date("Ymd").'-error.csv';
 
         // Open file
