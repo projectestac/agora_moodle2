@@ -183,8 +183,21 @@
     $stringfilters = filter_get_string_filters();
 
     $table = new html_table();
+    //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if (!get_protected_agora()) {
+        $strdelete = '';
+    } else{
+        $strdelete = get_string('delete');
+    }
+    $table->head  = array(get_string('filter'), get_string('isactive', 'filters'),
+            get_string('order'), get_string('applyto', 'filters'), get_string('settings'), $strdelete);
+    //************ ORIGINAL
+    /*
     $table->head  = array(get_string('filter'), get_string('isactive', 'filters'),
             get_string('order'), get_string('applyto', 'filters'), get_string('settings'), get_string('delete'));
+     */
+    //************ FI
     $table->align = array('left', 'left', 'center', 'left', 'left');
     $table->width = '100%';
     $table->data  = array();

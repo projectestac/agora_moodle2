@@ -17,7 +17,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: element.php,v 1.3 2012/01/05 14:21:31 moodlerobot Exp $
 
 require_once('HTML/Common.php');
 

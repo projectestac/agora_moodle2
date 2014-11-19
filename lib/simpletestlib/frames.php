@@ -3,7 +3,7 @@
  *  Base include file for SimpleTest
  *  @package    SimpleTest
  *  @subpackage WebTester
- *  @version    $Id: frames.php 1784 2008-04-26 13:07:14Z pp11 $
+ *  @version    $Id: frames.php,v 1.5 2012/04/06 12:15:43 moodlerobot Exp $
  */
 
 /**#@+

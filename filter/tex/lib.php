@@ -55,6 +55,10 @@ function filter_tex_get_executable($debug=false) {
         case "Linux":   return "$CFG->dirroot/filter/tex/mimetex.linux";
         case "Darwin":  return "$CFG->dirroot/filter/tex/mimetex.darwin";
         case "FreeBSD": return "$CFG->dirroot/filter/tex/mimetex.freebsd";
+        //XTEC ************ AFEGIT - Sun OS tex compiled file
+        //2012.06.26  @sarjona
+        case "SunOS": return "$CFG->dirroot/filter/tex/mimetex.sunos";
+	//************ FI
     }
 
     print_error('mimetexisnotexist', 'error');

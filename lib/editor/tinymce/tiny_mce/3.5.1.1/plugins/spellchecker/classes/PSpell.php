@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
+ * $Id$
  *
  * @package MCManager.includes
  * @author Moxiecode

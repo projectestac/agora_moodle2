@@ -1,6 +1,6 @@
 <?php
     /*
-    *  $Id$
+    *  $Id: CoverageReporter.php,v 1.2 2010/12/14 17:35:59 moodlerobot Exp $
     *  
     *  Copyright(c) 2004-2006, SpikeSource Inc. All Rights Reserved.
     *  Licensed under the Open Software License version 2.1
@@ -31,7 +31,7 @@
     * implement this method to generate a report.
     * 
     * @author Nimish Pachapurkar <npac@spikesource.com>
-    * @version $Revision$
+    * @version $Revision: 1.2 $
     * @package SpikePHPCoverage_Reporter
     */
     abstract class CoverageReporter {

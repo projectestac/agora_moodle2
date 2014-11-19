@@ -996,7 +996,28 @@ class theme_config {
 
         if ($component === 'moodle' or $component === 'core' or empty($component)) {
             if ($imagefile = $this->image_exists("$this->dir/pix_core/$image")) {
-                return $imagefile;
+                //XTEC ************ MODIFICAT - Added ability to choose between theme icons and Moodle core icons
+                //2012.05.07 @aginard
+                if ($CFG->theme = 'xtec2') {
+                    // load theme settings from db
+                    try {
+                        $settings = get_config('theme_xtec2');
+                    } catch (dml_exception $e) {
+                        $settings = '';
+                    }
+
+                    if (isset($settings->iconset) && ($settings->iconset == 'tema')) {
+                        return $imagefile;
+                    }
+                }
+                else {
+                    return $imagefile;
+                } 
+                //************ ORIGINAL
+                /*
+                 return $imagefile;
+                */
+                //************ FI
             }
             foreach (array_reverse($this->parent_configs) as $parent_config) { // base first, the immediate parent last
                 if ($imagefile = $this->image_exists("$parent_config->dir/pix_core/$image")) {

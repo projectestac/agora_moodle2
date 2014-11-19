@@ -125,6 +125,12 @@
     $table = new flexible_table('admin-blocks-compatible');
 
     $table->define_columns(array('name', 'instances', 'version', 'hideshow', 'undeletable', 'delete', 'settings'));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.25  @sarjona
+    if (!get_protected_agora()) {
+        $strdelete = '';
+    }
+    //************ FI    
     $table->define_headers(array($strname, $strcourses, $strversion, $strhide.'/'.$strshow, $strprotecthdr, $strdelete, $strsettings));
     $table->define_baseurl($CFG->wwwroot.'/'.$CFG->admin.'/blocks.php');
     $table->set_attribute('class', 'compatibleblockstable blockstable generaltable');

@@ -139,7 +139,12 @@ class tinymce_texteditor extends texteditor {
                     'apply_source_formatting' => true,
                     'remove_script_host' => false,
                     'entity_encoding' => "raw",
-                    'plugins' => "{$xmedia}advimage,safari,table,style,layer,advhr,advlink,emotions,inlinepopups,searchreplace,paste,directionality,fullscreen,moodlenolink,{$xemoticon}{$xdragmath}nonbreaking,contextmenu,insertdatetime,save,iespell,preview,print,noneditable,visualchars,xhtmlxtras,template,pagebreak,spellchecker",
+                    //XTEC ************ MODIFICAT - Removed contextmenu plugin to normally check spelling with right click button
+                    //2012.09.28 @sarjona
+                    'plugins' => "{$xmedia}advimage,safari,table,style,layer,advhr,advlink,emotions,inlinepopups,searchreplace,paste,directionality,fullscreen,moodlenolink,{$xemoticon}{$xdragmath}nonbreaking,insertdatetime,save,iespell,preview,print,noneditable,visualchars,xhtmlxtras,template,pagebreak,spellchecker",
+                    //************ ORIGINAL
+                    //'plugins' => "{$xmedia}advimage,safari,table,style,layer,advhr,advlink,emotions,inlinepopups,searchreplace,paste,directionality,fullscreen,moodlenolink,{$xemoticon}{$xdragmath}nonbreaking,contextmenu,insertdatetime,save,iespell,preview,print,noneditable,visualchars,xhtmlxtras,template,pagebreak,spellchecker",
+                    //************ FI
                     'theme_advanced_font_sizes' => "1,2,3,4,5,6,7",
                     'theme_advanced_layout_manager' => "SimpleLayout",
                     'theme_advanced_toolbar_align' => "left",
@@ -191,6 +196,13 @@ class tinymce_texteditor extends texteditor {
         if (!empty($options['required'])) {
             $params['init_instance_callback'] = 'M.editor_tinymce.onblur_event';
         }
+        
+        //XTEC ************ AFEGIT - To include Wiris buttons to TinyMCE editor
+        //2012.08.22  @sarjona
+        $params['plugins'] .= ",tiny_mce_wiris";
+        $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].",|,tiny_mce_wiris_formulaEditor,tiny_mce_wiris_CAS";
+        //************ FI
+        
         return $params;
     }
 }

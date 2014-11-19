@@ -1,4 +1,4 @@
-<?php // $Id$
+<?php // $Id: _parse_lockinfo.php,v 1.2 2010/12/14 17:36:02 moodlerobot Exp $
 /*
    +----------------------------------------------------------------------+
    | Copyright (c) 2002-2007 Christian Stocker, Hartmut Holzgraefe        |

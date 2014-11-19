@@ -1,6 +1,6 @@
 <?php
     /*
-    *  $Id$
+    *  $Id: RemoteCoverageRecorder.php,v 1.2 2010/12/14 17:36:05 moodlerobot Exp $
     *  
     *  Copyright(c) 2004-2006, SpikeSource Inc. All Rights Reserved.
     *  Licensed under the Open Software License version 2.1
@@ -21,7 +21,7 @@
     * A Coverage recorder extension for remote Coverage measurement. 
     * 
     * @author Nimish Pachapurkar <npac@spikesource.com>
-    * @version $Revision$
+    * @version $Revision: 1.2 $
     * @package SpikePHPCoverage_Remote
     */
     class RemoteCoverageRecorder extends CoverageRecorder {

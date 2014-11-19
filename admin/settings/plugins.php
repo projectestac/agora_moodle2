@@ -108,7 +108,15 @@ if ($hassiteconfig) {
             }
 
         } else {
+            //XTEC ************ AFEGIT - To let access only to xtecadmin user
+            //2012.07.03  @sarjona
+            if ($authname != 'db' || get_protected_agora() ) {
+            //************ FI    
             $ADMIN->add('authsettings', new admin_externalpage('authsetting'.$authname, $strauthname, "$CFG->wwwroot/$CFG->admin/auth_config.php?auth=$authname", 'moodle/site:config', !$enabled));
+            //XTEC ************ AFEGIT - To let access only to xtecadmin user
+            //2012.07.03  @sarjona
+            }
+            //************ FI    
         }
     }
 
@@ -331,15 +339,27 @@ if ($hassiteconfig) {
       $instanceoptionnames = repository::static_function($repositorytype->get_typename(), 'get_instance_option_names');
       if (!empty($typeoptionnames) || !empty($instanceoptionnames)) {
 
+        //XTEC ************ AFEGIT - To let access only to xtecadmin user
+        //2012.06.25  @sarjona
+        if ($repositorytype->get_typename() != 'filesystem' || get_protected_agora() ) {
+        //************ FI    
           $params = array('action'=>'edit', 'sesskey'=>sesskey(), 'repos'=>$repositorytype->get_typename());
           $settingsurl = new moodle_url("/$CFG->admin/repository.php", $params);
           $repositoryexternalpage = new admin_externalpage('repositorysettings'.$repositorytype->get_typename(), $repositorytype->get_readablename(), $settingsurl);
           $ADMIN->add('repositorysettings', $repositoryexternalpage);
+        //XTEC ************ AFEGIT - To let access only to xtecadmin user
+        //2012.06.25  @sarjona
+        }
+        //************ FI    
       }
     }
 }
 
 /// Web services
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     $ADMIN->add('modules', new admin_category('webservicesettings', new lang_string('webservices', 'webservice')));
     /// overview page
     $temp = new admin_settingpage('webservicesoverview', new lang_string('webservicesoverview', 'webservice'));
@@ -395,6 +415,10 @@ if ($hassiteconfig) {
         $temp->add(new admin_setting_heading('webservicesaredisabled', '', new lang_string('disabledwarning', 'webservice')));
     }
     $ADMIN->add('webservicesettings', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20  @sarjona
+    }
+    //************ FI    
 
 // Question type settings
 if ($hassiteconfig || has_capability('moodle/question:config', $systemcontext)) {

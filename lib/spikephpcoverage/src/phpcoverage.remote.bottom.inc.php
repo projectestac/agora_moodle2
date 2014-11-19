@@ -1,7 +1,7 @@
 <?php
     die(); // This (unsecure MDL-26237) stuff isn't used by moodle at all
 /*
- *  $Id$
+ *  $Id: phpcoverage.remote.bottom.inc.php,v 1.3 2011/02/02 13:20:28 moodlerobot Exp $
  *  
  *  Copyright(c) 2004-2006, SpikeSource Inc. All Rights Reserved.
  *  Licensed under the Open Software License version 2.1

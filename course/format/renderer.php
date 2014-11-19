@@ -610,7 +610,14 @@ abstract class format_section_renderer_base extends plugin_renderer_base {
         echo $this->end_section_list();
 
         // Display section bottom navigation.
+        //XTEC ************ MODIFICAT - To show current section if none is selected
+        //2012.08.20  @sarjona
+        $courselink = html_writer::link(course_get_url($course, -1), get_string('returntomaincoursepage'));
+        //************ ORIGINAL
+        /*  
         $courselink = html_writer::link(course_get_url($course), get_string('returntomaincoursepage'));
+        */
+        //************ FI                    
         $sectionbottomnav = '';
         $sectionbottomnav .= html_writer::start_tag('div', array('class' => 'section-navigation mdl-bottom'));
         $sectionbottomnav .= html_writer::tag('span', $sectionnavlinks['previous'], array('class' => 'mdl-left'));

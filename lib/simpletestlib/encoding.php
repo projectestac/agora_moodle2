@@ -3,7 +3,7 @@
  *  base include file for SimpleTest
  *  @package    SimpleTest
  *  @subpackage WebTester
- *  @version    $Id: encoding.php 2011 2011-04-29 08:22:48Z pp11 $
+ *  @version    $Id: encoding.php,v 1.5 2012/04/06 12:15:43 moodlerobot Exp $
  */
 
 /**#@+

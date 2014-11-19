@@ -167,9 +167,23 @@ class assign_plugin_manager {
         $table->define_baseurl($this->pageurl);
         $table->define_columns(array('pluginname', 'version', 'hideshow', 'order',
                 'delete', 'settings'));
+	//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+	//2012.08.20 @sarjona
+        if (!get_protected_agora()) {
+            $strdelete = '';
+        } else{
+            $strdelete = get_string('delete');
+        }
+        $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
+                get_string('version'), get_string('hideshow', 'assign'),
+                get_string('order'), $strdelete, get_string('settings')));
+	//************ ORIGINAL
+        /*
         $table->define_headers(array(get_string($this->subtype . 'pluginname', 'assign'),
                 get_string('version'), get_string('hideshow', 'assign'),
                 get_string('order'), get_string('delete'), get_string('settings')));
+         */
+	//************ FI
         $table->set_attribute('id', $this->subtype . 'plugins');
         $table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
         $table->setup();
@@ -203,7 +217,14 @@ class assign_plugin_manager {
             }
             $row[] = $movelinks;
 
+            //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+            //2012.08.20 @sarjona
+            if ($row[1] != '' && get_protected_agora()) {
+            //************ ORIGINAL
+            /*
             if ($row[1] != '') {
+             */
+            //************ FI
                 $row[] = $this->format_icon_link('delete', $plugin, 't/delete', get_string('delete'));
             } else {
                 $row[] = '&nbsp;';

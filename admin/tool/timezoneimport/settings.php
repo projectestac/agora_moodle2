@@ -25,7 +25,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-if ($hassiteconfig) {
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if ( $hassiteconfig && get_protected_agora() ) { 
+//************ ORIGINAL
+//if ($hassiteconfig) {
+//************ FI
     $ADMIN->add('location', new admin_externalpage('tooltimezoneimport', get_string('updatetimezones', 'tool_timezoneimport'), "$CFG->wwwroot/$CFG->admin/tool/timezoneimport/index.php"));
 }
 

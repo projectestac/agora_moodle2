@@ -34,7 +34,7 @@
  * @author Andy Prevost
  * @author Marcus Bointon
  * @copyright 2004 - 2009 Andy Prevost
- * @version $Id$
+ * @version $Id: class.phpmailer.php,v 1.29 2011/12/23 02:26:00 moodlerobot Exp $
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
@@ -307,10 +307,20 @@ class PHPMailer {
   /////////////////////////////////////////////////
 
   private   $smtp           = NULL;
+  //XTEC ************ MODIFICAT - Made vars public in order to be changed from moodlelib.php to use WS
+  //2012.03.14 @aginard
+  public   $to             = array();
+  public   $cc             = array();
+  public   $bcc            = array();
+  public   $ReplyTo        = array();
+  //************ ORIGINAL
+  /*
   private   $to             = array();
   private   $cc             = array();
   private   $bcc            = array();
   private   $ReplyTo        = array();
+   */
+  //************ FI
   private   $all_recipients = array();
   private   $attachment     = array();
   private   $CustomHeader   = array();

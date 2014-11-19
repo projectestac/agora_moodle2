@@ -3,7 +3,7 @@
  *  Base include file for SimpleTest
  *  @package    SimpleTest
  *  @subpackage WebTester
- *  @version    $Id: user_agent.php 2039 2011-11-30 18:16:15Z pp11 $
+ *  @version    $Id: user_agent.php,v 1.6 2012/04/06 12:15:45 moodlerobot Exp $
  */
 
 /**#@+

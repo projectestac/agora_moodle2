@@ -989,7 +989,14 @@ class core_admin_renderer extends plugin_renderer_base {
                 }
 
                 $uninstallurl = $plugin->get_uninstall_url();
+                //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+                //2012.06.12  @sarjona
+                if (!is_null($uninstallurl) && get_protected_agora()) {
+                //************ ORIGINAL
+                /*  
                 if (!is_null($uninstallurl)) {
+                */
+                //************ FI                    
                     $actions[] = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'), array('class' => 'uninstall'));
                 }
 

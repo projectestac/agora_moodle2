@@ -79,6 +79,20 @@ switch ($type) {
         print_error('unknownbackuptype');
 }
 
+//XTEC ************ AFEGIT - Control backup hours
+//2012.06.04 @aginard
+if (!get_protected_agora() && is_rush_hour()) {
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+}
+//************ FI
+
+//XTEC ************ AFEGIT - Check if there's enough disk space quota
+//2012.06.04 @aginard
+if (($CFG->diskPercent) && ($CFG->diskPercent >= 100)) {
+    print_error('diskquotaerror', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+}
+//************ FI
+
 if (!($bc = backup_ui::load_controller($backupid))) {
     $bc = new backup_controller($type, $id, backup::FORMAT_MOODLE,
                             backup::INTERACTIVE_YES, backup::MODE_GENERAL, $USER->id);

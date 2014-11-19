@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id$
+ *  $Id: BasicXmlParser.php,v 1.2 2010/12/14 17:36:00 moodlerobot Exp $
  *  
  *  Copyright(c) 2004-2006, SpikeSource Inc. All Rights Reserved.
  *  Licensed under the Open Software License version 2.1
@@ -20,7 +20,7 @@
     * module. 
     * 
     * @author Nimish Pachapurkar <npac@spikesource.com>
-    * @version $Revision$
+    * @version $Revision: 1.2 $
     * @package SpikePHPCoverage_Parser
     */
     class BasicXmlParser extends XML_Parser {

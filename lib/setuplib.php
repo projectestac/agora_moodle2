@@ -765,6 +765,16 @@ function initialise_fullme() {
         }
     }
 
+    //XTEC ************ ELIMINAT - Removed code to avoid incompatibility of Moodle 2.x with Agora multisite system.
+    //2012.04.18 @aginard
+    //    More info: $rurl['path'] comes from $_SERVER['SCRIPT_NAME'] and $wwwroot['path'] 
+    //    comes from $CFG. In Agora this two values will always be different due to the
+    //    use of Apache's modrewrite to transform the URL's.
+    //    There's no references to this in Moodle tracker as Agora's multisite system
+    //    is not used anywhere else.
+    //    This fix involves the removing of the security check. It is not expected
+    //    to be a potential security issue.
+    /*
     // Check that URL is under $CFG->wwwroot.
     if (strpos($rurl['path'], $wwwroot['path']) === 0) {
         $SCRIPT = substr($rurl['path'], strlen($wwwroot['path'])-1);
@@ -773,6 +783,8 @@ function initialise_fullme() {
         $SCRIPT = $FULLSCRIPT = $FULLME = $ME = null;
         return;
     }
+    */
+    //************ FI    
 
     // $CFG->sslproxy specifies if external SSL appliance is used
     // (That is, the Moodle server uses http, with an external box translating everything to https).

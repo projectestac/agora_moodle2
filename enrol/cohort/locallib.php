@@ -48,11 +48,22 @@ class enrol_cohort_handler {
         }
 
         // does any enabled cohort instance want to sync with this cohort?
+	//XTEC ************ MODIFICAT - To fix bug "ORA-00918: column ambiguously defined"
+	//2012.09.05 @sarjona - http://tracker.moodle.org/browse/MDL-35270
+        $sql = "SELECT e.*, r.id as roleexists
+                  FROM {enrol} e
+             LEFT JOIN {role} r ON (r.id = e.roleid)
+                 WHERE customint1 = :cohortid AND enrol = 'cohort'
+              ORDER BY e.id ASC";
+	//************ ORIGINAL
+        /*
         $sql = "SELECT e.*, r.id as roleexists
                   FROM {enrol} e
              LEFT JOIN {role} r ON (r.id = e.roleid)
                  WHERE customint1 = :cohortid AND enrol = 'cohort'
               ORDER BY id ASC";
+         */
+	//************ FI
         if (!$instances = $DB->get_records_sql($sql, array('cohortid'=>$ca->cohortid))) {
             return true;
         }

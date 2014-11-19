@@ -16,7 +16,7 @@
 // | Author: Alexey Borzov <borz_off@cs.msu.su>                           |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: header.php,v 1.3 2012/03/23 01:09:31 moodlerobot Exp $
 
 require_once 'HTML/QuickForm/static.php';
 

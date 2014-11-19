@@ -17,7 +17,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: hiddenselect.php,v 1.3 2012/03/23 01:09:31 moodlerobot Exp $
 
 require_once('HTML/QuickForm/select.php');
 

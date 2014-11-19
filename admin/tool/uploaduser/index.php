@@ -703,7 +703,18 @@ if ($formdata = $mform2->is_cancelled()) {
                         }
                         $forcechangepassword = true;
                     }
+                    //XTEC ************ MODIFICAT - To let importing users from Moodle 1.9 with password information
+                    //2012.06.20  @sarjona
+                    if (strlen($user->password) == 32){
+                        $user->password = $user->password;
+                    } else{
+                        $user->password = hash_internal_user_password($user->password);
+                    }
+                    //************ ORIGINAL
+                    /*  
                     $user->password = hash_internal_user_password($user->password);
+                    */
+                    //************ FI                        
                 }
             } else {
                 $user->password = 'not cached';

@@ -74,7 +74,19 @@ echo $OUTPUT->heading(get_string('reports'));
 
 $table = new flexible_table('reportplugins_administration_table');
 $table->define_columns(array('name', 'version', 'delete'));
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2012.08.20 @sarjona
+if (!get_protected_agora()) {
+    $strdelete = '';
+} else{
+    $strdelete = get_string('delete');
+}
+$table->define_headers(array(get_string('plugin'), get_string('version'), $strdelete));
+//************ ORIGINAL
+/*
 $table->define_headers(array(get_string('plugin'), get_string('version'), get_string('delete')));
+ */
+//************ FI
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'reportplugins');
 $table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
@@ -106,6 +118,12 @@ foreach ($installed as $config) {
 foreach ($plugins as $plugin => $name) {
     $delete = new moodle_url($PAGE->url, array('delete' => $plugin, 'sesskey' => sesskey()));
     $delete = html_writer::link($delete, get_string('delete'));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if (!get_protected_agora()) {
+        $delete = '';
+    }
+    //************ FI
 
     if (!isset($versions[$plugin])) {
         if (file_exists("$CFG->dirroot/report/$plugin/version.php")) {

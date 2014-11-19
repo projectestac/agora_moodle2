@@ -17,7 +17,7 @@
 // |          Bertrand Mansion <bmansion@mamasam.com>                     |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: QuickForm.php,v 1.11 2012/04/19 12:20:24 moodlerobot Exp $
 
 require_once('PEAR.php');
 require_once('HTML/Common.php');

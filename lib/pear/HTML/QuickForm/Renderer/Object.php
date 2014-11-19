@@ -16,7 +16,7 @@
 // | Author: Ron McClain <ron@humaniq.com>                                |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: Object.php,v 1.2 2010/12/14 17:35:58 moodlerobot Exp $
 
 require_once('HTML/QuickForm/Renderer.php');
 

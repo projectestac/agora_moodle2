@@ -77,6 +77,13 @@ class repository_upload extends repository {
     public function process_upload($saveas_filename, $maxbytes, $types = '*', $savepath = '/', $itemid = 0, $license = null, $author = '', $overwriteexisting = false) {
         global $USER, $CFG;
 
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
+        //2012.08.24 @sarjona
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            throw new moodle_exception('diskquotaerror', 'local_agora');
+        } 
+        //************ FI
+        
         if ((is_array($types) and in_array('*', $types)) or $types == '*') {
             $this->mimetypes = '*';
         } else {

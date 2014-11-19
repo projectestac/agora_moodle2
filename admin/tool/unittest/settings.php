@@ -26,4 +26,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if (get_protected_agora()) { 
+//************ FI
 $ADMIN->add('development', new admin_externalpage('toolsimpletest', get_string('pluginname', 'tool_unittest'), "$CFG->wwwroot/$CFG->admin/tool/unittest/index.php", 'tool/unittest:execute', true));
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+}
+//************ FI

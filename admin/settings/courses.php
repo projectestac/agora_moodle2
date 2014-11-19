@@ -132,6 +132,10 @@ if ($hassiteconfig
     $temp->add(new admin_setting_configcheckbox_with_lock('backup/backup_general_histories', new lang_string('generalhistories','backup'), new lang_string('configgeneralhistories','backup'), array('value'=>0, 'locked'=>0)));
     $ADMIN->add('backups', $temp);
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.05.23  @sarjona
+    if (get_protected_agora()) { 
+    //************ FI
     // Create a page for automated backups configuration and defaults.
     $temp = new admin_settingpage('automated', new lang_string('automatedsetup','backup'), 'moodle/backup:backupcourse');
 
@@ -185,5 +189,9 @@ if ($hassiteconfig
     //$temp->add(new admin_setting_configcheckbox('backup/backup_auto_blogs', new lang_string('blogs', 'blog'), new lang_string('backupblogshelp','blog'), 0));
 
     $ADMIN->add('backups', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.05.23  @sarjona
+    }
+    //************ FI
 
 } // end of speedup
