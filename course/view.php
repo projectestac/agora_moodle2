@@ -33,7 +33,6 @@
     }
 
     $course = $DB->get_record('course', $params, '*', MUST_EXIST);
-    
     //XTEC ************ AFEGIT - To show current section if none is selected
     //2012.08.20  @sarjona
     /**

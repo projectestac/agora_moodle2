@@ -77,6 +77,12 @@ if ($id == -1) {
     // editing existing user
     require_capability('moodle/user:update', $systemcontext);
     $user = $DB->get_record('user', array('id'=>$id), '*', MUST_EXIST);
+    //XTEC ************ AFEGIT - To avoid admin edit xtecadmin profile
+    //2012.05.23  @sarjona
+    if ($user->id !== $USER->id && $user->username=='xtecadmin') {
+        redirect($CFG->wwwroot . "/user/view.php?id=$id&course={$course->id}");
+    }
+    //************ FI
     $PAGE->set_context(context_user::instance($user->id));
     if ($user->id != $USER->id) {
         $PAGE->navigation->extend_for_user($user);

@@ -447,7 +447,14 @@ function xmldb_main_upgrade($oldversion) {
 
         // Define field coursedisplay to be added to course
         $table = new xmldb_table('course');
+        //XTEC ************ MODIFICAT - Set default course display to show each section in a separate page
+        //2012.08.21  @sarjona
+        $field = new xmldb_field('coursedisplay', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '1', 'completionnotify');
+        //************ ORIGINAL
+        /*  
         $field = new xmldb_field('coursedisplay', XMLDB_TYPE_INTEGER, '2', null, XMLDB_NOTNULL, null, '0', 'completionnotify');
+        */
+        //************ FI                    
 
         // Conditionally launch add field coursedisplay
         if (!$dbman->field_exists($table, $field)) {

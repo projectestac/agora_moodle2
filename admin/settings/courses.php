@@ -191,6 +191,10 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     $temp->add(new admin_setting_configcheckbox_with_lock('backup/backup_general_questionbank', new lang_string('generalquestionbank','backup'), new lang_string('configgeneralquestionbank','backup'), array('value'=>1, 'locked'=>0)));
     $ADMIN->add('backups', $temp);
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.05.23  @sarjona
+    if (get_protected_agora()) { 
+    //************ FI
     // Create a page for general import configuration and defaults.
     $temp = new admin_settingpage('importgeneralsettings', new lang_string('importgeneralsettings', 'backup'), 'moodle/backup:backupcourse');
     $temp->add(new admin_setting_configtext('backup/import_general_maxresults', new lang_string('importgeneralmaxresults', 'backup'), new lang_string('importgeneralmaxresults_desc', 'backup'), 10));
@@ -269,4 +273,8 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
     //$temp->add(new admin_setting_configcheckbox('backup/backup_auto_blogs', new lang_string('blogs', 'blog'), new lang_string('backupblogshelp','blog'), 0));
 
     $ADMIN->add('backups', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.05.23  @sarjona
+    }
+    //************ FI
 }
