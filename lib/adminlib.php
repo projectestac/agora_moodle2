@@ -6646,6 +6646,13 @@ class admin_setting_manageauths extends admin_setting {
                 $test = html_writer::link($testurl, $txt->testsettings);
             }
 
+            //XTEC ************ AFEGIT - To let access only to xtecadmin user
+            //2012.07.03  @sarjona
+            if ($auth == 'db' && !get_protected_agora() ) {
+                $settings = '';
+            }
+            //************ FI
+
             // Add a row to the table.
             $row = new html_table_row(array($displayname, $usercount, $hideshow, $updown, $settings, $test, $uninstall));
             if ($class) {
