@@ -215,7 +215,7 @@ class tinymce_texteditor extends texteditor {
         if (!empty($options['required'])) {
             $params['init_instance_callback'] = 'M.editor_tinymce.onblur_event';
         }
-        
+
         // Allow plugins to adjust parameters.
         editor_tinymce_plugin::all_update_init_params($params, $context, $options);
 

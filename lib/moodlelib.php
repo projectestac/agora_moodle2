@@ -5480,7 +5480,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         $mail->Subject = substr($subject, 0, 900);
     }
     //************ ORIGINAL
-    //$mail->Subject = substr($subject, 0, 900);
+	/*
+    $mail->Subject = substr($subject, 0, 900);
+	*/
     //************ FI
 
     $temprecipients[] = array($user->email, fullname($user));
@@ -5654,7 +5656,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         }
         return true;
     } else {
-        add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. $mail->ErrorInfo);
+        add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. $mail->ErrorInfo);
         if (CLI_SCRIPT) {
             mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
         }
