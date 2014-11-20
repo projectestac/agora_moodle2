@@ -1744,6 +1744,12 @@ class core_admin_renderer extends plugin_renderer_base {
 
                 if ($uninstallurl = $pluginman->get_uninstall_url($plugin->component, 'overview')) {
                     $uninstall = html_writer::link($uninstallurl, get_string('uninstall', 'core_plugin'));
+                //XTEC ************ AFEGIT - To let access only to xtecadmin user
+                //2012.06.12  @sarjona
+                if (!get_protected_agora()) {
+                    $uninstall = '';
+                }
+                //************ FI
                 } else {
                     $uninstall = '';
                 }

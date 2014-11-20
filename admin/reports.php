@@ -40,6 +40,12 @@ echo $OUTPUT->heading(get_string('reports'));
 
 $struninstall = get_string('uninstallplugin', 'core_admin');
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.08.20 @sarjona
+if (!get_protected_agora()) {
+    $struninstall = '';
+}
+//************ FI
 $table = new flexible_table('reportplugins_administration_table');
 $table->define_columns(array('name', 'logstoressupported', 'version', 'uninstall'));
 $table->define_headers(array(get_string('plugin'), get_string('logstoressupported', 'admin'), get_string('version'),
@@ -80,6 +86,12 @@ foreach ($plugins as $plugin => $name) {
     if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('report_'.$plugin, 'manage')) {
         $uninstall = html_writer::link($uninstallurl, $struninstall);
     }
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if (!get_protected_agora()) {
+        $uninstall = '';
+    }
+    //************ FI
 
     $stores = array();
     if (isset($availableplugins[$plugin])) {
