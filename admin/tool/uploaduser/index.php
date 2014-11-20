@@ -809,7 +809,18 @@ if ($formdata = $mform2->is_cancelled()) {
                     // hashing would be slow when uploading lots of users. Hashes
                     // will be automatically updated to a higher cost factor the first
                     // time the user logs in.
+                    //XTEC ************ MODIFICAT - To let importing users from Moodle 1.9 with password information
+                    //2012.06.20  @sarjona
+                    if (strlen($user->password) == 32){
+                        $user->password = $user->password;
+                    } else{
+                        $user->password = hash_internal_user_password($user->password, true);
+                    }
+                    //************ ORIGINAL
+                    /*  
                     $user->password = hash_internal_user_password($user->password, true);
+                    */
+                    //************ FI
                 }
             } else {
                 $user->password = AUTH_PASSWORD_NOT_CACHED;

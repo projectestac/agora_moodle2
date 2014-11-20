@@ -2,6 +2,10 @@
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     // "ip blocker" settingpage
     $temp = new admin_settingpage('ipblocker', new lang_string('ipblocker', 'admin'));
     $temp->add(new admin_setting_configcheckbox('allowbeforeblock', new lang_string('allowbeforeblock', 'admin'), new lang_string('allowbeforeblockdesc', 'admin'), 0));
@@ -10,6 +14,10 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configiplist('blockedip', new lang_string('blockediplist', 'admin'),
                                                 new lang_string('ipblockersyntax', 'admin'), ''));
     $ADMIN->add('security', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
     // "sitepolicies" settingpage
     $temp = new admin_settingpage('sitepolicies', new lang_string('sitepolicies', 'admin'));
@@ -118,15 +126,22 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configcheckbox('strictformsrequired', new lang_string('strictformsrequired', 'admin'), new lang_string('configstrictformsrequired', 'admin'), 0));
     $ADMIN->add('security', $temp);
 
-
-
-
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     // "httpsecurity" settingpage
     $temp = new admin_settingpage('httpsecurity', new lang_string('httpsecurity', 'admin'));
 
     $temp->add(new admin_setting_configcheckbox('cookiesecure', new lang_string('cookiesecure', 'admin'), new lang_string('configcookiesecure', 'admin'), 1));
     $temp->add(new admin_setting_configcheckbox('cookiehttponly', new lang_string('cookiehttponly', 'admin'), new lang_string('configcookiehttponly', 'admin'), 0));
     $temp->add(new admin_setting_configcheckbox('allowframembedding', new lang_string('allowframembedding', 'admin'), new lang_string('allowframembedding_help', 'admin'), 0));
+    $temp->add(new admin_setting_configcheckbox('loginpasswordautocomplete', new lang_string('loginpasswordautocomplete', 'admin'), new lang_string('loginpasswordautocomplete_help', 'admin'), 0));
+    $ADMIN->add('security', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI
 
     // Settings elements used by the \core\files\curl_security_helper class.
     $temp->add(new admin_setting_configmixedhostiplist('curlsecurityblockedhosts',

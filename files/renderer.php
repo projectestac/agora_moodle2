@@ -188,6 +188,13 @@ class core_files_renderer extends plugin_renderer_base {
         $restrictions = $this->fm_print_restrictions($fm);
         $strdndnotsupported = get_string('dndnotsupported_insentence', 'moodle').$OUTPUT->help_icon('dndnotsupported');
         $strdndenabledinbox = get_string('dndenabled_inbox', 'moodle');
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
+        //2012.08.24 @sarjona
+        global $CFG;
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            $strdndenabledinbox = '<div class="error">'.get_string('diskquotaerror', 'local_agora').'</div>';
+        } 
+        //************ FI
         $loading = get_string('loading', 'repository');
         $straddfiletext = get_string('addfiletext', 'repository');
         $strcreatefolder = get_string('createfolder', 'repository');
@@ -838,7 +845,14 @@ class core_files_renderer extends plugin_renderer_base {
      *
      * @return string
      */
-    protected function fp_js_template_uploadform() {
+    private function fp_js_template_uploadform() {
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
+        //2012.08.24 @sarjona
+        global $CFG;
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            $rv = '<div class="error">'.get_string('diskquotaerror', 'local_agora').'</div>';
+        } else{
+        //************ FI
         $rv = '
 <div class="fp-upload-form">
     <div class="fp-content-center">
@@ -875,6 +889,10 @@ class core_files_renderer extends plugin_renderer_base {
         </div>
     </div>
 </div> ';
+        //XTEC ************** AFEGIT - If disk quota is exceeded, don't allow upload files
+        //2012.08.24 @sarjona
+        }
+        //************ FI
         return $rv;
     }
 

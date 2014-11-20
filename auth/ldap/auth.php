@@ -190,7 +190,15 @@ class auth_plugin_ldap extends auth_plugin_base {
         } // End SSO processing
         unset($key);
 
-        $ldapconnection = $this->ldap_connect();
+	//XTEC ************ MODIFICAT - To retrive ldap data
+	//2012.06.04 @sarjona
+	$bind_dn = "cn=".$username.",".$this->config->bind_dn;
+	$ldapconnection = $this->ldap_connect($bind_dn, $password);
+	//************ ORIGINAL
+        /*
+	$ldapconnection = $this->ldap_connect();
+        */
+	//************ FI
         $ldap_user_dn = $this->ldap_find_userdn($ldapconnection, $extusername);
 
         // If ldap_user_dn is empty, user does not exist
@@ -235,10 +243,25 @@ class auth_plugin_ldap extends auth_plugin_base {
      *
      * @return mixed array with no magic quotes or false on error
      */
+    //XTEC ************ MODIFICAT - To retrive ldap data
+    //2010.06.30 @fcasanell
+    function get_userinfo($username, $password='') {
+    //************ ORIGINAL
+    /*
     function get_userinfo($username) {
+     */
+    //************ FI
         $extusername = core_text::convert($username, 'utf-8', $this->config->ldapencoding);
 
+        //XTEC ************ MODIFICAT - To retrive data from XTEC LDAP
+        //2012.06.20 @sarjona
+        $bind_dn = "cn=".$username.",".$this->config->bind_dn;
+        $ldapconnection = $this->ldap_connect($bind_dn, $password);
+        //************ ORIGINAL
+        /*
         $ldapconnection = $this->ldap_connect();
+        */
+        //************ FI
         if(!($user_dn = $this->ldap_find_userdn($ldapconnection, $extusername))) {
             $this->ldap_close();
             return false;
@@ -1948,7 +1971,14 @@ class auth_plugin_ldap extends auth_plugin_base {
      *
      * @return resource A valid LDAP connection (or dies if it can't connect)
      */
+    //XTEC ************ MODIFICAT - To retrive ldap data
+    //2012.06.26 @sarjona
+    function ldap_connect($binddn='', $bindpwd='') {
+    //************ ORIGINAL
+    /*
     function ldap_connect() {
+    */
+    //************ FI
         // Cache ldap connections. They are expensive to set up
         // and can drain the TCP/IP ressources on the server if we
         // are syncing a lot of users (as we try to open a new connection
@@ -1959,16 +1989,47 @@ class auth_plugin_ldap extends auth_plugin_base {
             return $this->ldapconnection;
         }
 
+	//XTEC ************ MODIFICAT - To retrive ldap data
+	//2012.06.26 @sarjona
+        //Select bind password, With empty values use
+        //ldap_bind_* variables or anonymous bind if ldap_bind_* are empty
+        if ($binddn == '' and $bindpwd == '') {
+            if (!empty($this->config->bind_dn)) {
+               $binddn = $this->config->bind_dn;
+            }
+            if (!empty($this->config->bind_pw)) {
+               $bindpwd = $this->config->bind_pw;
+            }
+        }
+
+        if($ldapconnection = ldap_connect_moodle($this->config->host_url, $this->config->ldap_version,
+                                                 $this->config->user_type, $binddn,
+                                                 $bindpwd, $this->config->opt_deref,
+                                                 $debuginfo, $this->config->start_tls)) {
+        //************ ORIGINAL
+        /*
         if($ldapconnection = ldap_connect_moodle($this->config->host_url, $this->config->ldap_version,
                                                  $this->config->user_type, $this->config->bind_dn,
                                                  $this->config->bind_pw, $this->config->opt_deref,
                                                  $debuginfo, $this->config->start_tls)) {
+        */
+	//************ FI
             $this->ldapconns = 1;
             $this->ldapconnection = $ldapconnection;
             return $ldapconnection;
         }
 
+        //XTEC ************ MODIFICAT - To avoid show errors if debugdisplay is not enabled
+        //2012.06.06 @sarjona
+        global $CFG;
+        if ($bindpwd != '' && $CFG->debugdisplay) {
+            print_error('auth_ldap_noconnect_all', 'auth_ldap', '', $debuginfo);
+        }
+        //************ ORIGINAL
+        /*
         print_error('auth_ldap_noconnect_all', 'auth_ldap', '', $debuginfo);
+        */
+        //************ FI
     }
 
     /**
