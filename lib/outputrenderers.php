@@ -2744,6 +2744,12 @@ class core_renderer extends renderer_base {
         } else {
             $buttonname = '';
         }
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
+        //2012.08.24 @sarjona
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            $strdndenabled = '<div class="error">'.get_string('diskquotaerror', 'local_agora').'</div>';
+        } 
+        //************ FI
         $html = <<<EOD
 <div class="filemanager-loading mdl-align" id='filepicker-loading-{$client_id}'>
 $icon_progress

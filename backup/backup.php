@@ -91,6 +91,20 @@ switch ($type) {
         print_error('unknownbackuptype');
 }
 
+//XTEC ************ AFEGIT - Control backup hours
+//2012.06.04 @aginard
+if (!get_protected_agora() && is_rush_hour()) {
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+}
+//************ FI
+
+//XTEC ************ AFEGIT - Check if there's enough disk space quota
+//2012.06.04 @aginard
+if (($CFG->diskPercent) && ($CFG->diskPercent >= 100)) {
+    print_error('diskquotaerror', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+}
+//************ FI
+
 // Backup of large courses requires extra memory. Use the amount configured
 // in admin settings.
 raise_memory_limit(MEMORY_EXTRA);
