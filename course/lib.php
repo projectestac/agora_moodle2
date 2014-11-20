@@ -561,7 +561,14 @@ function get_module_types_names($plural = false) {
         $modnames = array(0 => array(), 1 => array());
         if ($allmods = $DB->get_records("modules")) {
             foreach ($allmods as $mod) {
+                //XTEC ************ MODIFICAT - Added function to check which modules can appear in the list
+                //2012.11.06  @sarjona
+                if (is_enabled_in_agora($mod->name) && file_exists("$CFG->dirroot/mod/$mod->name/lib.php") && $mod->visible) {
+                //************ ORIGINAL 
+                /*
                 if (file_exists("$CFG->dirroot/mod/$mod->name/lib.php") && $mod->visible) {
+                */
+                //************ FI
                     $modnames[0][$mod->name] = get_string("modulename", "$mod->name", null, true);
                     $modnames[1][$mod->name] = get_string("modulenameplural", "$mod->name", null, true);
                 }
@@ -5000,3 +5007,4 @@ function course_get_course_dates_for_user_ids(stdClass $course, array $userids):
 function course_get_course_dates_for_user_id(stdClass $course, int $userid): array {
     return (course_get_course_dates_for_user_ids($course, [$userid]))[$userid];
 }
+
