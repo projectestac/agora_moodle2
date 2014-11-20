@@ -26,6 +26,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
     // System paths.
     $temp = new admin_settingpage('systempaths', new lang_string('systempaths', 'admin'));
     $temp->add(new admin_setting_configexecutable('pathtophp', new lang_string('pathtophp', 'admin'),
@@ -41,6 +45,10 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configexecutable('pathtopython', new lang_string('pathtopython', 'admin'),
         new lang_string('pathtopythondesc', 'admin'), ''));
     $ADMIN->add('server', $temp);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
     // Support contact.
     $temp = new admin_settingpage('supportcontact', new lang_string('supportcontact', 'admin'));
@@ -62,6 +70,11 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configtext('supportpage', new lang_string('supportpage', 'admin'),
         new lang_string('configsupportpage', 'admin'), '', PARAM_URL));
     $ADMIN->add('server', $temp);
+
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
 
     // Session handling.
     $temp = new admin_settingpage('sessionhandling', new lang_string('sessionhandling', 'admin'));
@@ -528,4 +541,10 @@ if ($hassiteconfig) {
             new lang_string('updatenotifybuilds_desc', 'core_admin'), 0));
         $ADMIN->add('server', $temp);
     }
+
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
+
 }

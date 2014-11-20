@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2012.05.23  @sarjona
+if ( $hassiteconfig && get_protected_agora() ) { 
+//************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+//************ FI
     $ADMIN->add('development', new admin_externalpage('toolxmld', get_string('pluginname', 'tool_xmldb'), "$CFG->wwwroot/$CFG->admin/tool/xmldb/"));
 }

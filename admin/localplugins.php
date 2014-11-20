@@ -62,6 +62,12 @@ foreach ($plugins as $plugin => $name) {
     if ($uninstallurl = core_plugin_manager::instance()->get_uninstall_url('local_'.$plugin, 'manage')) {
         $uninstall = html_writer::link($uninstallurl, get_string('uninstallplugin', 'core_admin'));
     }
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if (!get_protected_agora()) {
+        $uninstall = '';
+    }
+    //************ FI
 
     $version = get_config('local_' . $plugin);
     if (!empty($version->version)) {
