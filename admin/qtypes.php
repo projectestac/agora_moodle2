@@ -191,9 +191,23 @@ $table = new flexible_table('qtypeadmintable');
 $table->define_baseurl($thispageurl);
 $table->define_columns(array('questiontype', 'numquestions', 'version', 'requires',
         'availableto', 'delete', 'settings'));
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2012.08.20 @sarjona
+if (!get_protected_agora()) {
+    $strdelete = '';
+} else{
+    $strdelete = get_string('delete');
+}
+$table->define_headers(array(get_string('questiontype', 'question'), get_string('numquestions', 'question'),
+        get_string('version'), get_string('requires', 'admin'), get_string('availableq', 'question'),
+        $strdelete, get_string('settings')));
+//************ ORIGINAL
+/*
 $table->define_headers(array(get_string('questiontype', 'question'), get_string('numquestions', 'question'),
         get_string('version'), get_string('requires', 'admin'), get_string('availableq', 'question'),
         get_string('delete'), get_string('settings')));
+ */
+//************ FI
 $table->set_attribute('id', 'qtypes');
 $table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
 $table->setup();
@@ -266,7 +280,14 @@ foreach ($sortedqtypes as $qtypename => $localname) {
     $row[] = $icons;
 
     // Delete link, if available.
+    //XTEC ************ MODIFICAT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if ($needed[$qtypename] || !get_protected_agora()) {
+    //************ ORIGINAL
+    /*
     if ($needed[$qtypename]) {
+     */
+    //************ FI
         $row[] = '';
     } else {
         $row[] = html_writer::link(new moodle_url($thispageurl,

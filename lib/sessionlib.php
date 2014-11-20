@@ -432,6 +432,9 @@ class legacy_file_session extends session_stub {
         // make sure sessions dir exists and is writable, throws exception if not
         make_upload_directory('sessions');
 
+        //XTEC ************ ELIMINAT - Sessions will be saved in each web server
+        //2012.05.23 @aginard
+        /*
         // Need to disable debugging since disk_free_space()
         // will fail on very large partitions (see MDL-19222)
         $freespace = @disk_free_space($CFG->dataroot.'/sessions');
@@ -440,6 +443,8 @@ class legacy_file_session extends session_stub {
             print_error('sessiondiskfull', 'error');
         }
         ini_set('session.save_path', $CFG->dataroot .'/sessions');
+        */
+        //************ FI
     }
     /**
      * Check for existing session with id $sid

@@ -14,12 +14,6 @@ if ($hassiteconfig) {
     $ADMIN->add('modules', new admin_category('modsettings', new lang_string('activitymodules')));
     $ADMIN->add('modsettings', new admin_page_managemods());
     foreach ($allplugins['mod'] as $module) {
-        //XTEC ************ AFEGIT - Only enabled modules can be showed
-        //2012.11.06  @sarjona
-        if (!is_enabled_in_agora($module->name) ) {
-            continue;
-        }
-        //************ FI
         $module->load_settings($ADMIN, 'modsettings', $hassiteconfig);
     }
 

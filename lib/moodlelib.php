@@ -3834,7 +3834,15 @@ function create_user_record($username, $password, $auth = 'manual') {
 
     $newuser = new stdClass();
 
+    //XTEC ************ MODIFICAT - To retrive data from XTEC LDAP
+    //2012.06.20 @sarjona
+    if ( ($auth == 'ldap' && $newinfo = $authplugin->get_userinfo($username, $password)) || 
+            ($newinfo = $authplugin->get_userinfo($username)) ) {
+    //************ ORIGINAL
+    /*
     if ($newinfo = $authplugin->get_userinfo($username)) {
+    */
+    //************ FI
         $newinfo = truncate_userinfo($newinfo);
         foreach ($newinfo as $key => $value){
             $newuser->$key = $value;
@@ -5434,9 +5442,21 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
     if (is_string($from)) { // So we can pass whatever we want if there is need
         $mail->From     = $CFG->noreplyaddress;
         $mail->FromName = $from;
+        //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
+        //2012.03.13  @aginard
+        if (empty($replyto)) {
+            $tempreplyto[] = array($CFG->noreplyaddress);
+        }
+        //************ FI     
     } else if ($usetrueaddress and $from->maildisplay) {
         $mail->From     = $from->email;
         $mail->FromName = fullname($from);
+        //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
+        //2012.03.13  @aginard
+        if (empty($replyto)) {
+            $tempreplyto[] = array($CFG->noreplyaddress);
+        }
+        //************ FI     
     } else {
         $mail->From     = $CFG->noreplyaddress;
         $mail->FromName = fullname($from);
@@ -5449,7 +5469,19 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         $tempreplyto[] = array($replyto, $replytoname);
     }
 
-    $mail->Subject = substr($subject, 0, 900);
+    //XTEC ************ MODIFICAT - Add main title (usually school name) at the beginning of the subject
+    //2011.04.21  @fcasanellas
+    if (!isset($CFG->mailheader)) {
+        $CFG->mailheader = '';
+    }
+    if ($CFG->apligestmail) {
+        $mail->Subject = $CFG->mailheader . " [" . get_site()->fullname . "] " . substr($subject, 0, 900);
+    } else {
+        $mail->Subject = substr($subject, 0, 900);
+    }
+    //************ ORIGINAL
+    //$mail->Subject = substr($subject, 0, 900);
+    //************ FI
 
     $temprecipients[] = array($user->email, fullname($user));
 
@@ -5527,6 +5559,91 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         $mail->AddReplyTo($values[0], $values[1]);
     }
 
+    //XTEC ************ MODIFICAT - Use apligest system to send mails if it's configured
+    //28.04.2011 @fcasanel
+    //14.03.2012 @aginard
+    if ($CFG->apligestmail) {
+        require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
+        require_once ($CFG->dirroot.'/local/agora/mailer/mailsender.class.php');
+
+        $log = $CFG->apligestlog;
+        $logdebug = $CFG->apligestlogdebug;
+        $logpath = $CFG->apligestlogpath;
+        
+        //load the message
+        $message = new message(TEXTHTML, $log, $logdebug, $logpath);
+
+        //set $to
+        $to_array = array();
+        foreach ($mail->to as $to){
+            $to_array[] = $to[0];
+        }
+        $message->set_to($to_array);
+
+        //set $cc
+        $cc_array = array();
+        foreach ($mail->cc as $cc){
+            $cc_array[] = $cc[0];
+        }
+        if (!empty($cc_array)) $message->set_cc($cc_array);
+
+        //set $bcc
+        $bcc_array = array();
+        foreach ($mail->bcc as $bcc){
+            $bcc_array[] = $bcc[0];
+        }
+        if (!empty($bcc_array)) $message->set_bcc($bcc_array);
+
+        //set $subject
+        $message->set_subject($mail->Subject);
+
+        //set $bodyContent
+        $message->set_bodyContent($mail->Body);
+
+        //load the mailsender
+        $environment = $CFG->apligestenv;
+        $application = $CFG->apligestaplic;
+        $replyto = $CFG->noreplyaddress;
+
+        $sender = new mailsender($application, $replyto, 'educacio', $environment, $log, $logdebug, $logpath);
+        
+        //add message to mailsender
+        if (!$sender->add($message)){
+                mtrace('ERROR: '.' Impossible to add message to mailsender');
+                add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. ' Impossible to add message to mailsender');
+                return false;
+        }
+        //send messages
+        if (!$sender->send_mail()){
+                mtrace('ERROR: '.' Impossible to send messages');
+                add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. ' Impossible to send messages');
+                return false;
+        } else {
+            set_send_count($user);
+            return true;
+        }
+    } else {
+        if ($mail->Send()) {
+            set_send_count($user);
+            $mail->IsSMTP();                               // use SMTP directly
+            if (!empty($mail->SMTPDebug)) {
+                echo '</pre>';
+            }
+            return true;
+        } else {
+            add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. $mail->ErrorInfo);
+            if (CLI_SCRIPT) {
+                mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
+            }
+            if (!empty($mail->SMTPDebug)) {
+                echo '</pre>';
+            }
+            return false;
+        }
+    }
+    
+    //************ ORIGINAL
+    /*
     if ($mail->Send()) {
         set_send_count($user);
         if (!empty($mail->SMTPDebug)) {
@@ -5534,7 +5651,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         }
         return true;
     } else {
-        add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. $mail->ErrorInfo);
+        add_to_log(SITEID, 'library', 'mailer', $FULLME, 'ERROR: '. $mail->ErrorInfo);
         if (CLI_SCRIPT) {
             mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
         }
@@ -5543,6 +5660,8 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml='', $a
         }
         return false;
     }
+    */
+    //************ FI    
 }
 
 /**

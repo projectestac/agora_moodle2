@@ -115,6 +115,12 @@
     // construct the flexible table ready to display
     $table = new flexible_table(MODULE_TABLE);
     $table->define_columns(array('name', 'instances', 'version', 'hideshow', 'delete', 'settings'));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.25  @sarjona
+    if (!get_protected_agora()) {
+        $strdelete = '';
+    }
+    //************ FI    
     $table->define_headers(array($stractivitymodule, $stractivities, $strversion, "$strhide/$strshow", $strdelete, $strsettings));
     $table->define_baseurl($CFG->wwwroot.'/'.$CFG->admin.'/modules.php');
     $table->set_attribute('id', 'modules');

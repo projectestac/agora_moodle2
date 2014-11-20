@@ -152,10 +152,18 @@ class tinymce_texteditor extends texteditor {
             'apply_source_formatting' => true,
             'remove_script_host' => false,
             'entity_encoding' => "raw",
+            //XTEC ************ MODIFICAT - Removed contextmenu plugin to normally check spelling with right click button
+            //2012.09.28 @sarjona
             'plugins' => 'lists,table,style,layer,advhr,advlink,emotions,inlinepopups,' .
-                'searchreplace,paste,directionality,fullscreen,nonbreaking,contextmenu,' .
+                'searchreplace,paste,directionality,fullscreen,nonbreaking,' .
                 'insertdatetime,save,iespell,preview,print,noneditable,visualchars,' .
                 'xhtmlxtras,template,pagebreak',
+            //************ ORIGINAL
+            //'plugins' => 'lists,table,style,layer,advhr,advlink,emotions,inlinepopups,' .
+            //    'searchreplace,paste,directionality,fullscreen,nonbreaking,contextmenu,' .
+            //    'insertdatetime,save,iespell,preview,print,noneditable,visualchars,' .
+            //    'xhtmlxtras,template,pagebreak',
+            //************ FI
             'gecko_spellcheck' => true,
             'theme_advanced_font_sizes' => "1,2,3,4,5,6,7",
             'theme_advanced_layout_manager' => "SimpleLayout",
@@ -213,6 +221,15 @@ class tinymce_texteditor extends texteditor {
 
         // Remove temporary parameters.
         unset($params['moodle_config']);
+        //XTEC ************ AFEGIT - To include Wiris buttons to TinyMCE editor
+        //2012.08.22  @sarjona
+        if ( (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) || (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) ){
+            $params['plugins'] .= ",tiny_mce_wiris";
+            $params['theme_advanced_buttons3'] = $params['theme_advanced_buttons3'].',|';
+            if (isset($CFG->filter_wiris_editor_enable) && $CFG->filter_wiris_editor_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_formulaEditor';
+            if (isset($CFG->filter_wiris_cas_enable) && $CFG->filter_wiris_cas_enable) $params['theme_advanced_buttons3'] .= ',tiny_mce_wiris_CAS';
+        }
+        //************ FI
 
         return $params;
     }

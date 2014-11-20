@@ -74,7 +74,19 @@ echo $OUTPUT->heading(get_string('localplugins'));
 
 $table = new flexible_table('localplugins_administration_table');
 $table->define_columns(array('name', 'version', 'delete'));
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2012.08.20 @sarjona
+if (!get_protected_agora()) {
+    $strdelete = '';
+} else{
+    $strdelete = get_string('delete');
+}
+$table->define_headers(array(get_string('plugin'), get_string('version'), $strdelete));
+//************ ORIGINAL
+/*
 $table->define_headers(array(get_string('plugin'), get_string('version'), get_string('delete')));
+ */
+//************ FI
 $table->define_baseurl($PAGE->url);
 $table->set_attribute('id', 'localplugins');
 $table->set_attribute('class', 'generaltable generalbox boxaligncenter boxwidthwide');
@@ -94,6 +106,12 @@ collatorlib::asort($plugins);
 foreach ($plugins as $plugin => $name) {
     $delete = new moodle_url($PAGE->url, array('delete' => $plugin, 'sesskey' => sesskey()));
     $delete = html_writer::link($delete, get_string('delete'));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.08.20 @sarjona
+    if (!get_protected_agora()) {
+        $delete = '';
+    }
+    //************ FI
 
     $version = get_config('local_' . $plugin);
     if (!empty($version->version)) {

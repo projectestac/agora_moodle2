@@ -2,6 +2,10 @@
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     // "ip blocker" settingpage
     $temp = new admin_settingpage('ipblocker', new lang_string('ipblocker', 'admin'));
     $temp->add(new admin_setting_configcheckbox('allowbeforeblock', new lang_string('allowbeforeblock', 'admin'), new lang_string('allowbeforeblockdesc', 'admin'), 0));
@@ -10,6 +14,10 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configiplist('blockedip', new lang_string('blockediplist', 'admin'),
                                                 new lang_string('ipblockersyntax', 'admin'), ''));
     $ADMIN->add('security', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
     // "sitepolicies" settingpage
     $temp = new admin_settingpage('sitepolicies', new lang_string('sitepolicies', 'admin'));
@@ -76,6 +84,10 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
 
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     // "httpsecurity" settingpage
     $temp = new admin_settingpage('httpsecurity', new lang_string('httpsecurity', 'admin'));
     $temp->add(new admin_setting_configcheckbox('loginhttps', new lang_string('loginhttps', 'admin'), new lang_string('configloginhttps', 'admin'), 0));
@@ -84,6 +96,10 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configcheckbox('allowframembedding', new lang_string('allowframembedding', 'admin'), new lang_string('allowframembedding_help', 'admin'), 0));
     $temp->add(new admin_setting_configcheckbox('loginpasswordautocomplete', new lang_string('loginpasswordautocomplete', 'admin'), new lang_string('loginpasswordautocomplete_help', 'admin'), 0));
     $ADMIN->add('security', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
 
     // "notifications" settingpage
@@ -105,6 +121,10 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
 
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     // "antivirus" settingpage
     $temp = new admin_settingpage('antivirus', new lang_string('antivirus', 'admin'));
     $temp->add(new admin_setting_configcheckbox('runclamonupload', new lang_string('runclamavonupload', 'admin'), new lang_string('configrunclamavonupload', 'admin'), 0));
@@ -113,5 +133,9 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configselect('clamfailureonupload', new lang_string('clamfailureonupload', 'admin'), new lang_string('configclamfailureonupload', 'admin'), 'donothing', array('donothing' => new lang_string('configclamdonothing', 'admin'),
                                                                                                                                                                                       'actlikevirus' => new lang_string('configclamactlikevirus', 'admin'))));
     $ADMIN->add('security', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
 } // end of speedup

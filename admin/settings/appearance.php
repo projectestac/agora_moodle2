@@ -171,8 +171,16 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configcheckbox('doctonewwindow', new lang_string('doctonewwindow', 'admin'), new lang_string('configdoctonewwindow', 'admin'), 0));
     $ADMIN->add('appearance', $temp);
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     $temp = new admin_externalpage('mypage', new lang_string('mypage', 'admin'), $CFG->wwwroot . '/my/indexsys.php');
     $ADMIN->add('appearance', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
     $temp = new admin_externalpage('profilepage', new lang_string('myprofile', 'admin'), $CFG->wwwroot . '/user/profilesys.php');
     $ADMIN->add('appearance', $temp);
@@ -200,12 +208,20 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     // link to tag management interface
     $ADMIN->add('appearance', new admin_externalpage('managetags', new lang_string('managetags', 'tag'), "$CFG->wwwroot/tag/manage.php"));
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI    
     $temp = new admin_settingpage('additionalhtml', new lang_string('additionalhtml', 'admin'));
     $temp->add(new admin_setting_heading('additionalhtml_heading', new lang_string('additionalhtml_heading', 'admin'), new lang_string('additionalhtml_desc', 'admin')));
     $temp->add(new admin_setting_configtextarea('additionalhtmlhead', new lang_string('additionalhtmlhead', 'admin'), new lang_string('additionalhtmlhead_desc', 'admin'), '', PARAM_RAW));
     $temp->add(new admin_setting_configtextarea('additionalhtmltopofbody', new lang_string('additionalhtmltopofbody', 'admin'), new lang_string('additionalhtmltopofbody_desc', 'admin'), '', PARAM_RAW));
     $temp->add(new admin_setting_configtextarea('additionalhtmlfooter', new lang_string('additionalhtmlfooter', 'admin'), new lang_string('additionalhtmlfooter_desc', 'admin'), '', PARAM_RAW));
     $ADMIN->add('appearance', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2012.06.20  @sarjona
+    }
+    //************ FI    
 
 } // end of speedup
 

@@ -46,15 +46,6 @@ class auth_plugin_db extends auth_plugin_base {
         $extusername = textlib::convert($username, 'utf-8', $this->config->extencoding);
         $extpassword = textlib::convert($password, 'utf-8', $this->config->extencoding);
 
-        $authdb = $this->db_init();
-
-        //XTEC ************ AFEGIT - detect if validation comes from file iw_index.php
-        //2012.10.25  @aperez16
-        if (!isset($_REQUEST['parm'])) {
-            $this->config->passtype = 'md5';
-        }
-        //************ FI 
-
         if ($this->is_internal()) {
             // lookup username externally, but resolve
             // password locally -- to support backend that
@@ -813,5 +804,4 @@ class auth_plugin_db extends auth_plugin_base {
     }
 }
 
-}
 
