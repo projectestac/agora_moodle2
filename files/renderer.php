@@ -138,6 +138,14 @@ class core_files_renderer extends plugin_renderer_base {
      * @return string
      */
     protected function fm_print_generallayout($fm) {
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files --> REVIEW!
+        //2012.08.24 @sarjona
+        global $CFG;
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            $strdndenabledinbox = '<div class="error">'.get_string('diskquotaerror', 'local_agora').'</div>';
+        } 
+        //************ FI
+
         $context = [
                 'client_id' => $fm->options->client_id,
                 'helpicon' => $this->help_icon('setmainfile', 'repository'),
@@ -407,7 +415,21 @@ class core_files_renderer extends plugin_renderer_base {
      * @return string
      */
     protected function fp_js_template_uploadform() {
+        //XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files - REVIEW!
+        //2012.08.24 @sarjona
+        global $CFG;
+        if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
+            $rv = '<div class="error">'.get_string('diskquotaerror', 'local_agora').'</div>';
+        } else{
+        //************ FI
+ 
         return $this->render_from_template('core/filemanager_uploadform', []);
+
+        //XTEC ************** AFEGIT - If disk quota is exceeded, don't allow upload files - REVIEW!
+        //2012.08.24 @sarjona
+        }
+        //************ FI
+
     }
 
     /**
