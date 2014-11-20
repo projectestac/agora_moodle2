@@ -5,6 +5,10 @@
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
 // "systempaths" settingpage
 $temp = new admin_settingpage('systempaths', new lang_string('systempaths','admin'));
 
@@ -14,6 +18,10 @@ $temp->add(new admin_setting_configexecutable('pathtodot', new lang_string('path
 $temp->add(new admin_setting_configexecutable('pathtogs', new lang_string('pathtogs', 'admin'), new lang_string('pathtogs_help', 'admin'), '/usr/bin/gs'));
 $temp->add(new admin_setting_configexecutable('pathtounoconv', new lang_string('pathtounoconv', 'admin'), new lang_string('pathtounoconv_help', 'admin'), '/usr/bin/unoconv'));
 $ADMIN->add('server', $temp);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 
 
@@ -34,6 +42,10 @@ $temp->add(new admin_setting_configtext('supportpage', new lang_string('supportp
 $ADMIN->add('server', $temp);
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
 // "sessionhandling" settingpage
 $temp = new admin_settingpage('sessionhandling', new lang_string('sessionhandling', 'admin'));
 if (empty($CFG->session_handler_class) and $DB->session_lock_supported()) {
@@ -52,6 +64,10 @@ $temp->add(new admin_setting_configtext('sessioncookie', new lang_string('sessio
 $temp->add(new admin_setting_configtext('sessioncookiepath', new lang_string('sessioncookiepath', 'admin'), new lang_string('configsessioncookiepath', 'admin'), '', PARAM_RAW));
 $temp->add(new admin_setting_configtext('sessioncookiedomain', new lang_string('sessioncookiedomain', 'admin'), new lang_string('configsessioncookiedomain', 'admin'), '', PARAM_RAW, 50));
 $ADMIN->add('server', $temp);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 
 // "stats" settingpage
@@ -83,6 +99,10 @@ $temp->add(new admin_setting_configtext('statsuserthreshold', new lang_string('s
 $ADMIN->add('server', $temp);
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (is_siteadmin() && get_protected_agora() ) {
+//************ FI    
 // "http" settingpage
 $temp = new admin_settingpage('http', new lang_string('http', 'admin'));
 $temp->add(new admin_setting_configcheckbox('slasharguments', new lang_string('slasharguments', 'admin'), new lang_string('configslasharguments', 'admin'), 1));
@@ -114,6 +134,10 @@ $temp->add(new admin_setting_configselect('maintenance_enabled', new lang_string
 $temp->add(new admin_setting_confightmleditor('maintenance_message', new lang_string('optionalmaintenancemessage', 'admin'),
                                               '', ''));
 $ADMIN->add('server', $temp);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 $temp = new admin_settingpage('cleanup', new lang_string('cleanup', 'admin'));
 $temp->add(new admin_setting_configselect('deleteunconfirmed', new lang_string('deleteunconfirmed', 'admin'), new lang_string('configdeleteunconfirmed', 'admin'), 168, array(0 => new lang_string('never'),
@@ -169,10 +193,22 @@ $ADMIN->add('server', $temp);
 
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (is_siteadmin() && get_protected_agora() ) {
+//************ FI    
 $ADMIN->add('server', new admin_externalpage('environment', new lang_string('environment','admin'), "$CFG->wwwroot/$CFG->admin/environment.php"));
 $ADMIN->add('server', new admin_externalpage('phpinfo', new lang_string('phpinfo'), "$CFG->wwwroot/$CFG->admin/phpinfo.php"));
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
 // "performance" settingpage
 $temp = new admin_settingpage('performance', new lang_string('performance', 'admin'));
 
@@ -204,8 +240,16 @@ $temp->add(new admin_setting_configtext('curltimeoutkbitrate', new lang_string('
                                         new lang_string('curltimeoutkbitrate_help', 'admin'), 56, PARAM_INT));
 
 $ADMIN->add('server', $temp);
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+if (get_protected_agora() ) {
+//************ FI    
 $ADMIN->add('server', new admin_externalpage('adminregistration', new lang_string('hubs', 'admin'),
     "$CFG->wwwroot/$CFG->admin/registration/index.php"));
 
@@ -226,5 +270,9 @@ if (empty($CFG->disableupdatenotifications)) {
                                                 new lang_string('updatenotifybuilds_desc', 'core_admin'), 0));
     $ADMIN->add('server', $temp);
 }
+//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//2012.06.20  @sarjona
+}
+//************ FI    
 
 } // end of speedup
