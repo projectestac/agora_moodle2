@@ -5876,7 +5876,9 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         $mail->Subject = substr($subject, 0, 900);
     }
     //************ ORIGINAL
-    //$mail->Subject = substr($subject, 0, 900);
+	/*
+    $mail->Subject = substr($subject, 0, 900);
+	*/
     //************ FI
 
     $temprecipients[] = array($user->email, fullname($user));
