@@ -284,6 +284,11 @@
     // inclusion we pass parameters around this way..
     $displaysection = $section;
 
+    //XTEC ************ AFEGIT - To show navlinks on the top of the course
+    //2014.06.26  @pferre22
+    agora_course_print_navlinks($course, $section);
+    //************ FI
+
     // Include the actual course format.
     require($CFG->dirroot .'/course/format/'. $course->format .'/format.php');
     // Content wrapper end.
