@@ -63,6 +63,13 @@ class block_settings_renderer extends plugin_renderer_base {
         $lis = array();
         $number = 0;
         foreach ($items as $item) {
+            //XTEC ************ AFEGIT - To delete some settings
+            //2014.05.22 @pferrer
+            static $delete_items = array('usercurrentsettings' => '');
+            if(isset($delete_items[$item->key])){
+                continue;
+            }
+            //********* FI
             $number++;
             if (!$item->display) {
                 continue;
