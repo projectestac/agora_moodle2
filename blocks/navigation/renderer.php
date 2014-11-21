@@ -74,6 +74,13 @@ class block_navigation_renderer extends plugin_renderer_base {
         // Set the number to be static for unique id's.
         static $number = 0;
         foreach ($items as $item) {
+            //XTEC ************ AFEGIT - To delete some settings
+            //2014.05.22 @pferrer
+            static $delete_items = array('myprofile' => '');
+            if(isset($delete_items[$item->key]) || ($item->key == 'home' && !$item->has_children())){
+                continue;
+            }
+            //********* FI
             $number++;
             if (!$item->display && !$item->contains_active_node()) {
                 continue;
