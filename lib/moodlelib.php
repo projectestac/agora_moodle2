@@ -3941,7 +3941,7 @@ function create_user_record($username, $password, $auth = 'manual') {
     $newuser = new stdClass();
     //XTEC ************ MODIFICAT - To retrive data from XTEC LDAP
     //2012.06.20 @sarjona
-    if ( ( ($auth == 'ldap' || $auth == 'odissea') && $newinfo = $authplugin->get_userinfo($username, $password)) || 
+    if ( ( ($auth == 'ldap' || $auth == 'odissea') && $newinfo = $authplugin->get_userinfo($username, $password)) ||
             ($newinfo = $authplugin->get_userinfo($username)) ) {
     //************ ORIGINAL
     /*
@@ -3962,10 +3962,10 @@ function create_user_record($username, $password, $auth = 'manual') {
         $newuser->firstname = mb_convert_case($newuser->firstname, MB_CASE_TITLE, "UTF-8");
     }
     if (!empty($newuser->lastname)){
-        $newuser->lastname = mb_convert_case($newuser->lastname, MB_CASE_TITLE, "UTF-8");    	
+        $newuser->lastname = mb_convert_case($newuser->lastname, MB_CASE_TITLE, "UTF-8");
     }
     //************ FI
-    
+
     if (!empty($newuser->email)) {
         if (email_is_not_allowed($newuser->email)) {
             unset($newuser->email);
@@ -6016,7 +6016,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         if (empty($replyto)) {
             $tempreplyto[] = array($CFG->noreplyaddress, get_string('noreplyname'));
         }
-        //************ FI     
+        //************ FI
     } else if ($usetrueaddress and $from->maildisplay) {
         if (!validate_email($from->email)) {
             debugging('email_to_user: Invalid from-email '.s($from->email).' - not sending');
@@ -6231,64 +6231,72 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
     //28.04.2011 @fcasanel
     //14.03.2012 @aginard
     if (!empty($CFG->apligestmail)) {
-        require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
-        require_once ($CFG->dirroot.'/local/agora/mailer/mailsender.class.php');
+        try{
+            require_once ($CFG->dirroot.'/local/agora/mailer/message.class.php');
+            require_once ($CFG->dirroot.'/local/agora/mailer/mailsender.class.php');
 
-        $log = $CFG->apligestlog;
-        $logdebug = $CFG->apligestlogdebug;
-        $logpath = $CFG->apligestlogpath;
-        
-        //load the message
-        $message = new message(TEXTHTML, $log, $logdebug, $logpath);
+            $log = $CFG->apligestlog;
+            $logdebug = $CFG->apligestlogdebug;
+            $logpath = $CFG->apligestlogpath;
 
-        //set $to
-        $to_array = array();
-        foreach ($mail->to as $to){
-            $to_array[] = $to[0];
-        }
-        $message->set_to($to_array);
+            //load the message
+            $message = new message(TEXTHTML, $log, $logdebug, $logpath);
 
-        //set $cc
-        $cc_array = array();
-        foreach ($mail->cc as $cc){
-            $cc_array[] = $cc[0];
-        }
-        if (!empty($cc_array)) $message->set_cc($cc_array);
+            //set $to
+            $to_array = array();
+            foreach ($mail->to as $to){
+                $to_array[] = $to[0];
+            }
+            $message->set_to($to_array);
 
-        //set $bcc
-        $bcc_array = array();
-        foreach ($mail->bcc as $bcc){
-            $bcc_array[] = $bcc[0];
-        }
-        if (!empty($bcc_array)) $message->set_bcc($bcc_array);
+            //set $cc
+            $cc_array = array();
+            foreach ($mail->cc as $cc){
+                $cc_array[] = $cc[0];
+            }
+            if (!empty($cc_array)) $message->set_cc($cc_array);
 
-        //set $subject
-        $message->set_subject($mail->Subject);
+            //set $bcc
+            $bcc_array = array();
+            foreach ($mail->bcc as $bcc){
+                $bcc_array[] = $bcc[0];
+            }
+            if (!empty($bcc_array)) $message->set_bcc($bcc_array);
 
-        //set $bodyContent
-        $message->set_bodyContent($mail->Body);
+            //set $subject
+            $message->set_subject($mail->Subject);
 
-        //load the mailsender
-        $environment = $CFG->apligestenv;
-        $application = $CFG->apligestaplic;
-        $replyto = $CFG->noreplyaddress;
+            //set $bodyContent
+            $message->set_bodyContent($mail->Body);
 
-        $sender = new mailsender($application, $replyto, 'educacio', $environment, $log, $logdebug, $logpath);
-        
-        //add message to mailsender
-        if (!$sender->add($message)){
-                mtrace('ERROR: '.' Impossible to add message to mailsender');
-                add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. ' Impossible to add message to mailsender');
-                return false;
-        }
-        //send messages
-        if (!$sender->send_mail()){
-                mtrace('ERROR: '.' Impossible to send messages');
-                add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. ' Impossible to send messages');
-                return false;
-        } else {
-            set_send_count($user);
-            return true;
+            //load the mailsender
+            $environment = $CFG->apligestenv;
+            $application = $CFG->apligestaplic;
+            $replyto = $CFG->noreplyaddress;
+
+            $sender = new mailsender($application, $replyto, 'educacio', $environment, $log, $logdebug, $logpath);
+
+            //add message to mailsender
+            if (!$sender->add($message)){
+                    mtrace('ERROR: '.' Impossible to add message to mailsender');
+                    add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. ' Impossible to add message to mailsender');
+                    return false;
+            }
+            //send messages
+            if (!$sender->send_mail()){
+                    mtrace('ERROR: '.' Impossible to send messages');
+                    add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. ' Impossible to send messages');
+
+                    return false;
+            } else {
+                set_send_count($user);
+                return true;
+            }
+        } catch (Exception $e){
+        	mtrace('ERROR: Something terrible happened during the mailing and might be repaired');
+        	mtrace($e->getMessage());
+        	mtrace('The execution must go on!');
+        	return false;
         }
     } else {
         if ($mail->send()) {
@@ -6298,7 +6306,18 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
             }
             return true;
         } else {
-            add_to_log(SITEID, 'library', 'mailer', qualified_me(), 'ERROR: '. $mail->ErrorInfo);
+            // Trigger event for failing to send email.
+            $event = \core\event\email_failed::create(array(
+                'context' => context_system::instance(),
+                'userid' => $from->id,
+                'relateduserid' => $user->id,
+                'other' => array(
+                    'subject' => $subject,
+                    'message' => $messagetext,
+                    'errorinfo' => $mail->ErrorInfo
+                )
+            ));
+            $event->trigger();
             if (CLI_SCRIPT) {
                 mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
             }
