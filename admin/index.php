@@ -182,8 +182,8 @@ if (!core_tables_exist()) {
     exit(0);
 
     //************ FI
-    
-    
+
+
     $PAGE->set_pagelayout('maintenance');
     $PAGE->set_popup_notification_allowed(false);
 
