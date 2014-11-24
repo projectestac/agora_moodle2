@@ -65,10 +65,9 @@ foreach ($plugins as $plugin => $name) {
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.08.20 @sarjona
     if (!get_protected_agora()) {
-        $uninstall = '';
+        $uninstall = "";
     }
     //************ FI
-
     $version = get_config('local_' . $plugin);
     if (!empty($version->version)) {
         $version = $version->version;
