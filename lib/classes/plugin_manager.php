@@ -186,6 +186,31 @@ class core_plugin_manager {
 
         $this->installedplugins = array();
 
+        // TODO: Delete this block once Moodle 2.6 or later becomes minimum required version to upgrade.
+        if ($CFG->version < 2013092001.02) {
+            // We did not upgrade the database yet.
+            $modules = $DB->get_records('modules', array(), 'name ASC', 'id, name, version');
+            foreach ($modules as $module) {
+                //XTEC ************ AFEGIT - Only enabled modules has to be showed
+                //2012.11.06  @sarjona
+                if (!is_enabled_in_agora($module->name) ){
+                    continue;
+                }
+                //************ FI
+                $this->installedplugins['mod'][$module->name] = $module->version;
+            }
+            $blocks = $DB->get_records('block', array(), 'name ASC', 'id, name, version');
+            foreach ($blocks as $block) {
+                //XTEC ************ AFEGIT - Only enabled modules has to be showed
+                //2012.11.06  @sarjona
+                if (!is_enabled_in_agora($block->name) ){
+                    continue;
+                }
+                //************ FI
+                $this->installedplugins['block'][$block->name] = $block->version;
+            }
+        }
+
         $versions = $DB->get_records('config_plugins', array('name'=>'version'));
         foreach ($versions as $version) {
             $parts = explode('_', $version->plugin, 2);
@@ -193,6 +218,12 @@ class core_plugin_manager {
                 // Invalid component, there must be at least one "_".
                 continue;
             }
+            //XTEC ************ AFEGIT - Only enabled modules has to be showed
+            //2012.11.06  @sarjona
+            if (!is_enabled_in_agora($parts[1]) ){
+                continue;
+            }
+            //************ FI
             // Do not verify here if plugin type and name are valid.
             $this->installedplugins[$parts[0]][$parts[1]] = $version->value;
         }
@@ -299,6 +330,12 @@ class core_plugin_manager {
         foreach ($plugintypes as $type => $typedir) {
             $plugs = core_component::get_plugin_list($type);
             foreach ($plugs as $plug => $fullplug) {
+                //XTEC ************ AFEGIT - Only enabled modules has to be showed
+                //2012.11.06  @sarjona
+                if (!is_enabled_in_agora($plug) ){
+                    continue;
+                }
+                //************ FI
                 $module = new stdClass();
                 $plugin = new stdClass();
                 $plugin->version = null;
