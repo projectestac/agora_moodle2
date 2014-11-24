@@ -6580,13 +6580,6 @@ class admin_setting_manageauths extends admin_setting {
                 $test = html_writer::link($testurl, $txt->testsettings);
             }
 
-            //XTEC ************ AFEGIT - To let access only to xtecadmin user
-            //2012.07.03  @sarjona
-            if ($auth == 'db' && !get_protected_agora() ) {
-                $settings = '';
-            }
-            //************ FI
-
             // Add a row to the table.
             $row = new html_table_row(array($displayname, $usercount, $hideshow, $updown, $settings, $test, $uninstall));
             if ($class) {
@@ -9040,6 +9033,13 @@ class admin_setting_manageexternalservices extends admin_setting {
 
             $edit = "<a href=\"$esurl?id=$service->id\">$stredit</a>";
 
+            //XTEC ************ AFEGIT - To let access only to xtecadmin user
+            //2012.07.03  @sarjona
+            if ($auth == 'db' && !get_protected_agora() ) {
+                $settings = '';
+            }
+            //************ FI    
+            
             // add a row to the table
             $table->data[] = array($displayname, $delete, $functions, $users, $edit);
         }
