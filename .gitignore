@@ -36,3 +36,6 @@ composer.lock
 # lib/yuilib/version/module/module-coverage.js
 /lib/yuilib/*/*/*-coverage.js
 atlassian-ide-plugin.xml
+# Added to Agora
+sftp-config*.json
+auth/odissea
