@@ -1,3 +1,6 @@
 [submodule "mod/jclic"]
 	path = mod/jclic
 	url = https://github.com/projectestac/moodle-mod_jclic.git
+[submodule "mod/geogebra"]
+	path = mod/geogebra
+	url = https://github.com/projectestac/moodle-mod_geogebra.git
