@@ -1,0 +1,3 @@
+[submodule "mod/jclic"]
+	path = mod/jclic
+	url = https://github.com/projectestac/moodle-mod_jclic.git
