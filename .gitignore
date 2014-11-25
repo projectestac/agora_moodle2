@@ -33,3 +33,7 @@ composer.lock
 /behat.yml
 */yui/build/*/*-coverage.js
 /lib/yuilib/*/build/*/*-coverage.js
+# Added to Agora
+mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-LOCAL.wsdl
+sftp-config*.json
+auth/odissea
