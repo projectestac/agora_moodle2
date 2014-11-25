@@ -4,3 +4,6 @@
 [submodule "mod/geogebra"]
 	path = mod/geogebra
 	url = https://github.com/projectestac/moodle-mod_geogebra.git
+[submodule "mod/qv"]
+	path = mod/qv
+	url = https://github.com/projectestac/moodle-mod_qv.git
