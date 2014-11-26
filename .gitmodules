@@ -7,3 +7,6 @@
 [submodule "mod/qv"]
 	path = mod/qv
 	url = https://github.com/projectestac/moodle-mod_qv.git
+[submodule "mod/journal"]
+	path = mod/journal
+	url = https://github.com/dmonllao/moodle-mod_journal.git
