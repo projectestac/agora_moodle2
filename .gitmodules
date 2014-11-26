@@ -22,3 +22,6 @@
 [submodule "blocks/rgrade"]
 	path = blocks/rgrade
 	url = https://github.com/imartel/Rgrade.git
+[submodule "theme/xtec2"]
+	path = theme/xtec2
+	url = https://github.com/projectestac/moodle-theme_xtec2.git
