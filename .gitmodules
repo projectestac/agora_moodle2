@@ -25,3 +25,6 @@
 [submodule "theme/xtec2"]
 	path = theme/xtec2
 	url = https://github.com/projectestac/moodle-theme_xtec2.git
+[submodule "langpacks"]
+	path = langpacks
+	url = https://github.com/projectestac/moodle-langpacks.git
