@@ -40,3 +40,6 @@
 [submodule "question/type/ddmarker"]
 	path = question/type/ddmarker
 	url = https://github.com/moodleou/moodle-qtype_ddmarker.git
+[submodule "langpacks"]
+	path = langpacks
+	url = https://github.com/projectestac/moodle-langpacks.git
