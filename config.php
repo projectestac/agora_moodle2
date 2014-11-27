@@ -21,7 +21,7 @@ $CFG->dboptions = array (
     'dbsocket' => false,
     'dbport' => ''
 );
-$CFG->langotherroot = MOODLE_BASE . '/lang/';
+$CFG->langotherroot = MOODLE_BASE . '/langpacks/';
 
 $CFG->directorypermissions = 00777;  // try 02777 on a server in Safe Mode
 
