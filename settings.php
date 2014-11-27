@@ -90,6 +90,10 @@ if ($CFG->iseoi) {
     $CFG->apligestaplic = 'AGORA';
 }
 
+$CFG->langotherroot = dirname(__FILE__) . '/langpacks/';
+$CFG->langlocalroot = dirname(__FILE__) . '/langpacks/';
+$CFG->skiplangupgrade  = true;
+
 // Only allow some of the languages
 if (!$CFG->iseoi) {
     $CFG->langlist = 'ca,en,es,fr,de';
