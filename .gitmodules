@@ -28,3 +28,6 @@
 [submodule "langpacks"]
 	path = langpacks
 	url = https://github.com/projectestac/moodle-langpacks.git
+[submodule "auth/googleoauth2"]
+	path = auth/googleoauth2
+	url = https://github.com/projectestac/moodle-auth_googleoauth2.git
