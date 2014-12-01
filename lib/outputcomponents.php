@@ -2805,7 +2805,15 @@ class custom_menu extends custom_menu_item {
                 $bits[1] = null;
             } else {
                 // Make sure the url is a moodle url
-                $bits[1] = new moodle_url(trim($bits[1]));
+                //XTEC MODIFICAT MDL-48430 custom_menu: Malformed url in custom menu cannot break the platform
+                try {
+                    $bits[1] = new moodle_url(trim($bits[1]));
+                } catch (Exception $e) {
+                    $bits[1] = null;
+                }
+                //******** CODI ORIGINAL
+                //$bits[1] = new moodle_url(trim($bits[1]));
+                //********* FI
             }
             if (!array_key_exists(2, $bits) or empty($bits[2])) {
                 // Set the title to null seeing as there isn't one
