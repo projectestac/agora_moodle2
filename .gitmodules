@@ -31,3 +31,6 @@
 [submodule "auth/googleoauth2"]
 	path = auth/googleoauth2
 	url = https://github.com/projectestac/moodle-auth_googleoauth2.git
+[submodule "local/oauth"]
+	path = local/oauth
+	url = https://github.com/projectestac/moodle-local_oauth.git
