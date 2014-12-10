@@ -37,3 +37,6 @@
 [submodule "local/agora"]
 	path = local/agora
 	url = https://github.com/projectestac/moodle-local_agora.git
+[submodule "local/bigdata"]
+	path = local/bigdata
+	url = https://github.com/projectestac/moodle-local_bigdata.git
