@@ -40,3 +40,6 @@
 [submodule "local/bigdata"]
 	path = local/bigdata
 	url = https://github.com/projectestac/moodle-local_bigdata.git
+[submodule "report/coursequotas"]
+	path = report/coursequotas
+	url = https://github.com/projectestac/moodle-report_coursequotas.git
