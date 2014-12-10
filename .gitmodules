@@ -34,3 +34,6 @@
 [submodule "local/oauth"]
 	path = local/oauth
 	url = https://github.com/projectestac/moodle-local_oauth.git
+[submodule "local/agora"]
+	path = local/agora
+	url = https://github.com/projectestac/moodle-local_agora.git
