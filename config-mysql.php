@@ -3,7 +3,7 @@
 define('AGORA_BASE', 'agora');
 define('INSTALL_BASE', dirname(dirname(dirname(__FILE__))));
 define('MOODLE_BASE', dirname(__FILE__));
-require_once(INSTALL_BASE . 'html/config/env-config.php');
+require_once(INSTALL_BASE . '/html/config/env-config.php');
 
 unset($CFG);
 global $CFG;
@@ -22,7 +22,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://agora/'.AGORA_BASE.'/moodle2';
-$CFG->dataroot  = INSTALL_BASE .'moodledata/moodle2/usu_mysql';
+$CFG->dataroot  = INSTALL_BASE .'/docs/moodle2/usu_mysql';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
