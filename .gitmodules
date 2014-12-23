@@ -43,3 +43,6 @@
 [submodule "report/coursequotas"]
 	path = report/coursequotas
 	url = https://github.com/projectestac/moodle-report_coursequotas.git
+[submodule "local/mobile"]
+	path = local/mobile
+	url = https://github.com/jleyva/moodle-local_mobile.git
