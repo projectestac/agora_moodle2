@@ -37,9 +37,9 @@ $CFG->smtpmaxbulk = 20;
 $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 $CFG->digestmailtime = 1;
 if ($CFG->iseoi) {
-	$CFG->mailheader = '[Àgora-EOI]';
+    $CFG->mailheader = '[Àgora-EOI]';
 } else {
-	$CFG->mailheader = '[Àgora]';
+    $CFG->mailheader = '[Àgora]';
 }
 
 //Cleanup
@@ -67,10 +67,10 @@ $CFG->sessiontimeout=3600;
 // This param (hour_restrictions) can be serialized. This is useful for setting it in database
 // Values for days: 0 = sunday, 1 = monday, ..., 6 = saturday
 if ($CFG->iseoi) {
-	$CFG->hour_restrictions = array(array('start' => '16:00', 'end' => '23:59', 'days' => '1|2|3|4|5'),
+    $CFG->hour_restrictions = array(array('start' => '16:00', 'end' => '23:59', 'days' => '1|2|3|4|5'),
                                 array('start' => '00:00', 'end' => '23:59', 'days' => '0|6'));
 } else {
-	$CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
+    $CFG->hour_restrictions = array(array('start' => '9:00', 'end' => '13:59', 'days' => '1|2|3|4|5'),
                                 array('start' => '15:00', 'end' => '16:59', 'days' => '1|2|3|4|5'));
 }
 
@@ -78,20 +78,20 @@ if ($CFG->iseoi) {
 $CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
 
 //Mail information
-//$CFG->apligestmail = 1;  		/* Set in database */
-//$CFG->apligestlog = 0;		/* Set in database */
-//$CFG->apligestlogdebug = 0;		/* Set in database */
-$CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
+//$CFG->apligestmail = 1;          /* Set in database */
+//$CFG->apligestlog = 0;        /* Set in database */
+//$CFG->apligestlogdebug = 0;        /* Set in database */
+//$CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
 $CFG->apligestenv = $agora['server']['enviroment'];
 if ($CFG->iseoi) {
-	$CFG->apligestaplic = 'AGORAEOI';
+    $CFG->apligestaplic = 'AGORAEOI';
 } else {
-	$CFG->apligestaplic = 'AGORA';
+    $CFG->apligestaplic = 'AGORA';
 }
 
 // Only allow some of the languages
 if (!$CFG->iseoi) {
-	$CFG->langlist = 'ca,en,es,fr,de';
+    $CFG->langlist = 'ca,en,es,fr,de';
 }
 
 if (isset($agora['server']['enviroment'])) {
@@ -104,14 +104,14 @@ $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
 $CFG->memcache_prefix = $CFG->dbuser.'_';
 if (isset($agora['moodle2']['memcache_servers'])) {
-	$CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
+    $CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
 } else {
-	$CFG->memcache_servers = '127.0.0.1';
+    $CFG->memcache_servers = '127.0.0.1';
 }
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
     $CFG->agora_muc_path = $agora['server']['root'].'cache_ins/'.$CFG->dbuser;
-	$CFG->cachedir = $CFG->agora_muc_path.'/cache';
-	$CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
+    $CFG->cachedir = $CFG->agora_muc_path.'/cache';
+    $CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
 }
 
 $CFG->timezone = 99; // Changed by default to Server's local time
