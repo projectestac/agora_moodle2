@@ -70,9 +70,19 @@ if (!$agora_cli && !empty($school_info['new_dns'])) {
      exit(0);
 }
 
-if (!$agora_cli && !isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
-    header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
-    exit(0);
+if (!isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
+    if ($agora_cli) {
+        // Check DB
+        $school_info = getSchoolInfoFromFile($centre, 2, 'moodle2');
+        if (!isset($school_info['id_moodle2']) || empty($school_info['id_moodle2'])) {
+            echo 'Center '.$centre.' not enabled';
+            echo "\nerror\n";
+            exit(0);
+        }
+    } else {
+        header('location: '.WWWROOT.'error.php?s=moodle2&dns='.$_REQUEST['ccentre']);
+        exit(0);
+    }
 } else {
     $currenthour = date('G');
     if ($agora['server']['enviroment'] == 'FRM') {
