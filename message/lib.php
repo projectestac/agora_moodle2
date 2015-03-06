@@ -2611,7 +2611,12 @@ function get_message_processors($ready = false, $reset = false, $resetonly = fal
                     }
                     $processor->hassettings = 0;
                     if (is_readable($CFG->dirroot.'/message/output/'.$processor->name.'/settings.php')) {
-                        $processor->hassettings = 1;
+                        //XTEC ************ AFEGIT - Only xtecadmin can manage them
+                        //2015.03.06  @pferre22
+                        if (get_protected_agora()) {
+                            $processor->hassettings = 1;
+                        }
+                        //************ FI
                     }
                     $processor->available = 1;
                 } else {
