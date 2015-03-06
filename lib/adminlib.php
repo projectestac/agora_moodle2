@@ -8931,6 +8931,17 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
              // Allow rest:use capability for authenticated user.
              $this->set_protocol_cap(true);
 
+            //XTEC ************ AFEGIT - To autoconfigure mobile additional features
+            //2015.03.06  @pferre22
+            // Enable service
+            $additionalmobileservice = $webservicemanager->get_external_service_by_shortname('local_mobile');
+            $additionalmobileservice->enabled = 1;
+            $webservicemanager->update_external_service($additionalmobileservice);
+            // Add capability
+            $systemcontext = context_system::instance();
+            assign_capability('moodle/webservice:createtoken', CAP_ALLOW, $CFG->defaultuserroleid, $systemcontext->id, true);
+            //************ FI
+
          } else {
              //disable web service system if no other services are enabled
              $otherenabledservices = $DB->get_records_select('external_services',
@@ -8960,6 +8971,14 @@ class admin_setting_enablemobileservice extends admin_setting_configcheckbox {
              $mobileservice = $webservicemanager->get_external_service_by_shortname(MOODLE_OFFICIAL_MOBILE_SERVICE);
              $mobileservice->enabled = 0;
              $webservicemanager->update_external_service($mobileservice);
+
+            //XTEC ************ AFEGIT - To autoconfigure mobile additional features
+            //2015.03.06  @pferre22
+            // Enable service
+            $additionalmobileservice = $webservicemanager->get_external_service_by_shortname('local_mobile');
+            $additionalmobileservice->enabled = 0;
+            $webservicemanager->update_external_service($additionalmobileservice);
+            //************ FI
          }
 
         return (parent::write_setting($data));
@@ -9139,8 +9158,8 @@ class admin_setting_manageexternalservices extends admin_setting {
             if ($auth == 'db' && !get_protected_agora() ) {
                 $settings = '';
             }
-            //************ FI    
-            
+            //************ FI
+
             // add a row to the table
             $table->data[] = array($displayname, $delete, $functions, $users, $edit);
         }
