@@ -55,3 +55,24 @@
 [submodule "lib/editor/atto/plugins/wiris"]
 	path = lib/editor/atto/plugins/wiris
 	url = https://github.com/projectestac/moodle-atto_wiris.git
+[submodule "question/type/wq"]
+	path = question/type/wq
+	url = https://github.com/projectestac/moodle-qtype_wq.git
+[submodule "question/type/truefalsewiris"]
+	path = question/type/truefalsewiris
+	url = https://github.com/projectestac/moodle-qtype_truefalsewiris.git
+[submodule "question/type/shortanswerwiris"]
+	path = question/type/shortanswerwiris
+	url = https://github.com/projectestac/moodle-qtype_shortanswerwiris.git
+[submodule "question/type/multichoicewiris"]
+	path = question/type/multichoicewiris
+	url = https://github.com/projectestac/moodle-qtype_multichoicewiris.git
+[submodule "question/type/multianswerwiris"]
+	path = question/type/multianswerwiris
+	url = https://github.com/projectestac/moodle-qtype_multianswerwiris.git
+[submodule "question/type/matchwiris"]
+	path = question/type/matchwiris
+	url = https://github.com/projectestac/moodle-qtype_matchwiris.git
+[submodule "question/type/essaywiris"]
+	path = question/type/essaywiris
+	url = https://github.com/projectestac/moodle-qtype_essaywiris.git
