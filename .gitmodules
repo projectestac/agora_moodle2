@@ -64,3 +64,9 @@
 [submodule "message/output/airnotifier"]
 	path = message/output/airnotifier
 	url = https://github.com/jleyva/moodle-message_airnotifier.git
+[submodule "filter/wiris"]
+	path = filter/wiris
+	url = https://github.com/projectestac/moodle-filter_wiris.git
+[submodule "lib/editor/tinymce/plugins/tiny_mce_wiris"]
+	path = lib/editor/tinymce/plugins/tiny_mce_wiris
+	url = https://github.com/projectestac/moodle-tinymce_wiris.git
