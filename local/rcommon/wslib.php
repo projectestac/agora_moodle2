@@ -5,9 +5,14 @@ function get_marsupial_ws_client($publisher, $auth_content = false) {
     // This call must be included to ensure the WSDL loading
     libxml_disable_entity_loader(false);
 
+    $debugging = debugging();
+    if ($debugging) {
+        ini_set('soap.wsdl_cache', WSDL_CACHE_NONE);
+    }
+
     $wsdl = $auth_content ? $publisher->urlwsauthentication : $publisher->urlwsbookstructure;
 
-    $options = get_marsupial_soap_options();
+    $options = get_marsupial_soap_options($debugging);
     $client = @new soapclient($wsdl.'?wsdl', $options);
 
     $auth = array('User' => $publisher->username, 'Password' => $publisher->password);
@@ -116,11 +121,21 @@ function rcommon_object_to_array_lower($value, $recursive = false) {
 
     // Solve lack of xmlns
     if(count($array) == 1 && isset($array['any'])){
-        $anyxml = simplexml_load_string ($array['any']);
+        $anyxml = simplexml_load_string ('<aux>'.$array['any'].'</aux>');
+        $anyxml = $anyxml->children();
         if (!$anyxml) {
             return false;
         }
-        $array = array($anyxml->getName() =>$anyxml);
+        $name = $anyxml->getName();
+        if (count($anyxml->$name) == 1) {
+            $array = array($name => $anyxml->$name);
+        } else {
+            $children = array();
+            foreach ($anyxml->$name as $child) {
+                $children[] = $child;
+            }
+            $array = array($name => $children);
+        }
     }
 
 	$array_ret = array();
