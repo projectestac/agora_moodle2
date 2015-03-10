@@ -46,3 +46,9 @@
 [submodule "local/mobile"]
 	path = local/mobile
 	url = https://github.com/jleyva/moodle-local_mobile.git
+[submodule "message/output/airnotifier"]
+	path = message/output/airnotifier
+	url = https://github.com/jleyva/moodle-message_airnotifier.git
+[submodule "filter/wiris"]
+	path = filter/wiris
+	url = https://github.com/projectestac/moodle-filter_wiris.git
