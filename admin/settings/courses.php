@@ -42,6 +42,15 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
             array('moodle/category:manage')
         )
     );
+    //XTEC ************ AFEGIT - Add restore course link
+    //2015.03.11  @pferre22
+    $ADMIN->add('courses',
+        new admin_externalpage('restorecourse', new lang_string('restorecourse', 'backup'),
+            new moodle_url('/backup/restorefile.php', array('contextid' => context_course::instance(SITEID)->id)),
+            array('moodle/course:create', 'moodle/restore:restorecourse')
+        )
+    );
+    //************ FI
 
     // Course Default Settings Page.
     // NOTE: these settings must be applied after all other settings because they depend on them.
@@ -198,7 +207,7 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
 
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.05.23  @sarjona
-    if (get_protected_agora()) { 
+    if (get_protected_agora()) {
     //************ FI
     // Create a page for automated backups configuration and defaults.
     $temp = new admin_settingpage('automated', new lang_string('automatedsetup','backup'), 'moodle/backup:backupcourse');
