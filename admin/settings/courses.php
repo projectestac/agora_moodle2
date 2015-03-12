@@ -43,6 +43,16 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
             array('moodle/category:manage')
         )
     );
+    //XTEC ************ AFEGIT - Add create course link
+    //2015.03.12  @pferre22
+    $catid = $DB->get_field('course_categories', 'id', array(), IGNORE_MULTIPLE);
+    $ADMIN->add('courses',
+        new admin_externalpage('createnewcourse', new lang_string('addnewcourse'),
+            new moodle_url('/course/edit.php', array('category' => $catid)),
+            array('moodle/course:create')
+        )
+    );
+    //************ FI
     $ADMIN->add('courses',
         new admin_externalpage('addnewcourse', new lang_string('addnewcourse'),
             new moodle_url('/course/edit.php', array('category' => 0)),
