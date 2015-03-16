@@ -9,16 +9,24 @@ Changes in progress
 - Added airnotifier module in order to enable push notifications
 - Enable Mobile additional features when enabling mobile webservices
 - Xtec2 Theme: Created new advices pseudo-block
+- Xtec2 Theme: Spelling revision
+- Change translation of upload courses tool title
 - Local Agora: Renewed mailer library to not depend on Moodle
 - Local Agora: Enable service script is not autoregistering Moodle anymore
 - Local Agora: Added script to edit advices pseudo-block
+- Mailer: Add debugging function to emmancipate from Moodle
+- Question type ddimageortext: Solve error when showing more than one question in the same page
 - Updated modules:
   - All Language packs included
   - Mobile
   - Hot Potatoes
   - Questionnaire
   - Wiris Quizzes
-  - Jclic
+  - Jclic 0.2.5
+    - Add protocol recognision through wwwroot url for the applet
+    - Set JClic default settings to https
+    - Solved problem showing url on mod edit form
+  
 
 Changes 15.02.20
 ---------------------------------------------------------------------------------------
