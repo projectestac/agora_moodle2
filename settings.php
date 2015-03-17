@@ -18,6 +18,8 @@ $CFG->updateautocheck = false;
 $CFG->disableupdatenotifications = true;
 $CFG->disableupdateautodeploy = true;
 $CFG->disableonclickaddoninstall = true;
+$CFG->updateminmaturity = 0;
+$CFG->updatenotifybuilds = false;
 
 //Preconfiguration setting
 $CFG->alternateloginurl='';
