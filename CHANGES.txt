@@ -3,7 +3,7 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
-Changes in progress
+Changes 15.03.20
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.6.7 to 2.6.10
 - Added airnotifier module in order to enable push notifications
@@ -14,6 +14,7 @@ Changes in progress
 - Local Agora: Renewed mailer library to not depend on Moodle
 - Local Agora: Enable service script is not autoregistering Moodle anymore
 - Local Agora: Added script to edit advices pseudo-block
+- Local Agora: Added script to delete orphaned assignments
 - Mailer: Add debugging function to emmancipate from Moodle
 - Question type ddimageortext: Solve error when showing more than one question in the same page
 - Updated modules:
@@ -26,7 +27,7 @@ Changes in progress
     - Add protocol recognision through wwwroot url for the applet
     - Set JClic default settings to https
     - Solved problem showing url on mod edit form
-  
+
 
 Changes 15.02.20
 ---------------------------------------------------------------------------------------
