@@ -63,7 +63,7 @@ $CFG->backup_auto_active = 0;
 $CFG->session_handler_class = '\core\session\file';
 $CFG->session_file_save_path = ini_get('session.save_path');
 $CFG->sessiontimeout=3600;
-//$CFG->sessioncookie = $CFG->center;
+$CFG->sessioncookie = $CFG->dbuser;
 
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
 // This param (hour_restrictions) can be serialized. This is useful for setting it in database
