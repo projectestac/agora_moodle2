@@ -3,6 +3,11 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Added new activity choicegroup that allow group enrolling over a choice activity
+- Allow tracking of activities in frontpage to users without role
+
 Changes 15.03.20
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.6.7 to 2.6.10
