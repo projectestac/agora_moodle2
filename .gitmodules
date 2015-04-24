@@ -52,3 +52,6 @@
 [submodule "filter/wiris"]
 	path = filter/wiris
 	url = https://github.com/projectestac/moodle-filter_wiris.git
+[submodule "lib/editor/atto/plugins/wiris"]
+	path = lib/editor/atto/plugins/wiris
+	url = https://github.com/projectestac/moodle-atto_wiris.git
