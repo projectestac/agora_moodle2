@@ -79,3 +79,6 @@
 [submodule "mod/choicegroup"]
 	path = mod/choicegroup
 	url = https://github.com/projectestac/moodle-mod_choicegroup
+[submodule "course/format/simple"]
+	path = course/format/simple
+	url = https://github.com/projectestac/moodle-format_simple.git
