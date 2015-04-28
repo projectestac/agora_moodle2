@@ -6109,39 +6109,38 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
     //XTEC ************ MODIFICAT - Use apligest system to send mails if it's configured
     //28.04.2011 @fcasanel
     //14.03.2012 @aginard
-    //17.01.2013 @aginard: added global $FULLME;
-    global $FULLME;
-
+    //28.04.2015 @pferre22
     if (!empty($CFG->apligestmail)) {
-        return send_apligest_mail($mail, $user);
+        $mailsent = send_apligest_mail($mail, $user);
     } else {
-        if ($mail->send()) {
-            set_send_count($user);
-            if (!empty($mail->SMTPDebug)) {
-                echo '</pre>';
-            }
-            return true;
-        } else {
-            // Trigger event for failing to send email.
-            $event = \core\event\email_failed::create(array(
-                'context' => context_system::instance(),
-                'userid' => $from->id,
-                'relateduserid' => $user->id,
-                'other' => array(
-                    'subject' => $subject,
-                    'message' => $messagetext,
-                    'errorinfo' => $mail->ErrorInfo
-                )
-            ));
-            $event->trigger();
-            if (CLI_SCRIPT) {
-                mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
-            }
-            if (!empty($mail->SMTPDebug)) {
-                echo '</pre>';
-            }
-            return false;
+        $mailsent = $mail->send();
+    }
+    if ($mailsent) {
+        set_send_count($user);
+        if (!empty($mail->SMTPDebug)) {
+            echo '</pre>';
         }
+        return true;
+    } else {
+        // Trigger event for failing to send email.
+        $event = \core\event\email_failed::create(array(
+            'context' => context_system::instance(),
+            'userid' => $from->id,
+            'relateduserid' => $user->id,
+            'other' => array(
+                'subject' => $subject,
+                'message' => $messagetext,
+                'errorinfo' => $mail->ErrorInfo
+            )
+        ));
+        $event->trigger();
+        if (CLI_SCRIPT) {
+            mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
+        }
+        if (!empty($mail->SMTPDebug)) {
+            echo '</pre>';
+        }
+        return false;
     }
     //************ ORIGINAL
     /*
