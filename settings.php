@@ -27,7 +27,6 @@ $CFG->mymoodleredirect = false;
 $CFG->enablestats = false;
 $CFG->themedesignermode = false;
 $CFG->cachejs = true;
-$CFG->cachetext = 0; // Disabled to enhace the performance
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
