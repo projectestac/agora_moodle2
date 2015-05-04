@@ -127,6 +127,14 @@ $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
 $CFG->cronclionly = 1; // changed to avoid schools change it
 
+/*if (isset($agora['proxy']['host']) && !empty($agora['proxy']['host'])) {
+    $CFG->proxyhost = $agora['proxy']['host'];
+    $CFG->proxyport = $agora['proxy']['port'];
+    $CFG->proxyuser = $agora['proxy']['user'];
+    $CFG->proxypassword = $agora['proxy']['pass'];
+}*/
+
+
 $CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
 
