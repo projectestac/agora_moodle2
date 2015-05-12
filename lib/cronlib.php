@@ -43,11 +43,16 @@ function cron_run() {
 
     //XTEC ************ AFEGIT - Protect cron to run twice at the same time
     //2014.02.17 @pferre22
-    $cronstart = get_config(NULL, 'cronstart');
-    $cronperiod = 900; //15 minutes minimum
-    if($cronstart + $cronperiod > time()){
-        echo "Moodle cron was executed recently.\n";
-        exit(0);
+    $force = optional_param('forcecron', false, PARAM_BOOL);
+    if (!$force) {
+        $cronstart = get_config(null, 'cronstart');
+        $cronperiod = 900; // 15 minutes minimum
+        if ($cronstart + $cronperiod > time()) {
+            echo "Moodle cron was executed recently.\n";
+            exit(0);
+        }
+    } else {
+        echo "Moodle cron forced.\n";
     }
     set_config('cronstart', time());
     //************ FI
