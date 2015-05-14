@@ -3,10 +3,19 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
-Changes in progress
+Changes 15.05.19
 ---------------------------------------------------------------------------------------
+- Moodle upgraded to from 2.6.10 to 2.6.11
 - Added new activity choicegroup that allow group enrolling over a choice activity
 - Allow tracking of activities in frontpage to users without role
+- Update Mailer library to reduce log and improve stability
+- Remove warnings in admin page
+- Move sessioncookie to settings
+- Update Marsupial to be enabled by default
+- Added proxy settings
+- Updated modules:
+  - Marsupial rcontent now has reports
+  - Hotpot, Moodle mobile, DD question types...
 
 Changes 15.03.20
 ---------------------------------------------------------------------------------------
