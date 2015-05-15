@@ -82,3 +82,9 @@
 [submodule "course/format/simple"]
 	path = course/format/simple
 	url = https://github.com/projectestac/moodle-format_simple.git
+[submodule "lib/editor/atto/plugins/fontsize"]
+	path = lib/editor/atto/plugins/fontsize
+	url = https://github.com/andrewnicols/moodle-atto_fontsize
+[submodule "lib/editor/atto/plugins/fontfamily"]
+	path = lib/editor/atto/plugins/fontfamily
+	url = https://github.com/projectestac/moodle-atto_fontfamily.git
