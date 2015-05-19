@@ -41,7 +41,15 @@ preferences,moodle|/user/preferences.php|preferences',
     $temp->add(new admin_setting_configcheckbox('enabledevicedetection', new lang_string('enabledevicedetection', 'admin'), new lang_string('configenabledevicedetection', 'admin'), 1));
     $temp->add(new admin_setting_devicedetectregex('devicedetectregex', new lang_string('devicedetectregex', 'admin'), new lang_string('devicedetectregex_desc', 'admin'), ''));
     $ADMIN->add('themes', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (get_protected_agora()) {
+    //************ FI
     $ADMIN->add('themes', new admin_externalpage('themeselector', new lang_string('themeselector','admin'), $CFG->wwwroot . '/theme/index.php'));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    }
+    //************ FI
 
     // settings for each theme
     foreach (core_component::get_plugin_list('theme') as $theme => $themedir) {
@@ -216,7 +224,7 @@ preferences,moodle|/user/preferences.php|preferences',
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.06.20  @sarjona
     }
-    //************ FI    
+    //************ FI
 
     $temp = new admin_externalpage('profilepage', new lang_string('myprofile', 'admin'), $CFG->wwwroot . '/user/profilesys.php',
             'moodle/my:configsyspages');
@@ -254,7 +262,7 @@ preferences,moodle|/user/preferences.php|preferences',
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.06.20  @sarjona
     if (get_protected_agora() ) {
-    //************ FI    
+    //************ FI
     $temp = new admin_settingpage('additionalhtml', new lang_string('additionalhtml', 'admin'));
     $temp->add(new admin_setting_heading('additionalhtml_heading', new lang_string('additionalhtml_heading', 'admin'), new lang_string('additionalhtml_desc', 'admin')));
     $temp->add(new admin_setting_configtextarea('additionalhtmlhead', new lang_string('additionalhtmlhead', 'admin'), new lang_string('additionalhtmlhead_desc', 'admin'), '', PARAM_RAW));
@@ -264,7 +272,7 @@ preferences,moodle|/user/preferences.php|preferences',
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.06.20  @sarjona
     }
-    //************ FI    
+    //************ FI
 
 } // end of speedup
 
