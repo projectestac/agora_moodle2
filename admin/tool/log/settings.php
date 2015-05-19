@@ -25,6 +25,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (!get_protected_agora()) {
+        return;
+    }
+    //************ FI
     $ADMIN->add('modules', new admin_category('logging', new lang_string('logging', 'tool_log')));
 
     $temp = new admin_settingpage('managelogging', new lang_string('managelogging', 'tool_log'));
