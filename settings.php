@@ -76,7 +76,7 @@ if ($CFG->iseoi) {
 }
 
 // These variable define DEFAULT block variables for new courses
-$CFG->defaultblocks_override = ':calendar_month,participants,activity_modules';
+$CFG->defaultblocks_override = ':calendar_month,activity_modules';
 
 //Mail information
 //$CFG->apligestmail = 1;          /* Set in database */
