@@ -25,6 +25,15 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
+
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (!get_protected_agora()) {
+        return;
+    }
+    //************ FI
+
+
     $ADMIN->add(
         'taskconfig',
         new admin_externalpage(
