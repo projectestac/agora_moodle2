@@ -129,5 +129,9 @@ $CFG->cronclionly = 1; // changed to avoid schools change it
 
 $CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
+
+$CFG->forced_plugin_settings = array('logstore_standard' => array('loglifetime' => 365 * 2),
+                                     'logstore_legacy' => array('loglegacy' => 1));
+
 // Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
