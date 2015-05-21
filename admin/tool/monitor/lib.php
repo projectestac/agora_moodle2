@@ -32,6 +32,12 @@ defined('MOODLE_INTERNAL') || die;
  * @param context         $context    The context of the course
  */
 function tool_monitor_extend_navigation_course($navigation, $course, $context) {
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (!get_protected_agora()) {
+        return;
+    }
+    //************ FI
     if (has_capability('tool/monitor:managerules', $context) && get_config('tool_monitor', 'enablemonitor')) {
         $url = new moodle_url('/admin/tool/monitor/managerules.php', array('courseid' => $course->id));
         $settingsnode = navigation_node::create(get_string('managerules', 'tool_monitor'), $url, navigation_node::TYPE_SETTING,
@@ -53,6 +59,12 @@ function tool_monitor_extend_navigation_course($navigation, $course, $context) {
  */
 function tool_monitor_extend_navigation_frontpage($navigation, $course, $context) {
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (!get_protected_agora()) {
+        return;
+    }
+    //************ FI
     if (has_capability('tool/monitor:managerules', $context)) {
         $url = new moodle_url('/admin/tool/monitor/managerules.php', array('courseid' => $course->id));
         $settingsnode = navigation_node::create(get_string('managerules', 'tool_monitor'), $url, navigation_node::TYPE_SETTING,
@@ -76,6 +88,12 @@ function tool_monitor_extend_navigation_frontpage($navigation, $course, $context
  */
 function tool_monitor_extend_navigation_user_settings($navigation, $user, $usercontext, $course, $coursecontext) {
     global $USER, $SITE;
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2015.05.19 @pferre22
+    if (!get_protected_agora()) {
+        return;
+    }
+    //************ FI
 
     // Don't show the setting if the event monitor isn't turned on. No access to other peoples subscriptions.
     if (get_config('tool_monitor', 'enablemonitor') && $USER->id == $user->id) {
