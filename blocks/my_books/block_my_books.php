@@ -105,7 +105,7 @@ class block_my_books extends block_list {
             $add->framepage      = 1;
             $add->coursemodule   = 0;
             $add->cmidnumber     = 0;
-            $add->windowpopup    = $mybooksconfig->activity_opening;
+            $add->popup    = $mybooksconfig->activity_opening;
             $add->resizable      = $mybooksconfig->resizable;
             $add->scrollbars     = $mybooksconfig->scrollbars;
             $add->directories    = $mybooksconfig->directories;
