@@ -143,7 +143,8 @@ $CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
 
 $CFG->forced_plugin_settings = array('logstore_standard' => array('loglifetime' => 365 * 2),
-                                     'logstore_legacy' => array('loglegacy' => 1));
+                                     'logstore_legacy' => array('loglegacy' => 1),
+                                     'filter_wiris' => array('uninstall' => 1));
 
 // Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
