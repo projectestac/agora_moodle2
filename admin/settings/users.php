@@ -209,7 +209,7 @@ if ($hassiteconfig
     /*
     if (is_siteadmin()) {
      */
-    //************ FI    
+    //************ FI
         $ADMIN->add('roles', new admin_externalpage('admins', new lang_string('siteadministrators', 'role'), "$CFG->wwwroot/$CFG->admin/roles/admins.php"));
     }
     $ADMIN->add('roles', new admin_externalpage('defineroles', new lang_string('defineroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/manage.php", 'moodle/role:manage'));
