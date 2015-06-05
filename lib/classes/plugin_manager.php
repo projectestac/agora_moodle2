@@ -220,7 +220,7 @@ class core_plugin_manager {
             }
             //XTEC ************ AFEGIT - Only enabled modules has to be showed
             //2012.11.06  @sarjona
-            if (!is_enabled_in_agora($parts[1]) ){
+            if (!is_enabled_in_agora($parts[1]) || !is_enabled_in_agora($parts[0])){
                 continue;
             }
             //************ FI
