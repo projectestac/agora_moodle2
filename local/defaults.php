@@ -19,3 +19,16 @@ Please note that not all settings are converted to admin_tree, they are mostly i
 
 $defaults['moodle']['calendar_startwday'] = 1;
 $defaults['moodle']['allowblockstodock'] = 0;
+$defaults['editor_atto']['toolbar'] = 'collapse = collapse
+style1 = title, bold, italic
+list = unorderedlist, orderedlist
+links = link
+files = image, media, managefiles
+style2 = underline, strike, subscript, superscript
+align = align
+indent = indent
+insert = equation, charmap, table, clear
+math = wiris
+undo = undo
+accessibility = accessibilitychecker, accessibilityhelper
+other = html';
