@@ -20,15 +20,16 @@ Please note that not all settings are converted to admin_tree, they are mostly i
 $defaults['moodle']['calendar_startwday'] = 1;
 $defaults['moodle']['allowblockstodock'] = 0;
 $defaults['editor_atto']['toolbar'] = 'collapse = collapse
-style1 = title, bold, italic
+style1 = title, bold, italic, underline
 list = unorderedlist, orderedlist
 links = link
 files = image, media, managefiles
-style2 = underline, strike, subscript, superscript
+undo = undo
+style3 = fontfamily, fontsize, fontcolor, backcolor, clear
+style2 = strike, subscript, superscript
 align = align
 indent = indent
-insert = equation, charmap, table, clear
-math = wiris
-undo = undo
+insert = equation, charmap, table
 accessibility = accessibilitychecker, accessibilityhelper
-other = html';
+other = html
+math = wiris';
