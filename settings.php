@@ -35,6 +35,7 @@ $CFG->recaptchapublickey='6LcgQgsAAAAAAMZKqiYEDAhniHIY0hXC-MMVM6Rs';
 $CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
 
 //Mail
+$CFG->smtphosts = "";
 $CFG->smtpmaxbulk = 20;
 $CFG->noreplyaddress = 'noreply@agora.xtec.cat';
 $CFG->digestmailtime = 1;
