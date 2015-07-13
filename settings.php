@@ -128,6 +128,8 @@ if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
     $CFG->cachedir = $CFG->agora_muc_path.'/cache';
     $CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
 }
+// Change locking from NFS to DB
+$CFG->lock_factory = "\\core\\lock\\db_record_lock_factory";
 
 $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';  // changed to avoid schools change it
