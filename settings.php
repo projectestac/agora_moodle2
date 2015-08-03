@@ -105,13 +105,9 @@ if (isset($agora['server']['enviroment'])) {
     $CFG->eoicampus_wsdl_path = dirname(__FILE__) . '/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
 }
 
-
-if ($CFG->ismarsupial && isset($agora['moodle2']['airnotifiermarsupial'])) {
-    $CFG->airnotifieraccesskey = $agora['moodle2']['airnotifiermarsupial'];
-} else if(isset($agora['moodle2']['airnotifier'])) {
+if(isset($agora['moodle2']['airnotifier'])) {
     $CFG->airnotifieraccesskey = $agora['moodle2']['airnotifier'];
 }
-
 
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
 // This folder has to exists and to be writable
