@@ -7,6 +7,7 @@ Changes 15.08.10
 ---------------------------------------------------------------------------------------
 - Disabled marsupial as an independent service
 - Updated Mailer WSDL's
+- Adapt mobile css for the 2nd version of the app
 
 Changes 15.07.20
 ---------------------------------------------------------------------------------------
