@@ -101,10 +101,6 @@ if (!$CFG->iseoi) {
     $CFG->langlist = 'ca,en,es,fr,de';
 }
 
-if (isset($agora['server']['enviroment'])) {
-    $CFG->eoicampus_wsdl_path = dirname(__FILE__) . '/mod/eoicampus/action/wsdl/EOICampusWS_generat-ESB-'.$agora['server']['enviroment'].'.wsdl';
-}
-
 if(isset($agora['moodle2']['airnotifier'])) {
     $CFG->airnotifieraccesskey = $agora['moodle2']['airnotifier'];
 }
