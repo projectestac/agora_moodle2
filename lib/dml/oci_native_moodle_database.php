@@ -357,7 +357,10 @@ class oci_native_moodle_database extends moodle_database {
     protected function parse_query($sql) {
         $stmt = oci_parse($this->oci, $sql);
         if ($stmt == false) {
-            throw new dml_connection_exception('Can not parse sql query'); //TODO: maybe add better info
+            // XTEC AFEGIT: Add more information to parse_query error (TO REPORT)
+            // @pferre22 2015.10.01
+            throw new dml_connection_exception('Can not parse sql query: '.$this->get_last_error()); //TODO: maybe add better info
+            // FI XTEC
         }
         return $stmt;
     }
