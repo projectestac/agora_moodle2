@@ -31,8 +31,8 @@ $CFG->slasharguments = true;
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
-$CFG->recaptchapublickey='6LcgQgsAAAAAAMZKqiYEDAhniHIY0hXC-MMVM6Rs';
-$CFG->recaptchaprivatekey='6LcgQgsAAAAAAMAOLB0yfxPACo0e60sKD5ksV_hP';
+$CFG->recaptchapublickey=$agora['recaptchapublickey'];
+$CFG->recaptchaprivatekey=$agora['recaptchaprivatekey'];
 
 //Mail
 $CFG->smtphosts = "";
