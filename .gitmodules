@@ -15,7 +15,7 @@
 	url = https://github.com/gbateson/moodle-mod_hotpot.git
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
-	url = https://github.com/remotelearner/moodle-mod_questionnaire.git
+	url = https://github.com/projectestac/moodle-mod_questionnaire.git
 [submodule "question/format/hotpot"]
 	path = question/format/hotpot
 	url = https://github.com/gbateson/moodle-qformat_hotpot.git
