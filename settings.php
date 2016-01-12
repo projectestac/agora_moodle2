@@ -5,7 +5,7 @@ get_debug();
 
 // Force general preferences. Prevailes over database params.
 $CFG->isagora = 1;
-$CFG->iseoi = false;
+$CFG->iseoi = $agora['iseoi'];
 $CFG->isportal = false;
 $CFG->center = isset($school_info['clientCode']) ? $school_info['clientCode'] : $school_info['id_moodle2'];
 
@@ -34,8 +34,8 @@ $CFG->slasharguments = true;
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
-$CFG->recaptchapublickey=$agora['recaptchapublickey'];
-$CFG->recaptchaprivatekey=$agora['recaptchaprivatekey'];
+$CFG->recaptchapublickey = $agora['recaptchapublickey'];
+$CFG->recaptchaprivatekey = $agora['recaptchaprivatekey'];
 
 //Mail
 $CFG->smtphosts = "";
