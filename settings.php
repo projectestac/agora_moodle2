@@ -141,6 +141,12 @@ $CFG->cronclionly = 1; // changed to avoid schools change it
 
 $CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
 
+$CFG->customusermenuitems = "grades,grades|/grade/report/mygrades.php|grades
+messages,message|/message/index.php|message
+badges,badges|/badges/mybadges.php|award
+calendar,calendar|/calendar/view.php|calendar
+preferences,moodle|/user/preferences.php|preferences";
+
 
 $CFG->forced_plugin_settings = array('logstore_standard' => array('loglifetime' => 365 * 2),
                                      'logstore_legacy' => array('loglegacy' => 1),
