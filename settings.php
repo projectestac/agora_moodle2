@@ -51,6 +51,7 @@ if ($CFG->iseoi) {
 //Cleanup
 $CFG->disablegradehistory = 1;
 $CFG->loglifetime = 365 * 2;
+$CFG->tempdatafoldercleanup = 24;
 
 //Rules
 $CFG->forceloginforprofiles = 1;
