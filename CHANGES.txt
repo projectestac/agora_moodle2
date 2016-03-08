@@ -3,12 +3,20 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 16.03.14
+---------------------------------------------------------------------------------------
+- Updated LangPacks
+- Added progress bar block and updated submodules in order to get progress bar working
+- MDL-48778 assign: Use proper latest attempt for quickgrading prechecks
+
+
 Changes 16.02.22
 ---------------------------------------------------------------------------------------
 - Updated all related wiris plugins
 - Moved local crons to Moodle tasks
 - Updates to prepare for Moodle 3 version
 - Updated Local Mobile
+
 
 Changes 16.02.01
 ---------------------------------------------------------------------------------------
