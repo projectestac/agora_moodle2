@@ -8,6 +8,7 @@ Changes 16.03.14
 - Updated LangPacks
 - Added progress bar block and updated submodules in order to get progress bar working
 - MDL-48778 assign: Use proper latest attempt for quickgrading prechecks
+- Added delete temporary tables to cron
 
 
 Changes 16.02.22
