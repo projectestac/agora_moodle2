@@ -3,6 +3,11 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Moodle upgraded to from 2.8.11
+
+
 Changes 16.03.14
 ---------------------------------------------------------------------------------------
 - Updated LangPacks
