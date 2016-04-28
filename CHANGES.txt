@@ -5,7 +5,8 @@ development home at https://github.com/projectestac/agora_moodle2
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-- Moodle upgraded to from 2.8.11
+- Moodle upgraded to from 2.8.11 (Trello #1213)
+- Added support to split data folders if necessary (Trello #1230)
 
 
 Changes 16.03.14
