@@ -16,5 +16,6 @@ if ($agora['server']['enviroment'] == 'FRM') {
 $CFG->dbname    = $school_info['database_moodle2'];
 $CFG->dbuser    = $agora['moodle2']['username'] . $school_info['id_moodle2'];
 $CFG->wwwroot   = $agora['server']['server'] . $agora['server']['base'] . $centre . '/moodle';
-$CFG->dataroot  = INSTALL_BASE . '/'. $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+//$CFG->dataroot  = INSTALL_BASE . '/'. $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+$CFG->dataroot  = INSTALL_BASE . '/'. get_filepath_moodle(array());
 $CFG->dnscentre = $centre;
