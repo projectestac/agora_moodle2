@@ -7,6 +7,9 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.8.11 (Trello #1213)
 - Added support to split data folders if necessary (Trello #1230)
+- Updated local_mobile to 2.8.300
+- Updated mod/questionaire
+- Updated local/oauth
 
 
 Changes 16.03.14
