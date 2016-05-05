@@ -10,6 +10,7 @@ Changes in progress
 - Updated local_mobile to 2.8.300
 - Updated mod/questionaire
 - Updated local/oauth
+- local_agora: Changed default exceptionerror to avoid error in admin pages when datadir is not writable
 
 
 Changes 16.03.14
