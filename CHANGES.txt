@@ -6,11 +6,16 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.8.11 (Trello #1213)
-- Added support to split data folders if necessary (Trello #1230)
 - Updated local_mobile to 2.8.300
 - Updated mod/questionaire
 - Updated local/oauth
 - local_agora: Changed default exceptionerror to avoid error in admin pages when datadir is not writable
+- Zipped old log cron and mailer files until they will be deleted (Trello #1234)
+
+
+Changes 16.05.03
+---------------------------------------------------------------------------------------
+- Added support to split data folders if necessary (Trello #1230)
 
 
 Changes 16.03.14
