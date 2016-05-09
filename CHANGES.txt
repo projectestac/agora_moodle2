@@ -5,7 +5,7 @@ development home at https://github.com/projectestac/agora_moodle2
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-- Moodle upgraded to from 2.8.11 (Trello #1213)
+- Moodle upgraded to from 2.8.12 (Trello #1213)
 - Updated local_mobile to 2.8.300
 - Updated mod/questionaire
 - Updated local/oauth
