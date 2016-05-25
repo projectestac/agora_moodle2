@@ -102,7 +102,7 @@
 	url = https://github.com/projectestac/moodle-atto_fontfamily.git
 [submodule "blocks/progress"]
 	path = blocks/progress
-	url = https://github.com/deraadt/Moodle-block_progress.git
+	url = https://github.com/projectestac/Moodle-block_progress.git
 [submodule "mod/quiz/accessrule/offlineattempts"]
 	path = mod/quiz/accessrule/offlineattempts
 	url = https://github.com/jleyva/moodle-quizaccess_offlineattempts.git
