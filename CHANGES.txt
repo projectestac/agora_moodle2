@@ -6,7 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.8.12 (Trello #1213)
-- Updated local_mobile to 2.8.300
+- Updated local_mobile to 2.8.310
 - Updated mod/questionaire
 - Updated local/oauth
 - local_agora: Changed default exceptionerror to avoid error in admin pages when datadir is not writable
