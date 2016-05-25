@@ -11,6 +11,7 @@ Changes in progress
 - Updated local/oauth
 - local_agora: Changed default exceptionerror to avoid error in admin pages when datadir is not writable
 - Zipped old log cron and mailer files until they will be deleted (Trello #1234)
+- Updated mod/hotpot
 
 
 Changes 16.05.03
