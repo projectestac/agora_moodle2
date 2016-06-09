@@ -164,6 +164,10 @@ if ($hassiteconfig) {
     }
 
     // Antivirus plugins.
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.06.09  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI
     $ADMIN->add('modules', new admin_category('antivirussettings', new lang_string('antiviruses', 'antivirus')));
     $temp = new admin_settingpage('manageantiviruses', new lang_string('antivirussettings', 'antivirus'));
     $temp->add(new admin_setting_manageantiviruses());
@@ -174,6 +178,10 @@ if ($hassiteconfig) {
         /* @var \core\plugininfo\antivirus $plugin */
         $plugin->load_settings($ADMIN, 'antivirussettings', $hassiteconfig);
     }
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.06.09  @sarjona
+    }
+    //************ FI
 
     // Machine learning backend plugins.
     $ADMIN->add('modules', new admin_category('mlbackendsettings', new lang_string('mlbackendsettings', 'admin')));
@@ -549,7 +557,14 @@ foreach ($pages as $page) {
     $ADMIN->add('reportplugins', $page);
 }
 
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2016.06.09  @sarjona
+if ($hassiteconfig && get_protected_agora() ) {
+//************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+//************ FI
     // Global Search engine plugins.
     $ADMIN->add('modules', new admin_category('searchplugins', new lang_string('search', 'admin')));
     $temp = new admin_settingpage('manageglobalsearch', new lang_string('globalsearchmanage', 'admin'));
