@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - Updated LangPacks
 - GeoGebra: Fixed bug when saving manual-grade and comments for each attempt (Trello #1276)
+- Updated local_mobile
 
 
 Changes 16.05.03
