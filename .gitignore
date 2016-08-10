@@ -45,4 +45,10 @@ composer.phar
 /lib/yuilib/*/*/*-coverage.js
 atlassian-ide-plugin.xml
 /node_modules/
+<<<<<<< HEAD
 /.vscode/
+=======
+# Added to Agora
+sftp-config*.json
+auth/odissea
+>>>>>>> 6ec5ed0c4c1... Git: Updated gitignore for Agora Moodle
