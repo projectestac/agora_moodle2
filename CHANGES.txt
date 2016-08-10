@@ -3,6 +3,11 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Moodle upgraded to from 3.1.1 (Trello #1268)
+- Updated all related wiris plugins
+
 Changes 16.05.03
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 2.8.12 (Trello #1213)
