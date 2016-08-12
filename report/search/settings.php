@@ -24,7 +24,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+//XTEC ************ MODIFICAT - To let access only to xtecadmin user
+//2016.08.16 @sarjona
+if ($hassiteconfig & get_protected_agora()) {
+//************ ORIGINAL
+/*
 if ($hassiteconfig) {
+ */
+//************ FI
 
     $searchurl = $CFG->wwwroot . '/report/search/index.php';
     $ADMIN->add('reports', new admin_externalpage('reportsearch', new lang_string('pluginname', 'report_search'),
