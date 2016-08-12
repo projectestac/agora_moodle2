@@ -43,8 +43,16 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('enablebadges', new lang_string('enablebadges', 'badges'), new lang_string('configenablebadges', 'badges'), 1));
 
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.08.12  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI
     $optionalsubsystems->add(new admin_setting_configcheckbox('enableglobalsearch', new lang_string('enableglobalsearch', 'admin'),
         new lang_string('enableglobalsearch_desc', 'admin'), 0, 1, 0));
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.08.12  @sarjona
+    }
+    //************ FI
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('allowstealth', new lang_string('allowstealthmodules'),
         new lang_string('allowstealthmodules_help'), 0, 1, 0));
