@@ -259,10 +259,18 @@ if ($hassiteconfig) {
     }
 
     // Data format settings.
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.08.16  @sarjona
+    if (get_protected_agora() ) {
+    //************ FI
     $ADMIN->add('modules', new admin_category('dataformatsettings', new lang_string('dataformats')));
     $temp = new admin_settingpage('managedataformats', new lang_string('managedataformats'));
     $temp->add(new admin_setting_managedataformats());
     $ADMIN->add('dataformatsettings', $temp);
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //2016.08.16  @sarjona
+    }
+    //************ FI
 
     //== Portfolio settings ==
     require_once($CFG->libdir. '/portfoliolib.php');
