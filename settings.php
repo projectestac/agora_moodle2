@@ -151,7 +151,14 @@ preferences,moodle|/user/preferences.php|preferences";
 $CFG->forced_plugin_settings = array('logstore_standard' => array('loglifetime' => 365 * 2),
                                      'logstore_legacy' => array('loglegacy' => 1),
                                      'filter_wiris' => array('uninstall' => 1),
-                                     'backup' => array('loglifetime' => 7));
+                                     'backup' => array('loglifetime' => 7,
+                                                       'backup_auto_delete_days' => 365,
+                                                       'backup_auto_min_kept' => 1),
+                                     'tool_recyclebin' => array('coursebinenable' => 1,
+                                                                'coursebinexpiry' => 604800,
+                                                                'categorybinenable' => 1,
+                                                                'categorybinexpiry' => 604800)
+                                     );
 
 // Here is where the cronlogs will be stored
 //$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
