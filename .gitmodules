@@ -21,7 +21,7 @@
 	url = https://github.com/gbateson/moodle-qformat_hotpot.git
 [submodule "blocks/rgrade"]
 	path = blocks/rgrade
-	url = https://github.com/imartel/Rgrade.git
+	url = https://github.com/projectestac/Rgrade.git
 [submodule "theme/xtec2"]
 	path = theme/xtec2
 	url = https://github.com/projectestac/moodle-theme_xtec2.git
@@ -51,7 +51,7 @@
 	url = https://github.com/jleyva/moodle-message_airnotifier.git
 [submodule "filter/wiris"]
 	path = filter/wiris
-	url = https://github.com/projectestac/moodle-filter_wiris.git
+	url = https://github.com/wiris/moodle-filter_wiris.git
 [submodule "lib/editor/atto/plugins/wiris"]
 	path = lib/editor/atto/plugins/wiris
 	url = https://github.com/projectestac/moodle-atto_wiris.git
