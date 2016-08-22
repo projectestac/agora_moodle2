@@ -9,7 +9,7 @@ $check = required_param('check', PARAM_TEXT);
 
 $url = explode("|", $parm);
 
-$username = trim(textlib::strtolower($url[0]));
+$username = trim(core_text::strtolower($url[0]));
 $password = $url[1];
 $home= $url[2].'index.php?module=Users&func=loginscreen';
 $id_pn = $url[3] ;
