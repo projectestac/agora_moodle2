@@ -386,10 +386,20 @@ function grade_regrade_final_grades_if_required($course, callable $callback = nu
 
         // Show regrade errors and set the course to no longer needing regrade (stop endless loop).
         if (is_array($status)) {
+        //XTEC ************ MODIFICAT - Fixed infinite loop "Recalculating grades": https://tracker.moodle.org/browse/MDL-55707
+        //2016.09.01 @sarjona
+            foreach ($status as $key => $error) {
+                $errortext = new \core\output\notification($error.' [[id='.$key.']]', \core\output\notification::NOTIFY_ERROR);
+                echo $OUTPUT->render($errortext);
+            }
+        //************ ORIGINAL
+        /*
             foreach ($status as $error) {
                 $errortext = new \core\output\notification($error, \core\output\notification::NOTIFY_ERROR);
                 echo $OUTPUT->render($errortext);
             }
+        */
+        //************ FI
             $courseitem = grade_item::fetch_course_item($course->id);
             $courseitem->regrading_finished();
         }
