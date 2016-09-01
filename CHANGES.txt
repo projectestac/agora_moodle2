@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - Updated auth/googleoauth2 to fix problems with login button (Trello #1321)
 - mod/questionnaire: Fixed bug with CSV export (Trello #1322)
+- gradelib: Fixed infinite loop "Recalculating grades" - MDL-55707  (Trello #1324)
 
 
 Changes 16.08.22
