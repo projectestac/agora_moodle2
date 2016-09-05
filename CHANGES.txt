@@ -10,6 +10,7 @@ Changes in progress
 - mod/questionnaire: Fixed bug with CSV export (Trello #1322)
 - gradelib: Fixed infinite loop "Recalculating grades" - MDL-55707  (Trello #1324)
 - Applied path to avoid "Cannot find session record xxxxxxxxxxxxx for user Z, creating new session"
+- report/coursequotas: Added filemanager (Trello #1278)
 
 
 Changes 16.08.22
