@@ -8,6 +8,7 @@ Changes in progress
 - RSS: Fixed bug to show feed name when preferred is not specified - MDL-55886 (Trello #1338)
 - Updated mod/choicegroup to fix detected problems with groups duplication (installed original version) (Trello #1341)
 - Updated blocks/rgrade
+- theme/xtec2: fixed problem when more than 5 languages
 
 
 Changes 16.09.07
