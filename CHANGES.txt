@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 3.1.2 (Trello #1343)
+- Updated LangPacks
 - RSS: Fixed bug to show feed name when preferred is not specified - MDL-55886 (Trello #1338)
 - Updated mod/choicegroup to fix detected problems with groups duplication (installed original version) (Trello #1341)
 - Updated blocks/rgrade
