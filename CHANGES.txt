@@ -14,6 +14,7 @@ Changes in progress
 - report/coursequotas: Added icons for usability and improved performance (Trello #1278)
 - mod/jclic: Added support for JClic HTML5 player (Trello #1294)
 - Updated mod/hotpot
+- local/rcommon: Fixed bug when filtering users from a course with group mode different from "No groups" (Trello #1353)
 
 
 Changes 16.09.07
