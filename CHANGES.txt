@@ -13,6 +13,7 @@ Changes in progress
 - theme/xtec2: fixed problem when more than 5 languages
 - report/coursequotas: Added icons for usability and improved performance (Trello #1278)
 - mod/jclic: Added support for JClic HTML5 player (Trello #1294)
+- Updated mod/hotpot
 
 
 Changes 16.09.07
