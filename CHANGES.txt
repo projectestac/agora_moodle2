@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - mod/assign: Filtering in Assignment grading interface throws a javascript error - MDL-56300 (Trello #1392)
 - report/coursequotas: Separate the report views to improve performance (Trello #1278)
+- Updated mod/hotpot
 
 
 Changes 16.09.19
