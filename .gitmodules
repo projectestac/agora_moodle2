@@ -91,3 +91,7 @@
 [submodule "blocks/progress"]
 	path = blocks/progress
 	url = https://github.com/projectestac/Moodle-block_progress.git
+[submodule "local/alexandriaimporter"]
+	path = local/alexandriaimporter
+	url = https://github.com/projectestac/moodle-local_alexandriaimporter.git
+	
