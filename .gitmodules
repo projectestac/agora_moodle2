@@ -94,3 +94,6 @@
 [submodule "mod/quiz/accessrule/offlineattempts"]
 	path = mod/quiz/accessrule/offlineattempts
 	url = https://github.com/jleyva/moodle-quizaccess_offlineattempts.git
+[submodule "local/alexandriaimporter"]
+	path = local/alexandriaimporter
+	url = https://github.com/projectestac/moodle-local_alexandriaimporter.git
