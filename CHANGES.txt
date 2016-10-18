@@ -10,6 +10,7 @@ Changes in progress
 - Updated mod/hotpot
 - Updated mod/jclic
 - local/alexandriaimporter: Added local plugin for importing courses and SCORM activities from Alexandria (Trello #1318)
+- local/clickedu: Added local plugin for synchronizing with ClickEdu (Trello #913)
 
 
 Changes 16.09.19
