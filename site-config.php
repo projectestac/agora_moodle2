@@ -13,9 +13,15 @@ if ($agora['server']['enviroment'] == 'FRM') {
     }
 }
 
-$CFG->dbname    = $school_info['database_moodle2'];
-$CFG->dbuser    = $agora['moodle2']['username'] . $school_info['id_moodle2'];
-$CFG->wwwroot   = $agora['server']['server'] . $agora['server']['base'] . $centre . '/moodle';
-//$CFG->dataroot  = INSTALL_BASE . '/'. $agora['moodle2']['datadir'] . $agora['moodle2']['username'] . $school_info['id_moodle2'];
+$CFG->dbname = $school_info['database_moodle2'];
+$CFG->dbuser = $agora['moodle2']['username'] . $school_info['id_moodle2'];
+
+// Check for subdomain
+if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain') && !empty($school_info['url_host'])) {
+    $CFG->wwwroot = $agora['server']['html'] . 'moodle';
+} else {
+    $CFG->wwwroot = $agora['server']['html'] . $centre . '/moodle';
+}
+
 $CFG->dataroot  = INSTALL_BASE . '/'. get_filepath_moodle();
 $CFG->dnscentre = $centre;
