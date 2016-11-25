@@ -3,6 +3,12 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Updated filter/wiris and atto/wiris
+
+
+
 Changes 16.10.24
 ---------------------------------------------------------------------------------------
 - mod/assign: Filtering in Assignment grading interface throws a javascript error - MDL-56300 (Trello #1392)
