@@ -78,7 +78,7 @@
 	url = https://github.com/projectestac/moodle-qtype_essaywiris.git
 [submodule "mod/choicegroup"]
 	path = mod/choicegroup
-	url = https://github.com/projectestac/moodle-mod_choicegroup
+	url = https://github.com/ndunand/moodle-mod_choicegroup.git
 [submodule "course/format/simple"]
 	path = course/format/simple
 	url = https://github.com/projectestac/moodle-format_simple.git
