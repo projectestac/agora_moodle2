@@ -10,6 +10,7 @@ Changes in progress
 - Updated local/mobile
 - Updated mod/questionnaire
 - Updated mod/choicegroup
+- Added completion progress bar block (block_completion_progress) to replace progress bar block
 
 
 Changes 16.10.24
