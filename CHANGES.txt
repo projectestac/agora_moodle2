@@ -9,6 +9,7 @@ Changes in progress
 - Updated local/alexandriaimporter: Repaired load more button
 - Updated local/mobile
 - Updated mod/questionnaire
+- Updated mod/choicegroup
 
 
 Changes 16.10.24
