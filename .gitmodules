@@ -97,3 +97,6 @@
 [submodule "local/clickedu"]
 	path = local/clickedu
 	url = https://github.com/clickedu/ClickeduMoodlePlugin.git
+[submodule "blocks/completion_progress"]
+	path = blocks/completion_progress
+	url = https://github.com/projectestac/moodle-block_completion_progress.git
