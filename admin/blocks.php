@@ -206,6 +206,13 @@
             $undeletable = '<a href="blocks.php?protect='.$blockid.'&amp;sesskey='.sesskey().'" title="'.$strprotect.'">'.
                        '<img src="'.$OUTPUT->pix_url('t/lock') . '" class="iconsmall" alt="'.$strprotect.'" /></a>';
         }
+        //XTEC ************ AFEGIT - To let access only to xtecadmin user
+        //2016.12.23  @sarjona
+        if (!get_protected_agora() && $blockname === 'progress') {
+            $visible = '';
+            $undeletable = '';
+        }
+        //************ FI
 
         $row = array(
             $strblockname,
