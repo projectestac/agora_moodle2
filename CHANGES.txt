@@ -11,6 +11,7 @@ Changes in progress
 - Updated mod/questionnaire
 - Updated mod/choicegroup
 - Added completion progress bar block (block_completion_progress) to replace progress bar block
+- Updated LangPacks
 
 
 Changes 16.10.24
