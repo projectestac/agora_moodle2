@@ -5,6 +5,7 @@ development home at https://github.com/projectestac/agora_moodle2
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+- Moodle upgraded to from 3.1.4 (Trello #1455)
 - Updated filter/wiris and atto/wiris
 - Updated local/alexandriaimporter: Repaired load more button
 - Updated local/mobile
