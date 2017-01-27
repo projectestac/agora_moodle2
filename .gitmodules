@@ -9,7 +9,7 @@
 	url = https://github.com/projectestac/moodle-mod_qv.git
 [submodule "mod/journal"]
 	path = mod/journal
-	url = https://github.com/dmonllao/moodle-mod_journal.git
+	url = https://github.com/projectestac/moodle-mod_journal.git
 [submodule "mod/hotpot"]
 	path = mod/hotpot
 	url = https://github.com/gbateson/moodle-mod_hotpot.git
