@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - mod/jclic: Changed default report to detailed
 - local/alexandriaimported: Reviewed some Catalan string
+- Updated LangPacks
 
 
 Changes 17.01.16
