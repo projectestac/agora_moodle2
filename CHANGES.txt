@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 3.1.5 (Trello #1553)
+- Updated all related wiris plugins (Trello #1560)
 
 
 Changes 17.02.13
