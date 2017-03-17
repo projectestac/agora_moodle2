@@ -9,6 +9,7 @@ Changes in progress
 - Updated all related wiris plugins (Trello #1560)
 - Updated local/mobile
 - Updated mod/hotpot
+- Updated local/agora
 
 
 Changes 17.02.13
