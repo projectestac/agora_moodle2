@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Updated mod/hotpot
+- Updated all related wiris plugins
 
 
 Changes 17.03.28
