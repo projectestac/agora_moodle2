@@ -7,6 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - Updated mod/hotpot
 - Updated all related wiris plugins
+- Updated LangPacks
 
 
 Changes 17.03.28
