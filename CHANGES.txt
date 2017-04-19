@@ -8,6 +8,7 @@ Changes in progress
 - Updated mod/hotpot
 - Updated all related wiris plugins
 - Updated LangPacks
+- Added Vicens Vives modules: one course format, two blocks and a local (Trello #1331)
 
 
 Changes 17.03.28
