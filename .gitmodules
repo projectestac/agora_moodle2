@@ -112,3 +112,6 @@
 [submodule "local/wsvicensvives"]
 	path = local/wsvicensvives
 	url = https://github.com/vicensvives/moodle-local_ws_vicensvives.git
+[submodule "mod/hvp"]
+	path = mod/hvp
+	url = https://github.com/projectestac/moodle-mod_hvp.git
