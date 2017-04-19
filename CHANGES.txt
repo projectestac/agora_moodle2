@@ -9,6 +9,7 @@ Changes in progress
 - Updated all related wiris plugins
 - Updated LangPacks
 - Added Vicens Vives modules: one course format, two blocks and a local (Trello #1331)
+- Added H5P module (Trello #1571)
 
 
 Changes 17.03.28
