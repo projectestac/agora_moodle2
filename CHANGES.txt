@@ -9,6 +9,7 @@ Changes in progress
 - mod/hvp: Updated to from 1.2 and fixed bug when downloading (Trello #1584)
 - Updated all related wiris plugins
 - mod/jclic: redesigned edit form parameters and replaced .jclic.zip references in some translations (Trello #1554)
+- Updated mod/hotpot
 
 
 Changes 17.04.24
