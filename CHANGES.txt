@@ -10,6 +10,7 @@ Changes in progress
 - Updated all related wiris plugins
 - mod/jclic: redesigned edit form parameters and replaced .jclic.zip references in some translations (Trello #1554)
 - Updated mod/hotpot
+- Removed progress block (Trello #1503)
 
 
 Changes 17.04.24
