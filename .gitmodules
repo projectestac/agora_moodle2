@@ -88,9 +88,6 @@
 [submodule "lib/editor/atto/plugins/fontfamily"]
 	path = lib/editor/atto/plugins/fontfamily
 	url = https://github.com/projectestac/moodle-atto_fontfamily.git
-[submodule "blocks/progress"]
-	path = blocks/progress
-	url = https://github.com/projectestac/Moodle-block_progress.git
 [submodule "local/alexandriaimporter"]
 	path = local/alexandriaimporter
 	url = https://github.com/projectestac/moodle-local_alexandriaimporter.git
