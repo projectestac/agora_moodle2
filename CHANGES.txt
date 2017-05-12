@@ -7,7 +7,7 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 3.1.6 (Trello #1591)
 - mod/hvp: Updated to from 1.2 and fixed bug when downloading (Trello #1584)
-
+- Updated all related wiris plugins
 
 Changes 17.04.24
 ---------------------------------------------------------------------------------------
