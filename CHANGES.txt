@@ -11,6 +11,7 @@ Changes in progress
 - mod/jclic: redesigned edit form parameters and replaced .jclic.zip references in some translations (Trello #1554)
 - Updated mod/hotpot
 - Removed progress block (Trello #1503)
+- Updated LangPacks
 
 
 Changes 17.04.24
