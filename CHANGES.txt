@@ -12,6 +12,7 @@ Changes 17.05.23
 - Updated mod/hotpot
 - Removed progress block (Trello #1503)
 - Updated LangPacks
+- Updated report/coursequotas
 
 
 Changes 17.04.24
