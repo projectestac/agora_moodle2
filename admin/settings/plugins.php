@@ -372,8 +372,6 @@ if ($hassiteconfig) {
 /// Web services
     $ADMIN->add('modules', new admin_category('webservicesettings', new lang_string('webservices', 'webservice')));
 
-    $temp->add(new admin_setting_configtext('mobilecssurl', new lang_string('mobilecssurl', 'admin'), new lang_string('configmobilecssurl','admin'), '', PARAM_URL));
-    $ADMIN->add('webservicesettings', $temp);
     //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2012.08.20  @sarjona
     if (get_protected_agora() ) {
