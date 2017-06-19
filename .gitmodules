@@ -9,13 +9,13 @@
 	url = https://github.com/projectestac/moodle-mod_qv.git
 [submodule "mod/journal"]
 	path = mod/journal
-	url = https://github.com/projectestac/moodle-mod_journal.git
+	url = https://github.com/elearningsoftware/moodle-mod_journal.git
 [submodule "mod/hotpot"]
 	path = mod/hotpot
 	url = https://github.com/gbateson/moodle-mod_hotpot.git
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
-	url = https://github.com/projectestac/moodle-mod_questionnaire.git
+	url = https://github.com/remotelearner/moodle-mod_questionnaire.git
 [submodule "question/format/hotpot"]
 	path = question/format/hotpot
 	url = https://github.com/gbateson/moodle-qformat_hotpot.git
@@ -46,9 +46,6 @@
 [submodule "local/mobile"]
 	path = local/mobile
 	url = https://github.com/jleyva/moodle-local_mobile.git
-[submodule "message/output/airnotifier"]
-	path = message/output/airnotifier
-	url = https://github.com/jleyva/moodle-message_airnotifier.git
 [submodule "filter/wiris"]
 	path = filter/wiris
 	url = https://github.com/wiris/moodle-filter_wiris.git
@@ -112,3 +109,6 @@
 [submodule "mod/hvp"]
 	path = mod/hvp
 	url = https://github.com/h5p/h5p-moodle-plugin.git
+[submodule "question/type/ordering"]
+	path = question/type/ordering
+	url = https://github.com/gbateson/moodle-qtype_ordering.git
