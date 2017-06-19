@@ -3,6 +3,15 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 17.07.04
+---------------------------------------------------------------------------------------
+- Moodle upgraded to from 3.2.3
+- Updated local/clickedu
+- Updated local/mobile
+- Updated mod/geogebra
+- Updated mod/questionnaire
+- Updated mod/journal
+
 Changes 17.05.23
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 3.1.6 (Trello #1591)

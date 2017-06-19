@@ -96,7 +96,7 @@
 	url = https://github.com/clickedu/ClickeduMoodlePlugin.git
 [submodule "blocks/completion_progress"]
 	path = blocks/completion_progress
-	url = https://github.com/projectestac/moodle-block_completion_progress.git
+	url = https://github.com/deraadt/moodle-block_completion_progress.git
 [submodule "course/format/vv"]
 	path = course/format/vv
 	url = https://github.com/vicensvives/moodle-format_vicensvives.git
@@ -111,4 +111,4 @@
 	url = https://github.com/vicensvives/moodle-local_ws_vicensvives.git
 [submodule "mod/hvp"]
 	path = mod/hvp
-	url = https://github.com/projectestac/moodle-mod_hvp.git
+	url = https://github.com/h5p/h5p-moodle-plugin.git
