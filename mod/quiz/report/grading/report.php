@@ -175,7 +175,10 @@ class quiz_grading_report extends quiz_default_report {
             if ($enrolleduserscount < 1) {
                 $where .= ' AND quiza.userid = 0';
             } else {
-                $usersjoin = "JOIN ({$userssql[0]}) AS enr ON quiza.userid = enr.id";
+                //XTEC ************ MODIFICAT - Retired non standard AS in JOIN
+                //2017.10.23 @svallde2
+                $usersjoin = "JOIN ({$userssql[0]}) enr ON quiza.userid = enr.id";
+                //************ FI
                 $params += $userssql[1];
             }
         }
