@@ -359,7 +359,7 @@ if (\core\task\logmanager::uses_standard_settings()) {
 //XTEC ************ AFEGIT - To let access only to xtecadmin user
 //2012.06.20  @sarjona
 if (get_protected_agora() ) {
-//************ FI    
+//************ FI
 
 // E-mail settings.
 $ADMIN->add('server', new admin_category('email', new lang_string('categoryemail', 'admin')));
