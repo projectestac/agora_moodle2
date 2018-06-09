@@ -254,10 +254,7 @@ $ADMIN->add('server', $temp);
 //XTEC ************ AFEGIT - To let access only to xtecadmin user
 //2012.06.20  @sarjona
 if (get_protected_agora() ) {
-//************ FI    
-$ADMIN->add('server', new admin_externalpage('adminregistration', new lang_string('hubs', 'admin'),
-    "$CFG->wwwroot/$CFG->admin/registration/index.php"));
-
+//************ FI
 // E-mail settings.
 $ADMIN->add('server', new admin_category('email', new lang_string('categoryemail', 'admin')));
 
