@@ -361,20 +361,10 @@
             // edit button
             if (has_capability('moodle/user:update', $sitecontext)) {
                 // prevent editing of admins by non-admins
-                //XTEC ************ MODIFICAT - To let access only to xtecadmin user
-                //2012.07.17  @sarjona
-                //2018.05.26  @svallde2
+                //XTEC ************ MODIFICAT - To let access only to xtecadmin user - 2012.07.17  @sarjona, 2018.05.26  @svallde2
                 if ( (is_siteadmin($USER) or !is_siteadmin($user) ) && (is_xtecadmin($USER) or !is_xtecadmin($user)) ) {
-                //************ ORIGINAL
-                /*
-                if (is_siteadmin($USER) or !is_siteadmin($user)) {
-                    $url = new moodle_url('/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id));
-                    $buttons[] = html_writer::link($url, $OUTPUT->pix_icon('t/edit', $stredit));
-                */
-                //************ FI
-                    $buttons[] = html_writer::link(new moodle_url($securewwwroot.'/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id)),
-                            html_writer::empty_tag('img', array('src'=>$OUTPUT->pix_icon('t/edit'), 'alt'=>$stredit, 'class'=>'iconsmall')),
-                            array('title'=>$stredit));
+                    $buttons[] = html_writer::link(new moodle_url('/user/editadvanced.php', array('id'=>$user->id, 'course'=>$site->id)),
+                            $OUTPUT->pix_icon('t/edit', $stredit));
                 }
             }
 
