@@ -25,9 +25,9 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-//XTEC ************ AFEGIT - To let access only to xtecadmin user
+//XTEC ************ AFEGIT - Check if competencies have been enabled by xtecadmin or let acces to xtecadmin
 //2018.06.12  @svallde2
-if (get_protected_agora() ) {
+if (get_config('core_competency', 'enabled') || get_protected_agora()) {
     //************ FI
     // Manage competency frameworks page.
     $temp = new admin_externalpage(
@@ -45,7 +45,7 @@ if (get_protected_agora() ) {
         'moodle/competency:competencymanage'
     );
     $ADMIN->add('competencies', $temp);
-    //XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //XTEC ************ AFEGIT - Check if competencies have been enabled by xtecadmin or let acces to xtecadmin
     //2018.06.12  @svallde2
 }
 //************ FI
