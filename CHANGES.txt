@@ -3,6 +3,12 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 18.11.23
+---------------------------------------------------------------------------------------
+- Moodle upgraded to from 3.4.6
+- Fix presentation in rgrade
+- Fix the mod_jclic problem set as the first activity and improve some parts
+
 Changes 18.11.05
 ---------------------------------------------------------------------------------------
 - Moodle upgraded to from 3.4.5
