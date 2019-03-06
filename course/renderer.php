@@ -705,8 +705,15 @@ class core_course_renderer extends plugin_renderer_base {
      */
     public function availability_info($text, $additionalclasses = '') {
 
-        $data = ['text' => $text, 'classes' => $additionalclasses];
+        // XTEC ************ MODIFICAT - Change title for abbreviation - 2019.02.27  @svallde2.
+        $addclasses = $additionalclasses;
         $additionalclasses = array_filter(explode(' ', $additionalclasses));
+        if (in_array('isrestricted', $additionalclasses)) {
+            $txt = $text;
+        } else {
+            $txt = preg_split( "(\,|\s)", $text )[0];
+        }
+        $data = ['text' => $text, 'title' => $txt, 'classes' => $addclasses];
 
         if (in_array('ishidden', $additionalclasses)) {
             $data['ishidden'] = 1;
@@ -864,12 +871,12 @@ class core_course_renderer extends plugin_renderer_base {
 
         // Display the link to the module (or do nothing if module has no url)
         $cmname = $this->course_section_cm_name($mod, $displayoptions);
-
         if (!empty($cmname)) {
             // Start the div for the activity title, excluding the edit icons.
             $output .= html_writer::start_tag('div', array('class' => 'activityinstance'));
             $output .= $cmname;
-
+            // XTEC ************ AFEGIT - Move availability label next to activity title - 2019.02.27  @svallde2.
+            $output .= $this->course_section_cm_availability($mod, $displayoptions);
 
             // Module can put text after the link (e.g. forum unread)
             $output .= $mod->afterlink;
@@ -904,7 +911,7 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         // Show availability info (if module is not available).
-        $output .= $this->course_section_cm_availability($mod, $displayoptions);
+        //TODO:retirar $output .= $this->course_section_cm_availability($mod, $displayoptions);
 
         // If there is content AND a link, then display the content here
         // (AFTER any icons). Otherwise it was displayed before
