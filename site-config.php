@@ -23,5 +23,8 @@ if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain'
     $CFG->wwwroot = $agora['server']['html'] . $centre . '/moodle';
 }
 
-$CFG->dataroot  = INSTALL_BASE . '/'. get_filepath_moodle();
+$CFG->dataroot  = INSTALL_BASE.'/'.get_filepath_moodle();
+if ( !empty($agora['server']['temp']) ) {
+    $CFG->tempdir = $agora['server']['temp'].'/'.get_filepath_moodle();
+}
 $CFG->dnscentre = $centre;
