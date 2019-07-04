@@ -846,7 +846,7 @@ function initialise_fullme() {
                 (!empty($wwwroot['port']) and $rurl['port'] != $wwwroot['port'])) {
 		//************ ORIGINAL
 		/*
-		if (($rurl['host'] !== $wwwroot['host']) or
+        if (($rurl['host'] !== $wwwroot['host']) or
                 (!empty($wwwroot['port']) and $rurl['port'] != $wwwroot['port']) or
                 (strpos($rurl['path'], $wwwroot['path']) !== 0)) {
 		*/
