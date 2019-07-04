@@ -563,7 +563,7 @@ function get_module_types_names($plural = false) {
                 //************ ORIGINAL 
                 /*
                 if (file_exists("$CFG->dirroot/mod/$mod->name/lib.php") && $mod->visible) {
-                 */
+                */
                 //************ FI
                     $modnames[0][$mod->name] = get_string("modulename", "$mod->name");
                     $modnames[1][$mod->name] = get_string("modulenameplural", "$mod->name");
@@ -1199,7 +1199,7 @@ function course_delete_module($cmid, $async = false) {
     // Notify the competency subsystem.
     \core_competency\api::hook_course_module_deleted($cm);
 
-     // Delete the context.
+    // Delete the context.
     context_helper::delete_instance(CONTEXT_MODULE, $cm->id);
 
     // Delete the module from the course_modules table.
