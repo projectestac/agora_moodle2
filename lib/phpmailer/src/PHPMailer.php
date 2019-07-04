@@ -596,6 +596,7 @@ class PHPMailer
     protected $to = [];
     */
     //************ FI
+
     /**
      * The array of 'cc' names and addresses.
      *
@@ -603,7 +604,7 @@ class PHPMailer
      */
     //XTEC ************ MODIFICAT - Properties set to public to allow direct read from moodlelib.php
     //17.01.2013 @aginard
-    //2018.05.26  @svallde2
+    //2018.05.26 @svallde2
     public $cc = [];
     //************ ORIGINAL
     /*
@@ -640,6 +641,7 @@ class PHPMailer
     protected $ReplyTo = [];
     */
     //************ FI
+
     /**
      * An array of all kinds of addresses.
      * Includes all of $to, $cc, $bcc.

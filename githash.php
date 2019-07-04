@@ -15,24 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Lang import
+ * git package information
  *
- * @package    tool
- * @subpackage langimport
- * @copyright  2011 Petr Skoda
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * The following git hash can be used to identify the exact snapshot.
+ *
+ * You can find more information about using Git for Moodle development
+ * and administration at http://docs.moodle.org/en/Git .
  */
 
-defined('MOODLE_INTERNAL') || die;
-
-//XTEC ************ MODIFICAT - To let access only to xtecadmin user
-//2013.06.10 @jmiro227
-if ($hassiteconfig & get_protected_agora()) {
-//************ ORIGINAL
-/*
-if ($hassiteconfig) {
-*/
-//************ FI
-    $ADMIN->add('language', new admin_externalpage('toollangimport', get_string('pluginname', 'tool_langimport'), "$CFG->wwwroot/$CFG->admin/tool/langimport/index.php"));
-}
-
+$githash = 'e60503f';

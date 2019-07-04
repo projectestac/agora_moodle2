@@ -248,7 +248,7 @@ function get_table_row(\core\plugininfo\filter $plugininfo, $state, $isfirstrow,
     //************ FI
     // Uninstall.
     $row[] = html_writer::link(filters_action_url($filter, 'delete'), get_string('uninstallplugin', 'core_admin'));
-	//XTEC ************ AFEGIT - To let access only to xtecadmin user
+    //XTEC ************ AFEGIT - To let access only to xtecadmin user
     //2013.11.12  @sarjona
     } else {
         $row[] = '';
