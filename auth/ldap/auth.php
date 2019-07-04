@@ -196,7 +196,7 @@ class auth_plugin_ldap extends auth_plugin_base {
 	$ldapconnection = $this->ldap_connect($bind_dn, $password);
 	//************ ORIGINAL
         /*
-	$ldapconnection = $this->ldap_connect();
+        $ldapconnection = $this->ldap_connect();
         */
 	//************ FI
         $ldap_user_dn = $this->ldap_find_userdn($ldapconnection, $extusername);
@@ -249,7 +249,7 @@ class auth_plugin_ldap extends auth_plugin_base {
     //************ ORIGINAL
     /*
     function get_userinfo($username) {
-     */
+    */
     //************ FI
         $extusername = core_text::convert($username, 'utf-8', $this->config->ldapencoding);
 

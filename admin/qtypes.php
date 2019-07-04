@@ -223,7 +223,7 @@ foreach ($sortedqtypes as $qtypename => $localname) {
     //************ ORIGINAL
     /*
     if ($needed[$qtypename]) {
-     */
+    */
     //************ FI
         $row[] = '';
     } else {
