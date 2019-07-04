@@ -178,6 +178,10 @@ class quiz_grading_report extends quiz_default_report {
                 //XTEC ************ MODIFICAT - Retired non standard AS in JOIN
                 //2017.10.23 @svallde2
                 $usersjoin = "JOIN ({$userssql[0]}) enr ON quiza.userid = enr.id";
+                // ORIGINAL
+                /*
+                $usersjoin = "JOIN ({$userssql[0]}) AS enr ON quiza.userid = enr.id";
+                */
                 //************ FI
                 $params += $userssql[1];
             }
@@ -553,6 +557,9 @@ class quiz_grading_report extends quiz_default_report {
                     break;
                 case "studentfirstname":
                     $orderby = "u.firstname, u.lastname";
+                    break;
+                case "idnumber":
+                    $orderby = "u.idnumber";
                     break;
             }
         }

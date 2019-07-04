@@ -6013,25 +6013,42 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
     if (is_string($from)) { // So we can pass whatever we want if there is need.
         $mail->From     = $noreplyaddress;
         $mail->FromName = $from;
+    // Check if using the true address is true, and the email is in the list of allowed domains for sending email,
+    // and that the senders email setting is either displayed to everyone, or display to only other users that are enrolled
+    // in a course with the sender.
         //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
         //2012.03.13  @aginard
         if (empty($replyto)) {
             $tempreplyto[] = array($CFG->noreplyaddress, get_string('noreplyname'));
         }
         //************ FI
-    } else if ($usetrueaddress and $from->maildisplay) {
+    } else if ($usetrueaddress && can_send_from_real_email_address($from, $user)) {
         if (!validate_email($from->email)) {
             debugging('email_to_user: Invalid from-email '.s($from->email).' - not sending');
             // Better not to use $noreplyaddress in this case.
             return false;
         }
-        $mail->From     = $from->email;
-        $mail->FromName = fullname($from);
-        //XTEC ************ AFEGIT - Avoid replying to SMTP address when sending using Gmail
-        //2012.03.13  @aginard
+        $mail->From = $from->email;
+        $fromdetails = new stdClass();
+        $fromdetails->name = fullname($from);
+        $fromdetails->url = preg_replace('#^https?://#', '', $CFG->wwwroot);
+        $fromdetails->siteshortname = format_string($SITE->shortname);
+        $fromstring = $fromdetails->name;
+        if ($CFG->emailfromvia == EMAIL_VIA_ALWAYS) {
+            $fromstring = get_string('emailvia', 'core', $fromdetails);
+        }
+        $mail->FromName = $fromstring;
+        //XTEC ************ MODIFICAT - Avoid replying to SMTP address when sending using Gmail
+        //2012.03.13 @aginard
         if (empty($replyto)) {
             $tempreplyto[] = array($CFG->noreplyaddress, get_string('noreplyname'));
         }
+        // ORIGINAL
+        /*
+        if (empty($replyto)) {
+            $tempreplyto[] = array($from->email, fullname($from));
+        }
+        */
         //************ FI
     } else {
         $mail->From = $noreplyaddress;
@@ -8662,7 +8679,7 @@ function format_float($float, $decimalpoints=1, $localized=true, $stripzeros=fal
     $result = number_format($float, $decimalpoints, $separator, '');
     if ($stripzeros) {
         // Remove zeros and final dot if not needed.
-        $result = preg_replace('~(' . preg_quote($separator) . ')?0+$~', '', $result);
+        $result = preg_replace('~(' . preg_quote($separator, '~') . ')?0+$~', '', $result);
     }
     return $result;
 }

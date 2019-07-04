@@ -877,12 +877,16 @@ class core_course_renderer extends plugin_renderer_base {
 
         // Display the link to the module (or do nothing if module has no url)
         $cmname = $this->course_section_cm_name($mod, $displayoptions);
+
         if (!empty($cmname)) {
             // Start the div for the activity title, excluding the edit icons.
             $output .= html_writer::start_tag('div', array('class' => 'activityinstance'));
             $output .= $cmname;
-            // XTEC ************ AFEGIT - Move availability label next to activity title - 2019.02.27  @svallde2.
+            // XTEC ************ AFEGIT - Move availability label next to activity title
+            // 2019.02.27 @svallde2
             $output .= $this->course_section_cm_availability($mod, $displayoptions);
+            //************ FI
+
 
             // Module can put text after the link (e.g. forum unread)
             $output .= $mod->afterlink;
@@ -917,7 +921,12 @@ class core_course_renderer extends plugin_renderer_base {
         }
 
         // Show availability info (if module is not available).
-        //TODO:retirar $output .= $this->course_section_cm_availability($mod, $displayoptions);
+        // XTEC ************ ELIMINAT
+        // 2019.02.27 @svallde2
+        /*
+        $output .= $this->course_section_cm_availability($mod, $displayoptions);
+        */
+        //************ FI
 
         // If there is content AND a link, then display the content here
         // (AFTER any icons). Otherwise it was displayed before

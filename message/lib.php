@@ -378,33 +378,7 @@ function get_message_processors($ready = false, $reset = false, $resetonly = fal
         // Get all processors, ensure the name column is the first so it will be the array key
         $processors = $DB->get_records('message_processors', null, 'name DESC', 'name, id, enabled');
         foreach ($processors as &$processor){
-            $processorfile = $CFG->dirroot. '/message/output/'.$processor->name.'/message_output_'.$processor->name.'.php';
-            if (is_readable($processorfile)) {
-                include_once($processorfile);
-                $processclass = 'message_output_' . $processor->name;
-                if (class_exists($processclass)) {
-                    $pclass = new $processclass();
-                    $processor->object = $pclass;
-                    $processor->configured = 0;
-                    if ($pclass->is_system_configured()) {
-                        $processor->configured = 1;
-                    }
-                    $processor->hassettings = 0;
-                    if (is_readable($CFG->dirroot.'/message/output/'.$processor->name.'/settings.php')) {
-                        //XTEC ************ AFEGIT - Only xtecadmin can manage them
-                        //2015.03.06  @pferre22
-                        if (get_protected_agora()) {
-                            $processor->hassettings = 1;
-                        }
-                        //************ FI
-                    }
-                    $processor->available = 1;
-                } else {
-                    print_error('errorcallingprocessor', 'message');
-                }
-            } else {
-                $processor->available = 0;
-            }
+            $processor = \core_message\api::get_processed_processor_object($processor);
         }
     }
     if ($ready) {
@@ -881,6 +855,12 @@ function core_message_standard_after_main_region_html() {
             'id' => $USER->id,
             'midnight' => usergetmidnight(time())
         ],
+        // The starting timeout value for message polling.
+        'messagepollmin' => $CFG->messagingminpoll ?? MESSAGE_DEFAULT_MIN_POLL_IN_SECONDS,
+        // The maximum value that message polling timeout can reach.
+        'messagepollmax' => $CFG->messagingmaxpoll ?? MESSAGE_DEFAULT_MAX_POLL_IN_SECONDS,
+        // The timeout to reset back to after the max polling time has been reached.
+        'messagepollaftermax' => $CFG->messagingtimeoutpoll ?? MESSAGE_DEFAULT_TIMEOUT_POLL_IN_SECONDS,
         'contacts' => [
             'sectioncontacts' => [
                 'placeholders' => array_fill(0, $contactscount > 50 ? 50 : $contactscount, true)
