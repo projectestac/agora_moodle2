@@ -251,6 +251,7 @@ $ADMIN->add('server', $temp);
 }
 //************ FI
 
+
 //XTEC ************ AFEGIT - To let access only to xtecadmin user
 //2012.06.20  @sarjona
 if (get_protected_agora() ) {
