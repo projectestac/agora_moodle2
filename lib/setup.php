@@ -654,7 +654,9 @@ try{
 }
 
 // CODI ORIGINAL
-// setup_DB();
+/*
+setup_DB();
+*/
 // FI PATCH
 
 if (PHPUNIT_TEST and !PHPUNIT_UTIL) {
