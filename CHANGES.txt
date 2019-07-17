@@ -12,6 +12,7 @@ Changes in progress
 - Upgraded module hotpot
 - Upgraded module H5P
 - Upgraded module journal
+- Upgraded module questionnaire
 - Upgraded block "completion progress"
 - Local agora: Removed old message_notifier plugin
 - Local agora: Disallow theme boost
