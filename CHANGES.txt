@@ -9,6 +9,8 @@ Changes in progress
 - Modified theme XTEC2 for compatibility to Moodle v3.6.5
 - Upgraded all wiris plugins
 - Upgraded block "completion progress"
+- Local agora: Removed old message_notifier plugin
+- Local agora: Disallow theme boost
 
 
 Changes 19.04.15
