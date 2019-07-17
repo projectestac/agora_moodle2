@@ -15,6 +15,7 @@ Changes in progress
 - Upgraded module questionnaire
 - Upgraded block "completion progress"
 - Upgraded question type "ordering"
+- Upgraded question type "wq"
 - Local agora: Removed old message_notifier plugin
 - Local agora: Disallow theme boost
 
