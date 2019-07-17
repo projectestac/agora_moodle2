@@ -10,6 +10,7 @@ Changes in progress
 - Upgraded all wiris plugins
 - Upgraded module choicegroup
 - Upgraded module hotpot
+- Upgraded module H5P
 - Upgraded block "completion progress"
 - Local agora: Removed old message_notifier plugin
 - Local agora: Disallow theme boost
