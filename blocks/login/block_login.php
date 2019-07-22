@@ -94,17 +94,6 @@ class block_login extends block_base {
 
             $this->content->text .= "</form>\n";
 
-            //XTEC ************ AFEGIT - To make Google Auth2 work
-            //2014.09.19 @pferre22
-            global $PAGE;
-            require_once($CFG->dirroot . '/auth/googleoauth2/lib.php');
-            $PAGE->requires->jquery();
-            $content = str_replace(array("\n", "\r"), array("\\\n", "\\\r"), auth_googleoauth2_display_buttons(false));
-            $PAGE->requires->css('/auth/googleoauth2/style.css');
-            $PAGE->requires->js_init_code("buttonsCodeOauth2 = '$content';");
-            $PAGE->requires->js(new moodle_url($CFG->wwwroot . "/auth/googleoauth2/script.js"));
-            //************ FI
-
             if (!empty($signup)) {
                 $this->content->text .= '<div><a href="'.$signup.'">'.get_string('startsignup').'</a></div>';
             }
