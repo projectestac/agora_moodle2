@@ -26,6 +26,11 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
 
+// XTEC ************ AFEGIT - Let access only to xtecadmin user
+// 2019.07.25 @aginard
+if (get_protected_agora()) {
+//************ FI
+
     // Create Moodle Services information.
     $moodleservices->add(new admin_setting_heading('moodleservicesintro', '',
         new lang_string('moodleservices_help', 'admin')));
@@ -48,6 +53,12 @@ if ($hassiteconfig) {
             new lang_string('moodlebrandedapp', 'admin'),
             new lang_string('moodlebrandedapp_help', 'admin')));
     }
+
+// XTEC ************ AFEGIT - Let access only to xtecadmin user
+// 2019.07.25 @aginard
+}
+//************ FI
+
 }
 
 
