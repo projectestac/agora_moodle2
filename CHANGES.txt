@@ -3,6 +3,12 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Fixed cache pollution due to XTEC patches
+- Improved cache definitions
+
+
 Changes 19.07.24
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle from v3.4.8 to v3.6.5
