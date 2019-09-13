@@ -8,6 +8,7 @@ Changes in progress
 - Re-added Catalonia to countries list
 - Marsupial: Updated components
 - Upgraded all wiris plugins
+- Upgraded module clickedu
 
 
 Changes 19.08.29
