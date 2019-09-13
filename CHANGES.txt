@@ -13,6 +13,7 @@ Changes in progress
 - Upgraded module hot potatoes
 - Upgraded module H5P
 - Upgraded block "completion progress"
+- Upgraded question type "ordering"
 
 
 Changes 19.08.29
