@@ -10,6 +10,7 @@ Changes in progress
 - Upgraded all wiris plugins
 - Upgraded module clickedu
 - Upgraded module geogebra
+- Upgraded module hot potatoes
 - Upgraded block "completion progress"
 
 
