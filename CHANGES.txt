@@ -11,6 +11,7 @@ Changes in progress
 - Upgraded module clickedu
 - Upgraded module geogebra
 - Upgraded module hot potatoes
+- Upgraded module H5P
 - Upgraded block "completion progress"
 
 
