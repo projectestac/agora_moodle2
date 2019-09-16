@@ -119,11 +119,16 @@ if (isset($agora['moodle2']['memcache_servers'])) {
 } else {
     $CFG->memcache_servers = '127.0.0.1';
 }
+
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
-    $CFG->agora_muc_path = $agora['server']['root'].'cache_ins/'.$CFG->dbuser;
-    $CFG->cachedir = $CFG->agora_muc_path.'/cache';
-    $CFG->localcachedir = $CFG->agora_muc_path.'/localcache';
+    // In FRM environment, put cache in moodledata. Otherwise, use local cache directories
+    if ($agora['server']['enviroment'] != 'LOCAL') {
+        $CFG->agora_muc_path = $agora['server']['root'] . 'cache_ins/' . $CFG->dbuser;
+        $CFG->cachedir       = $CFG->agora_muc_path . '/cache';
+        $CFG->localcachedir  = $CFG->agora_muc_path . '/localcache';
+    }
 }
+
 // Change locking from NFS to DB
 $CFG->lock_factory = "\\core\\lock\\db_record_lock_factory";
 
