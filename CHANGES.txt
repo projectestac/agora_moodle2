@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle from v3.6.5 to v3.6.6
+- Updated language packs
 - Re-added Catalonia to countries list
 - Made exception for FRM environment to put cache files in moodledata
 - Oauth2 server: Updated code to connect to WordPress
