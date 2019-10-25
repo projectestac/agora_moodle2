@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - MUC: Changed cache store for coursecat. Moved to default session
+- xtec-mailer: Fixed compatibility with PHP 7.3
 
 
 Changes 19.09.25
