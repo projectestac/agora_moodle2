@@ -9,6 +9,7 @@ Changes in progress
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Upgraded module hot potatoes
 - Upgraded question format hot potatoes
+- Upgraded question type "ordering"
 
 
 Changes 19.09.25
