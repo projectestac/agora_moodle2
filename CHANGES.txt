@@ -7,6 +7,8 @@ Changes in progress
 ---------------------------------------------------------------------------------------
 - MUC: Changed cache store for coursecat. Moved to default session
 - xtec-mailer: Fixed compatibility with PHP 7.3
+- Upgraded module hot potatoes
+- Upgraded question format hot potatoes
 
 
 Changes 19.09.25
