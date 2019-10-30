@@ -13,8 +13,16 @@ if ($agora['server']['enviroment'] == 'FRM') {
     }
 }
 
-$CFG->dbname = $school_info['database_moodle2'];
-$CFG->dbuser = $agora['moodle2']['username'] . $school_info['id_moodle2'];
+if ($agora['moodle2']['dbtype'] == 'oci') {
+    $CFG->dbname = $school_info['database_moodle2'];
+    $CFG->dbuser = $agora['moodle2']['username'] . $school_info['id_moodle2'];
+}
+
+if ($agora['moodle2']['dbtype'] == 'pgsql') {
+    $CFG->dbname = $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
+    $CFG->dbuser = $agora['moodle2']['username'];
+    $CFG->port   = $agora['moodle2']['port'];
+}
 
 // Check for subdomain
 if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain') && !empty($school_info['url_host'])) {
