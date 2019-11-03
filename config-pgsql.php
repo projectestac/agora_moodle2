@@ -9,20 +9,20 @@ unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
-$CFG->dbtype    = 'mysqli';
+$CFG->dbtype    = 'pgsql';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'localhost';
 $CFG->dbname    = 'moodle2';
-$CFG->dbuser    = 'root';
+$CFG->dbuser    = 'postgres';
 $CFG->dbpass    = 'agora';
-$CFG->prefix    = 'ml_';
+$CFG->prefix    = 'm2';
 $CFG->dboptions = array (
   'dbpersist' => 0,
   'dbsocket' => 0,
 );
 
 $CFG->wwwroot   = 'https://agora-virtual.xtec.cat/'.AGORA_BASE.'/moodle2';
-$CFG->dataroot  = INSTALL_BASE .'/docs/moodle2/usu_mysql';
+$CFG->dataroot  = INSTALL_BASE .'/docs/moodle2/usu_pg';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
@@ -52,3 +52,4 @@ $school_info = array('clientCode' => 0);
 
 require_once(dirname(__FILE__) . '/settings.php');
 require_once(dirname(__FILE__) . '/lib/setup.php');
+
