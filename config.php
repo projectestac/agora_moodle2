@@ -19,7 +19,7 @@ $CFG->admin = 'admin';
 $CFG->dboptions = array (
     'dbpersist' => true,
     'dbsocket' => false,
-    'dbport' => ''
+    'dbport' => $agora['moodle2']['port']
 );
 $CFG->langotherroot = MOODLE_BASE . '/langpacks/';
 
