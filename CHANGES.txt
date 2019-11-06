@@ -8,6 +8,7 @@ Changes in progress
 - MUC: Changed cache store for coursecat. Moved to default session
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Added atto plugin Cloze
+- Upgraded all wiris plugins
 - Upgraded module hot potatoes
 - Upgraded module choicegroup
 - Upgraded module H5P
