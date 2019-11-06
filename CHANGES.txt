@@ -10,6 +10,7 @@ Changes in progress
 - Added atto plugin Cloze
 - Upgraded module hot potatoes
 - Upgraded module choicegroup
+- Upgraded module H5P
 - Upgraded question format hot potatoes
 - Upgraded question type "ordering"
 
