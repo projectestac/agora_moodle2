@@ -112,3 +112,6 @@
 [submodule "question/type/ordering"]
 	path = question/type/ordering
 	url = https://github.com/gbateson/moodle-qtype_ordering.git
+[submodule "lib/editor/atto/plugins/cloze"]
+	path = lib/editor/atto/plugins/cloze
+	url = https://github.com/dthies/moodle-atto_cloze.git
