@@ -14,6 +14,7 @@ Changes in progress
 - Upgraded module H5P
 - Upgraded question format hot potatoes
 - Upgraded question type "ordering"
+- Only allow access to parameter atto_recordrtc to xtecadmin
 
 
 Changes 19.09.25
