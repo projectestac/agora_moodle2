@@ -5,6 +5,7 @@ development home at https://github.com/projectestac/agora_moodle2
 
 Changes in progress
 ---------------------------------------------------------------------------------------
+- Updated language packs
 - MUC: Changed cache store for coursecat. Moved to default session
 - xtec-mailer: Fixed compatibility with PHP 7.3
 - Added atto plugin Cloze
@@ -14,7 +15,7 @@ Changes in progress
 - Upgraded module H5P
 - Upgraded question format hot potatoes
 - Upgraded question type "ordering"
-- Only allow access to parameter atto_recordrtc to xtecadmin
+- Only allow access to parameter atto_recordrtc | allowedtypes to xtecadmin
 
 
 Changes 19.09.25
