@@ -10,6 +10,7 @@ Changes in progress
 - Upgraded all wiris plugins
 - Upgraded module choicegroup to version 1.18
 - Upgraded question type "ordering"
+- Added support for attachments in email
 
 
 Changes 19.11.14
