@@ -143,9 +143,6 @@ $CFG->cronclionly = 1; // changed to avoid schools change it
     $CFG->proxypassword = $agora['proxy']['pass'];
 }*/
 
-
-$CFG->mobilecssurl = $CFG->wwwroot.'/theme/xtec2/mobile/style.php';
-
 $CFG->customusermenuitems = "grades,grades|/grade/report/mygrades.php|grades
 messages,message|/message/index.php|message
 badges,badges|/badges/mybadges.php|award
