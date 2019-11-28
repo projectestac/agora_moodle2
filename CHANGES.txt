@@ -3,9 +3,10 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
-Changes 19.12.04
+Changes in progress
 ---------------------------------------------------------------------------------------
 - H5P: Upgraded module to version 1.20.1
+- Theme XTEC2: Removed loading of mobile CSS
 
 
 Changes 19.11.14
