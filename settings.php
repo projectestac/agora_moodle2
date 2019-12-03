@@ -113,11 +113,21 @@ if(isset($agora['moodle2']['airnotifier'])) {
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
-$CFG->memcache_prefix = $CFG->dbuser.'_';
-if (isset($agora['moodle2']['memcache_servers'])) {
+$CFG->memcache_prefix = $CFG->dbuser . '_';
+
+if (!empty($agora['moodle2']['memcache_servers'])) {
     $CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
 } else {
     $CFG->memcache_servers = '127.0.0.1';
+}
+
+if (!empty($agora['moodle2']['memcached_session_servers'])) {
+    $CFG->session_handler_class = '\core\session\memcached';
+    $CFG->session_memcached_save_path = $agora['moodle2']['memcached_session_servers'];
+    $CFG->session_memcached_prefix = $CFG->memcache_prefix . 'sess_';
+    $CFG->session_memcached_acquire_lock_timeout = 120;
+    $CFG->session_memcached_lock_expire = 7200;       // Ignored if PECL memcached is below version 2.2.0
+    $CFG->session_memcached_lock_retry_sleep = 150;   // Spin-lock retry sleeptime (msec). Only effective
 }
 
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
