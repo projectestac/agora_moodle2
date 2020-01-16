@@ -133,7 +133,7 @@ if (!empty($agora['moodle2']['memcached_session_servers'])) {
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
     // In FRM environment, put cache in moodledata. Otherwise, use local cache directories
     if ($agora['server']['enviroment'] != 'FRM') {
-        $CFG->agora_muc_path = $agora['server']['root'] . 'cache_ins/' . $CFG->dbuser;
+        $CFG->agora_muc_path = $agora['server']['root'] . $agora['moodle2']['localmuc'] . '/' . $CFG->dbuser;
         $CFG->cachedir       = $CFG->agora_muc_path . '/cache';
         $CFG->localcachedir  = $CFG->agora_muc_path . '/localcache';
     }
