@@ -9,6 +9,7 @@ Changes in progress
 - Theme XTEC2: Removed loading of mobile CSS
 - Upgraded all wiris plugins
 - Upgraded module choicegroup to version 1.18
+- Upgraded question type "ordering"
 
 
 Changes 19.11.14
