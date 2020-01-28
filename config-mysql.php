@@ -21,8 +21,8 @@ $CFG->dboptions = array (
   'dbsocket' => 0,
 );
 
-$CFG->wwwroot   = 'https://agora-virtual.xtec.cat/'.AGORA_BASE.'/moodle2';
-$CFG->dataroot  = INSTALL_BASE .'/docs/moodle2/usu_mysql';
+$CFG->wwwroot   = 'https://agora-aws.xtec.cat/'.AGORA_BASE.'/moodle';
+$CFG->dataroot  = INSTALL_BASE .'/data/moodledata/usu_mysql';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
