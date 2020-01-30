@@ -615,49 +615,7 @@ require_once($CFG->dirroot.'/cache/lib.php');       // Cache API
 // make sure PHP is not severly misconfigured
 setup_validate_php_configuration();
 
-// Connect to the database
-// XTEC ************** MODIFICAT - Registre d'errors d'ADODB
-// 2014.10.03 @pferre22
-// Check if any error was generated while trying to open ADODB connection
-// CODI MODIFICAT
-try{
-    setup_DB();
-} catch(Exception $e){
-    $logdir = get_moodle2_admin_datadir_folder('adodberror', false);
-    if ($logdir) {
-        $logfile = $logdir.'/'.date("Ymd").'-error.csv';
-
-        // Open file
-        $oldumask = umask(7);
-        $gestor = fopen($logfile, 'ab');
-        umask($oldumask);
-
-        if ($gestor) {
-            $errorcode = isset($e->errorcode) ? $e->errorcode : "";
-            $debuginfo = isset($e->debuginfo) ? $e->debuginfo : $e->getMessage();
-            // Build log string
-            $log = '"'.date('Ymd-Hi').'","'
-                      .gethostname().'","'
-                      .$CFG->dbname.'","'
-                      .$CFG->dbuser.'","'
-                      .$errorcode.'","'
-                      .$debuginfo.'"'."\n";
-
-            // Save log string
-            fwrite($gestor, $log);
-
-            // Close file
-            fclose($gestor);
-        }
-    }
-    throw $e;
-}
-
-// CODI ORIGINAL
-/*
 setup_DB();
-*/
-// FI PATCH
 
 if (PHPUNIT_TEST and !PHPUNIT_UTIL) {
     // Make sure tests do not run in parallel.
