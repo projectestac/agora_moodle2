@@ -5,6 +5,12 @@ require_once(INSTALL_BASE.'/html/config/dblib-mysql.php');
 global $school_info;
 $centre = getSchoolInfo('moodle2');
 
+if (isset($school_info['state_moodle2']) && ($school_info['state_moodle2'] == '-5')) {
+    setcookie($agora['server']['cookie'], '', 1, '/'); // Force cookie to expire
+    header('Location: ' . WWWROOT . 'error.php?s=moodle&migrating=' . $centre);
+    exit();
+}
+
 if ($agora['server']['enviroment'] == 'FRM') {
     $currenthour = date('G');
     // Change id for usu1 for training environment if is an odd hour (usu1 regenerates every odd hour)
