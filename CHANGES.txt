@@ -12,6 +12,7 @@ Changes in progress
 - Upgraded module choicegroup to version 1.18
 - Upgraded question type "ordering"
 - Added support for attachments in email
+- Atto fontfamily: Fixed dependency and added RGPD compliance
 
 
 Changes 19.11.14
