@@ -5,7 +5,7 @@ development home at https://github.com/projectestac/agora_moodle2
 
 Changes in progress
 ---------------------------------------------------------------------------------------
-- H5P: Upgraded module to version 1.20.1
+- H5P: Upgraded module to version 1.20.2
 - Theme XTEC2: Removed loading of mobile CSS
 - Upgraded all wiris plugins
 - Upgraded all vicens vives plugins
