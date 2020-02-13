@@ -14,6 +14,7 @@ Changes in progress
 - Upgraded question type "ordering"
 - Added support for attachments in email
 - Atto fontfamily: Fixed dependency and added RGPD compliance
+- Local mobile: Removed plugin
 
 
 Changes 19.11.14
