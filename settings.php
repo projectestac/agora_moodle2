@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/local/agora/lib.php');
 
 get_debug();
 
-// Force general preferences. Prevailes over database params.
+// Force general preferences. Prevails over database params.
 $CFG->isagora = 1;
 $CFG->iseoi = $agora['iseoi'];
 $CFG->isportal = false;
@@ -128,6 +128,20 @@ if (!empty($agora['moodle2']['memcached_session_servers'])) {
     $CFG->session_memcached_acquire_lock_timeout = 120;
     $CFG->session_memcached_lock_expire = 7200;       // Ignored if PECL memcached is below version 2.2.0
     $CFG->session_memcached_lock_retry_sleep = 150;   // Spin-lock retry sleeptime (msec). Only effective
+}
+
+if (!empty($agora['moodle2']['redis_session_servers'])) {
+    $CFG->session_handler_class = '\core\session\redis';
+    $CFG->session_redis_host = $agora['moodle2']['redis_session_servers'];
+    $CFG->session_redis_port = 6379;  // Optional.
+    $CFG->session_redis_database = $school_info['id_moodle2'] % 16;  // Optional, default is db 0.
+    $CFG->session_redis_auth = ''; // Optional, default is don't set one.
+    $CFG->session_redis_prefix = ''; // Optional, default is don't set one.
+    $CFG->session_redis_acquire_lock_timeout = 120;
+    $CFG->session_redis_lock_expire = 7200;
+    // Use the igbinary serializer instead of the php default one. Note that phpredis must be compiled with
+    //  igbinary support to make the setting to work. Also, if you change the serializer you have to flush the database!
+    $CFG->session_redis_serializer_use_igbinary = true; // Optional, default is PHP builtin serializer.
 }
 
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
