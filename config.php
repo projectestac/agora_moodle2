@@ -17,7 +17,7 @@ $CFG->prefix = $agora['moodle2']['prefix'];
 $CFG->admin = 'admin';
 
 $CFG->dboptions = array (
-    'dbpersist' => true,
+    'dbpersist' => false,
     'dbsocket' => false,
     'dbport' => $agora['moodle2']['port']
 );
