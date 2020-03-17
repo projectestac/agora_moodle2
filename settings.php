@@ -70,6 +70,10 @@ $CFG->session_file_save_path = ini_get('session.save_path');
 $CFG->sessiontimeout=3600;
 $CFG->sessioncookie = $CFG->dbuser;
 
+// Force sessions in database (temporarily)
+$CFG->session_handler_class = '\core\session\database';
+$CFG->session_database_acquire_lock_timeout = 120;
+
 //$CFG->enable_hour_restrictions = 1;   /* Set in database */
 // This param (hour_restrictions) can be serialized. This is useful for setting it in database
 // Values for days: 0 = sunday, 1 = monday, ..., 6 = saturday
