@@ -3,6 +3,11 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes in progress
+---------------------------------------------------------------------------------------
+- Geogebra: Fixed error when accessing to closed activities
+
+
 Changes 20.02.18
 ---------------------------------------------------------------------------------------
 - H5P: Upgraded module to version 1.20.2
