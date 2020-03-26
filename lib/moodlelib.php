@@ -6387,48 +6387,6 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         $mail->addReplyTo($values[0], $values[1]);
     }
 
-    //XTEC ************ MODIFICAT - Use apligest system to send mails if it's configured
-    //28.04.2011 @fcasanel
-    //14.03.2012 @aginard
-    //28.04.2015 @pferre22
-    //21.11.2019 @nacho: added attachments functionality
-
-    $attachments = $mail->getAttachments();
-
-    if (!empty($CFG->apligestmail)) {
-        $mailsent = send_apligest_mail($mail, $user, $attachments);
-    } else {
-        $mailsent = $mail->send();
-    }
-    if ($mailsent) {
-        set_send_count($user);
-        if (!empty($mail->SMTPDebug)) {
-            echo '</pre>';
-        }
-        return true;
-    } else {
-        // Trigger event for failing to send email.
-        $event = \core\event\email_failed::create(array(
-            'context' => context_system::instance(),
-            'userid' => $from->id,
-            'relateduserid' => $user->id,
-            'other' => array(
-                'subject' => $subject,
-                'message' => $messagetext,
-                'errorinfo' => $mail->ErrorInfo
-            )
-        ));
-        $event->trigger();
-        if (CLI_SCRIPT) {
-            mtrace('Error: lib/moodlelib.php email_to_user(): '.$mail->ErrorInfo);
-        }
-        if (!empty($mail->SMTPDebug)) {
-            echo '</pre>';
-        }
-        return false;
-    }
-    //************ ORIGINAL
-    /*
     if ($mail->send()) {
         set_send_count($user);
         if (!empty($mail->SMTPDebug)) {
@@ -6456,8 +6414,6 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         }
         return false;
     }
-    */
-    //************ FI
 }
 
 /**
