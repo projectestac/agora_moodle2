@@ -43,7 +43,7 @@ $CFG->smtphosts = $agora['mail']['server'];
 $CFG->smtpuser = $agora['mail']['username'];
 $CFG->smtppass = $agora['mail']['userpwd'];
 $CFG->noreplyaddress = $agora['mail']['reply'];
-$CFG->smtpsecure = 'ssl';
+$CFG->smtpsecure = 'tls';
 $CFG->smtpmaxbulk = 20;
 $CFG->digestmailtime = 1;
 if ($CFG->iseoi) {
