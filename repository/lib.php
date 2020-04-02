@@ -499,14 +499,7 @@ abstract class repository implements cacheable_object {
      * Timeout in seconds for downloading the external file into moodle
      * @deprecated since Moodle 2.7, please use $CFG->repositorygetfiletimeout instead
      */
-    //XTEC ************ MODIFICAT - To increase default timeout (to let downloading bigger files)
-    //2012.11.20 @sarjona
-    const GETFILE_TIMEOUT = 150;
-    //************ ORIGINAL
-    /*
     const GETFILE_TIMEOUT = 30;
-    */
-    //************ FI
 
     /**
      * Timeout in seconds for syncronising the external file size
