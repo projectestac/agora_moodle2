@@ -6,8 +6,20 @@ global $school_info;
 $centre = getSchoolInfo('moodle2');
 
 if (isset($school_info['state_moodle2']) && ($school_info['state_moodle2'] == '-5')) {
-    setcookie($agora['server']['cookie'], '', 1, '/'); // Force cookie to expire
+    setcookie($agora['server']['cookie'], '', time(), '/'); // Force cookie to expire
     header('Location: ' . WWWROOT . 'error.php?s=moodle&migrating=' . $centre);
+    exit();
+}
+
+if (isset($school_info['state_moodle2']) && ($school_info['state_moodle2'] == '-6')) {
+    setcookie($agora['server']['cookie'], '', time(), '/'); // Force cookie to expire
+    header('Location: ' . WWWROOT . 'error.php?s=moodle&migrated=' . $centre);
+    exit();
+}
+
+if (isset($school_info['state_moodle2']) && ($school_info['state_moodle2'] == '-7') && ($school_info['id_moodle2'] != '1')) {
+    setcookie($agora['server']['cookie'], '', time(), '/'); // Force cookie to expire
+    header('Location: ' . WWWROOT . 'error.php?s=moodle&saturated=' . $centre);
     exit();
 }
 
