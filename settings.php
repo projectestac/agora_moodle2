@@ -122,22 +122,21 @@ if(isset($agora['moodle2']['airnotifier'])) {
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
-$CFG->siteidentifier = $CFG->dbuser;
+$CFG->siteidentifier = md5($CFG->dbuser) . $_SERVER['HTTP_HOST'];
+
+$CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
 $CFG->memcache_prefix = $CFG->dbuser . '_';
 
-if (!empty($agora['moodle2']['memcache_servers'])) {
-    $CFG->memcache_servers = $agora['moodle2']['memcache_servers'];
-} else {
-    $CFG->memcache_servers = '127.0.0.1';
-}
+$CFG->redis_servers = (!empty($agora['moodle2']['redis_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
+$CFG->redis_prefix = $CFG->dbuser . '_';
 
 if (!empty($agora['moodle2']['memcached_session_servers'])) {
     $CFG->session_handler_class = '\core\session\memcached';
     $CFG->session_memcached_save_path = $agora['moodle2']['memcached_session_servers'];
     $CFG->session_memcached_prefix = $CFG->memcache_prefix . 'sess_';
     $CFG->session_memcached_acquire_lock_timeout = 120;
-    $CFG->session_memcached_lock_expire = 7200;       // Ignored if PECL memcached is below version 2.2.0
-    $CFG->session_memcached_lock_retry_sleep = 150;   // Spin-lock retry sleeptime (msec). Only effective
+    $CFG->session_memcached_lock_expire = 7200;
+    $CFG->session_memcached_lock_retry_sleep = 150;
 }
 
 if (!empty($agora['moodle2']['redis_session_servers'])) {
@@ -149,9 +148,6 @@ if (!empty($agora['moodle2']['redis_session_servers'])) {
     $CFG->session_redis_prefix = ''; // Optional, default is don't set one.
     $CFG->session_redis_acquire_lock_timeout = 120;
     $CFG->session_redis_lock_expire = 7200;
-    // Use the igbinary serializer instead of the php default one. Note that phpredis must be compiled with
-    //  igbinary support to make the setting to work. Also, if you change the serializer you have to flush the database!
-    $CFG->session_redis_serializer_use_igbinary = true; // Optional, default is PHP builtin serializer.
 }
 
 if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
