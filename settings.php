@@ -45,7 +45,7 @@ $CFG->smtppass = $agora['mail']['userpwd'];
 $CFG->noreplyaddress = $agora['mail']['reply'];
 $CFG->supportemail = $agora['mail']['reply'];
 $CFG->smtpsecure = 'tls';
-$CFG->smtpmaxbulk = 20;
+$CFG->smtpmaxbulk = 15;
 $CFG->digestmailtime = 1;
 $CFG->emailfromvia = 0;
 if ($CFG->iseoi) {
@@ -122,7 +122,7 @@ if(isset($agora['moodle2']['airnotifier'])) {
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
 // This folder has to exists and to be writable
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
-$CFG->siteidentifier = md5($CFG->dbuser) . $_SERVER['HTTP_HOST'];
+$CFG->siteidentifier = md5($CFG->dbuser) . $agora['server']['domain'];
 
 $CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
 $CFG->memcache_prefix = $CFG->dbuser . '_';
