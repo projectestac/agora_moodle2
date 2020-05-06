@@ -143,9 +143,9 @@ if (!empty($agora['moodle2']['redis_session_servers'])) {
     $CFG->session_handler_class = '\core\session\redis';
     $CFG->session_redis_host = $agora['moodle2']['redis_session_servers'];
     $CFG->session_redis_port = 6379;  // Optional.
-    $CFG->session_redis_database = $school_info['id_moodle2'] % 16;  // Optional, default is db 0.
+    $CFG->session_redis_database = 0;  // Optional, default is db 0.
     $CFG->session_redis_auth = ''; // Optional, default is don't set one.
-    $CFG->session_redis_prefix = ''; // Optional, default is don't set one.
+    $CFG->session_redis_prefix = $CFG->redis_prefix . 'sess_'; // Optional, default is don't set one.
     $CFG->session_redis_acquire_lock_timeout = 120;
     $CFG->session_redis_lock_expire = 7200;
 }
