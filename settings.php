@@ -124,7 +124,7 @@ if(isset($agora['moodle2']['airnotifier'])) {
 $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = md5($CFG->dbuser) . $agora['server']['domain'];
 
-$CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
+$CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['memcache_servers'] : '127.0.0.1';
 $CFG->memcache_prefix = $CFG->dbuser . '_';
 
 $CFG->redis_servers = (!empty($agora['moodle2']['redis_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
