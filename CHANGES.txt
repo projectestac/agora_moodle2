@@ -3,6 +3,13 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 20.05.12
+---------------------------------------------------------------------------------------
+- Message: Show old message UI and allow access to all messages
+- Show 'hidden' text next to hidden labels in courses
+- Coursequotas: Added disk usage of H5P libraries
+
+
 Changes 20.04.15
 ---------------------------------------------------------------------------------------
 - Geogebra: Fixed error when accessing to closed activities
