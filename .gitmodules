@@ -112,3 +112,6 @@
 [submodule "lib/editor/atto/plugins/cloze"]
 	path = lib/editor/atto/plugins/cloze
 	url = https://github.com/dthies/moodle-atto_cloze.git
+[submodule "theme/xtec2020"]
+	path = theme/xtec2020
+	url = https://github.com/projectestac/moodle-theme_xtec2020.git
