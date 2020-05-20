@@ -45,10 +45,10 @@ $models = [
 // 2020.05.20 @aginard
 /*
             '\mod_chat\analytics\indicator\cognitive_depth',
+            '\mod_chat\analytics\indicator\social_breadth',
 */
 //************ FI
 
-            '\mod_chat\analytics\indicator\social_breadth',
             '\mod_choice\analytics\indicator\cognitive_depth',
             '\mod_choice\analytics\indicator\social_breadth',
             '\mod_data\analytics\indicator\cognitive_depth',
