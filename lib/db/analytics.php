@@ -40,8 +40,15 @@ $models = [
             '\mod_assign\analytics\indicator\social_breadth',
             '\mod_book\analytics\indicator\cognitive_depth',
             '\mod_book\analytics\indicator\social_breadth',
+
+// XTEC ************ ELIMINAT - Remove chat analytics because chat module is disabled and causes a PHP error
+// 2020.05.20 @aginard
+/*
             '\mod_chat\analytics\indicator\cognitive_depth',
             '\mod_chat\analytics\indicator\social_breadth',
+*/
+//************ FI
+
             '\mod_choice\analytics\indicator\cognitive_depth',
             '\mod_choice\analytics\indicator\social_breadth',
             '\mod_data\analytics\indicator\cognitive_depth',
