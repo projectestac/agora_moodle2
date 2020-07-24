@@ -6204,11 +6204,7 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
     if (!isset($CFG->mailheader)) {
         $CFG->mailheader = '';
     }
-    if (!empty($CFG->apligestmail)) {
-        $subject = $CFG->mailheader . " [" . get_site()->fullname . "] " . substr($subject, 0, 900);
-    } else {
-        $subject = substr($subject, 0, 900);
-    }
+    $subject = $CFG->mailheader . " [" . get_site()->fullname . "] " . substr($subject, 0, 900);
     //************ FI
 
     $temprecipients[] = array($user->email, fullname($user));
