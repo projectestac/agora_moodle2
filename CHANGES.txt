@@ -9,7 +9,6 @@ Changes 20.07.27
 - Updated language packages
 - Removed theme xtec2
 - Added theme xtec2020
-- Removed module mailer (mail sender using apligest) and associated hacks in Moodle core
 - Upgraded all wiris plugins
 - Upgraded atto plugin Cloze
 - Fixed typo in local_oauth
