@@ -16,6 +16,7 @@ Changes 20.07.27
 - Upgraded module Hot Potatoes
 - Upgraded module questionnaire
 - Upgraded module jclic
+- Upgraded block completion_progress
 - Course format Simple: Fixed edition of section name
 
 
