@@ -10,7 +10,6 @@ global $CFG;
 $CFG = new stdClass();
 
 $CFG->dbtype = $agora['moodle2']['dbtype'];
-$CFG->dbhost = $agora['moodle2']['dbhost'];
 $CFG->dbpass = $agora['moodle2']['userpwd'];
 $CFG->prefix = $agora['moodle2']['prefix'];
 
