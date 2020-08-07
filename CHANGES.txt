@@ -6,6 +6,7 @@ development home at https://github.com/projectestac/agora_moodle2
 Changes in progress
 ---------------------------------------------------------------------------------------
 - Upgraded block completion_progress
+- Upgraded module H5P
 - Theme xtec2020: Allow access to header menu to anonymous users
 - Theme xtec2020: Added support for multilevel custom menu
 - Theme xtec2020: Fixed repeated button and javascript errors in question bank preview
