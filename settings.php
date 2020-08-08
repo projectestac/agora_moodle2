@@ -32,6 +32,7 @@ $CFG->enablestats = false;
 $CFG->themedesignermode = false;
 $CFG->cachejs = true;
 $CFG->slasharguments = true;
+$CFG->themelist = 'xtec2020';
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
