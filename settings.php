@@ -34,6 +34,9 @@ $CFG->themedesignermode = false;
 $CFG->cachejs = true;
 $CFG->slasharguments = true;
 $CFG->themelist = 'xtec2020';
+$CFG->useexternalyui = false;
+$CFG->yuicomboloading = true;
+$CFG->cachetemplates = true;
 //$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
