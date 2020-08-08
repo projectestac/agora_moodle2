@@ -29,6 +29,7 @@ $CFG->repositorygetfiletimeout = 150;
 $CFG->alternateloginurl='';
 $CFG->mymoodleredirect = false;
 $CFG->enablestats = false;
+$CFG->enableanalytics = false;
 $CFG->themedesignermode = false;
 $CFG->cachejs = true;
 $CFG->slasharguments = true;
