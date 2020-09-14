@@ -3,10 +3,25 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 20.10.02
+---------------------------------------------------------------------------------------
+- Updated language packages
+
+
+Changes 20.09.18
+---------------------------------------------------------------------------------------
+- Upgraded Moodle from v3.8.4 to v3.8.5
+
+
 Changes 20.09.02
 ---------------------------------------------------------------------------------------
 - Upgraded block completion_progress
 - Upgraded module H5P
+- Upgraded all components from Vicens Vives
+- Upgraded block completion_progress
+- Upgraded Wiris components: filter and atto plugin
+- Upgraded module journal
+- Geogebra: Improved literals
 - Theme xtec2020: Allow access to header menu to anonymous users
 - Theme xtec2020: Added support for multilevel custom menu
 - Theme xtec2020: Improved accessibility
