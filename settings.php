@@ -51,7 +51,6 @@ $CFG->noreplyaddress = $agora['mail']['reply'];
 $CFG->supportemail = $agora['mail']['reply'];
 $CFG->smtpsecure = 'tls';
 $CFG->smtpmaxbulk = 15;
-$CFG->digestmailtime = 1;
 $CFG->emailfromvia = 0;
 if ($CFG->iseoi) {
     $CFG->mailheader = '[Àgora-EOI]';
