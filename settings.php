@@ -6,7 +6,8 @@ get_debug();
 // Force general preferences. Prevails over database params.
 $CFG->isagora = 1;
 $CFG->iseoi = $agora['iseoi'];
-$CFG->isportal = false;
+$CFG->isodissea = false;
+$CFG->isalexandria = false;
 $CFG->center = isset($school_info['clientCode']) ? $school_info['clientCode'] : $school_info['id_moodle2'];
 
 // The following line calculates correctly the diskPercent (uploading files will be disabled when diskPercent >= 100)
@@ -37,7 +38,6 @@ $CFG->themelist = 'xtec2020';
 $CFG->useexternalyui = false;
 $CFG->yuicomboloading = true;
 $CFG->cachetemplates = true;
-//$CFG->loginhttps=0;  /* Database param, to change if there is some problem */
 
 //Authentication
 $CFG->recaptchapublickey = $agora['recaptchapublickey'];
@@ -52,11 +52,7 @@ $CFG->supportemail = $agora['mail']['reply'];
 $CFG->smtpsecure = 'tls';
 $CFG->smtpmaxbulk = 15;
 $CFG->emailfromvia = 0;
-if ($CFG->iseoi) {
-    $CFG->mailheader = '[Àgora-EOI]';
-} else {
-    $CFG->mailheader = '[Àgora]';
-}
+$CFG->mailheader = ($CFG->iseoi) ? '[Àgora-EOI]' : '[Àgora]';
 
 //Cleanup
 $CFG->disablegradehistory = 1;
@@ -97,17 +93,9 @@ if ($CFG->iseoi) {
 // These variable define DEFAULT block variables for new courses
 $CFG->defaultblocks_override = ':calendar_month,activity_modules';
 
-//Mail information
-//$CFG->apligestmail = 1;          /* Set in database */
-//$CFG->apligestlog = 0;        /* Set in database */
-//$CFG->apligestlogdebug = 0;        /* Set in database */
-//$CFG->apligestlogpath = $CFG->dataroot.'/repository/files/mailsender.log';
+// Mail information
 $CFG->apligestenv = $agora['server']['enviroment'];
-if ($CFG->iseoi) {
-    $CFG->apligestaplic = 'AGORAEOI';
-} else {
-    $CFG->apligestaplic = 'AGORA';
-}
+$CFG->apligestaplic = ($CFG->iseoi) ? 'AGORAEOI' : 'AGORA';
 
 $CFG->langotherroot = dirname(__FILE__) . '/langpacks/';
 $CFG->langlocalroot = dirname(__FILE__) . '/langpacks/';
@@ -194,6 +182,3 @@ $CFG->forced_plugin_settings = array('logstore_standard' => array('loglifetime' 
                                                                 'categorybinenable' => 1,
                                                                 'categorybinexpiry' => 604800)
                                      );
-
-// Here is where the cronlogs will be stored
-//$CFG->savecronlog = 1;  // This parámeter is saved on database to save cronlogs
