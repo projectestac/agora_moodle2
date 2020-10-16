@@ -35,6 +35,17 @@ if (!empty($school_info['url_type']) && ($school_info['url_type'] == 'subdomain'
     $CFG->wwwroot = $agora['server']['html'] . $centre . '/moodle';
 }
 
+// Add redirect using full URI for sites that have changed their domain
+if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
+    $moodle_domain = explode('//', $agora['server']['server'])[1];
+    $request_domain = $_SERVER['HTTP_HOST'];
+
+    if ($moodle_domain != $request_domain) {
+        header('Location: ' . $agora['server']['server'] . $agora['server']['base'] . ltrim($_SERVER['REQUEST_URI'], '/'));
+        exit() ;
+    }
+}
+
 $CFG->dataroot = INSTALL_BASE . '/' . get_filepath_moodle();
 if (!empty($agora['server']['temp'])) {
     $CFG->tempdir = $agora['server']['temp'] . '/' . get_filepath_moodle();
