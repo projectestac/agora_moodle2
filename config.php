@@ -20,6 +20,7 @@ $CFG->dboptions = array (
     'dbsocket' => false,
     'dbport' => $agora['moodle2']['port']
 );
+
 $CFG->langotherroot = MOODLE_BASE . '/langpacks/';
 
 $CFG->directorypermissions = 00777;  // try 02777 on a server in Safe Mode
@@ -27,9 +28,6 @@ $CFG->directorypermissions = 00777;  // try 02777 on a server in Safe Mode
 $CFG->passwordsaltalt1 = '';
 $CFG->passwordsaltmain = 'y7a!Eb019n8Z5*43Sl5J&ly4pjJUk-b';
 
-//$CFG->savecronlog = 1;
-
 require_once(MOODLE_BASE . '/site-config.php');
 require_once(MOODLE_BASE . '/settings.php');
 require_once(MOODLE_BASE . '/lib/setup.php');
-
