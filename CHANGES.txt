@@ -3,6 +3,22 @@ Release notes for Agora-Moodle2 (http://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+
+Changes in progress
+---------------------------------------------------------------------------------------
+- Upgraded Moodle from v3.8.5 to v3.8.6
+- Updated language packages
+- Reduced minimum time between cron executions to 8 minutes
+- Theme XTEC2020: Added colorset PEDC and reworked general design
+- User bulk capitalize: Fixed functionality
+- Upgraded module clickedu
+- Upgraded block completion_progress
+- Upgraded atto plugin Cloze
+- Upgraded module jclic
+- Upgraded all wiris plugins
+- Local Agora: Fixed loading colorset from Nodes and updated cache definitions
+
+
 Changes 20.10.26
 ---------------------------------------------------------------------------------------
 - Add redirect using full URI for sites that have changed their domain
