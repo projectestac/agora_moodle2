@@ -128,8 +128,13 @@ if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
     $CFG->localcachedir = $CFG->agora_muc_path . '/localcache';
 }
 
-// Change locking from NFS to DB
-$CFG->lock_factory = "\\core\\lock\\db_record_lock_factory";
+// Move locking. Default location is moodledata
+if (!empty($agora['moodle2']['redis_session_servers'])) {
+    $CFG->local_redislock_redis_server = $agora['moodle2']['redis_session_servers'];
+    $CFG->lock_factory = '\\local_redislock\\lock\\redis_lock_factory';
+} else {
+    $CFG->lock_factory = '\\core\\lock\\db_record_lock_factory';
+}
 
 // if (isset($agora['proxy']['host']) && !empty($agora['proxy']['host'])) {
 //    $CFG->proxyhost = $agora['proxy']['host'];
