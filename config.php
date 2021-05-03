@@ -19,6 +19,7 @@ $CFG->admin = 'admin';
 $CFG->dboptions = [
     'dbpersist' => false,
     'dbsocket' => false,
+    'fetchbuffersize' => 0,
     'dbport' => $agora['moodle2']['port'],
 ];
 
