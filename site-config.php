@@ -46,9 +46,10 @@ if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
     }
 }
 
-$CFG->dataroot = INSTALL_BASE . '/' . get_filepath_moodle();
+$CFG->dataroot = INSTALL_BASE . '/' . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
+
 if (!empty($agora['server']['temp'])) {
-    $CFG->tempdir = $agora['server']['temp'] . '/' . get_filepath_moodle();
+    $CFG->tempdir = $agora['server']['temp'] . '/' . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];;
 }
 
 $CFG->dnscentre = $centre;
