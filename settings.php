@@ -91,9 +91,9 @@ $CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
 
 // Cache servers configuration for MUC, used in custom cacheconfig.php
-$CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['memcache_servers'] : '127.0.0.1';
+$CFG->memcache_servers = (!empty($agora['moodle2']['memcache_servers'])) ? $agora['moodle2']['memcache_servers'] : '';
 $CFG->memcache_prefix = $CFG->dbuser . '_';
-$CFG->redis_servers = (!empty($agora['moodle2']['redis_servers'])) ? $agora['moodle2']['redis_servers'] : '127.0.0.1';
+$CFG->redis_servers = (!empty($agora['moodle2']['redis_servers'])) ? $agora['moodle2']['redis_servers'] : '';
 $CFG->redis_prefix = $CFG->dbuser . '_';
 
 // Session configuration
