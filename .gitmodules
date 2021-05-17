@@ -10,3 +10,6 @@
 [submodule "blocks/rgrade"]
 	path = blocks/rgrade
 	url = https://github.com/projectestac/Rgrade.git
+[submodule "course/format/simple"]
+	path = course/format/simple
+	url = https://github.com/projectestac/moodle-format_simple.git
