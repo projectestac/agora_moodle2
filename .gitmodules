@@ -79,3 +79,6 @@
 [submodule "question/type/matchwiris"]
 	path = question/type/matchwiris
 	url = https://github.com/wiris/moodle-qtype_matchwiris.git
+[submodule "question/type/multianswerwiris"]
+	path = question/type/multianswerwiris
+	url = https://github.com/wiris/moodle-qtype_multianswerwiris.git
