@@ -67,3 +67,6 @@
 [submodule "mod/questionnaire"]
 	path = mod/questionnaire
 	url = https://github.com/PoetOS/moodle-mod_questionnaire.git
+[submodule "mod/qv"]
+	path = mod/qv
+	url = https://github.com/projectestac/moodle-mod_qv.git
