@@ -34,3 +34,6 @@
 [submodule "lib/editor/atto/plugins/wiris"]
 	path = lib/editor/atto/plugins/wiris
 	url = https://github.com/wiris/moodle-atto_wiris.git
+[submodule "local/agora"]
+	path = local/agora
+	url = https://github.com/projectestac/moodle-local_agora.git
