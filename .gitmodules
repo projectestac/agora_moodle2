@@ -43,3 +43,6 @@
 [submodule "local/clickedu"]
 	path = local/clickedu
 	url = https://github.com/clickedu/ClickeduMoodlePlugin.git
+[submodule "local/oauth"]
+	path = local/oauth
+	url = https://github.com/projectestac/moodle-local_oauth.git
