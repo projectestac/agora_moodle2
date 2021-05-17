@@ -82,3 +82,6 @@
 [submodule "question/type/multianswerwiris"]
 	path = question/type/multianswerwiris
 	url = https://github.com/wiris/moodle-qtype_multianswerwiris.git
+[submodule "question/type/multichoicewiris"]
+	path = question/type/multichoicewiris
+	url = https://github.com/wiris/moodle-qtype_multichoicewiris.git
