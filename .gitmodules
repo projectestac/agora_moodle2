@@ -40,3 +40,6 @@
 [submodule "local/alexandriaimporter"]
 	path = local/alexandriaimporter
 	url = https://github.com/projectestac/moodle-local_alexandriaimporter.git
+[submodule "local/clickedu"]
+	path = local/clickedu
+	url = https://github.com/clickedu/ClickeduMoodlePlugin.git
