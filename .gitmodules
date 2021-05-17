@@ -22,3 +22,6 @@
 [submodule "langpacks"]
 	path = langpacks
 	url = https://github.com/projectestac/moodle-langpacks.git
+[submodule "lib/editor/atto/plugins/cloze"]
+	path = lib/editor/atto/plugins/cloze
+	url = https://github.com/dthies/moodle-atto_cloze.git
