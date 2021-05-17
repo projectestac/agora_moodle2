@@ -19,3 +19,6 @@
 [submodule "filter/wiris"]
 	path = filter/wiris
 	url = https://github.com/wiris/moodle-filter_wiris.git
+[submodule "langpacks"]
+	path = langpacks
+	url = https://github.com/projectestac/moodle-langpacks.git
