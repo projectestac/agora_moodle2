@@ -97,3 +97,6 @@
 [submodule "report/coursequotas"]
 	path = report/coursequotas
 	url = https://github.com/projectestac/moodle-report_coursequotas.git
+[submodule "theme/xtec2020"]
+	path = theme/xtec2020
+	url = https://github.com/projectestac/moodle-theme_xtec2020.git
