@@ -94,3 +94,6 @@
 [submodule "question/type/ordering"]
 	path = question/type/ordering
 	url = https://github.com/gbateson/moodle-qtype_ordering.git
+[submodule "report/coursequotas"]
+	path = report/coursequotas
+	url = https://github.com/projectestac/moodle-report_coursequotas.git
