@@ -91,3 +91,6 @@
 [submodule "question/type/truefalsewiris"]
 	path = question/type/truefalsewiris
 	url = https://github.com/wiris/moodle-qtype_truefalsewiris.git
+[submodule "question/type/ordering"]
+	path = question/type/ordering
+	url = https://github.com/gbateson/moodle-qtype_ordering.git
