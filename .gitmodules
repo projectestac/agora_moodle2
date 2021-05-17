@@ -49,3 +49,6 @@
 [submodule "local/wsvicensvives"]
 	path = local/wsvicensvives
 	url = https://github.com/vicensvives/moodle-local_ws_vicensvives.git
+[submodule "mod/choicegroup"]
+	path = mod/choicegroup
+	url = https://github.com/ndunand/moodle-mod_choicegroup.git
