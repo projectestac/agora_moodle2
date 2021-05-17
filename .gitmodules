@@ -88,3 +88,6 @@
 [submodule "question/type/shortanswerwiris"]
 	path = question/type/shortanswerwiris
 	url = https://github.com/wiris/moodle-qtype_shortanswerwiris.git
+[submodule "question/type/truefalsewiris"]
+	path = question/type/truefalsewiris
+	url = https://github.com/wiris/moodle-qtype_truefalsewiris.git
