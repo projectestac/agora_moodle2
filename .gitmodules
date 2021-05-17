@@ -31,3 +31,6 @@
 [submodule "lib/editor/atto/plugins/fontfamily"]
 	path = lib/editor/atto/plugins/fontfamily
 	url = https://github.com/projectestac/moodle-atto_fontfamily.git
+[submodule "lib/editor/atto/plugins/wiris"]
+	path = lib/editor/atto/plugins/wiris
+	url = https://github.com/wiris/moodle-atto_wiris.git
