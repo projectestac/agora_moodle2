@@ -16,3 +16,6 @@
 [submodule "course/format/vv"]
 	path = course/format/vv
 	url = https://github.com/vicensvives/moodle-format_vicensvives.git
+[submodule "filter/wiris"]
+	path = filter/wiris
+	url = https://github.com/wiris/moodle-filter_wiris.git
