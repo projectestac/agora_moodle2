@@ -49,3 +49,6 @@
 [submodule "local/redislock"]
 	path = local/redislock
 	url = https://github.com/open-lms-open-source/moodle-local_redislock.git
+[submodule "local/wsvicensvives"]
+	path = local/wsvicensvives
+	url = https://github.com/vicensvives/moodle-local_ws_vicensvives.git
