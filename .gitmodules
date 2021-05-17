@@ -100,3 +100,6 @@
 [submodule "question/type/wq"]
 	path = question/type/wq
 	url = https://github.com/wiris/moodle-qtype_wq.git
+[submodule "question/type/ordering"]
+	path = question/type/ordering
+	url = https://github.com/gbateson/moodle-qtype_ordering.git
