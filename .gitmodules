@@ -73,3 +73,6 @@
 [submodule "question/format/hotpot"]
 	path = question/format/hotpot
 	url = https://github.com/gbateson/moodle-qformat_hotpot.git
+[submodule "question/type/essaywiris"]
+	path = question/type/essaywiris
+	url = https://github.com/wiris/moodle-qtype_essaywiris.git
