@@ -4,3 +4,6 @@
 [submodule "blocks/courses_vicensvives"]
 	path = blocks/courses_vicensvives
 	url = https://github.com/vicensvives/moodle-block_courses_vicensvives.git
+[submodule "blocks/licenses_vicensvives"]
+	path = blocks/licenses_vicensvives
+	url = https://github.com/vicensvives/moodle-block_licenses_vicensvives.git
