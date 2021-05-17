@@ -37,3 +37,6 @@
 [submodule "local/agora"]
 	path = local/agora
 	url = https://github.com/projectestac/moodle-local_agora.git
+[submodule "local/alexandriaimporter"]
+	path = local/alexandriaimporter
+	url = https://github.com/projectestac/moodle-local_alexandriaimporter.git
