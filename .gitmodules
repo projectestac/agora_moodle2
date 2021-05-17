@@ -52,3 +52,6 @@
 [submodule "mod/choicegroup"]
 	path = mod/choicegroup
 	url = https://github.com/ndunand/moodle-mod_choicegroup.git
+[submodule "mod/geogebra"]
+	path = mod/geogebra
+	url = https://github.com/projectestac/moodle-mod_geogebra.git
