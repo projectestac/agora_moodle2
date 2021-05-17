@@ -97,3 +97,6 @@
 [submodule "question/type/truefalsewiris"]
 	path = question/type/truefalsewiris
 	url = https://github.com/wiris/moodle-qtype_truefalsewiris.git
+[submodule "question/type/wq"]
+	path = question/type/wq
+	url = https://github.com/wiris/moodle-qtype_wq.git
