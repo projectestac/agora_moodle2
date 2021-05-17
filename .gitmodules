@@ -7,3 +7,6 @@
 [submodule "blocks/licenses_vicensvives"]
 	path = blocks/licenses_vicensvives
 	url = https://github.com/vicensvives/moodle-block_licenses_vicensvives.git
+[submodule "blocks/rgrade"]
+	path = blocks/rgrade
+	url = https://github.com/projectestac/Rgrade.git
