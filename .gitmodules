@@ -1,0 +1,3 @@
+[submodule "blocks/completion_progress"]
+	path = blocks/completion_progress
+	url = https://github.com/deraadt/moodle-block_completion_progress.git
