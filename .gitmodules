@@ -46,3 +46,6 @@
 [submodule "local/oauth"]
 	path = local/oauth
 	url = https://github.com/projectestac/moodle-local_oauth.git
+[submodule "local/wsvicensvives"]
+	path = local/wsvicensvives
+	url = https://github.com/vicensvives/moodle-local_ws_vicensvives.git
