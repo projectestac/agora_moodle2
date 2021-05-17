@@ -64,3 +64,6 @@
 [submodule "mod/journal"]
 	path = mod/journal
 	url = https://github.com/elearningsoftware/moodle-mod_journal.git
+[submodule "mod/questionnaire"]
+	path = mod/questionnaire
+	url = https://github.com/PoetOS/moodle-mod_questionnaire.git
