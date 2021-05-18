@@ -35,6 +35,12 @@ class atto extends base {
      * @return \moodle_url
      */
     public function is_uninstall_allowed() {
+        //XTEC ************ AFEGIT - Disable uninstalling
+        //2015.06.05 @pferre22
+        if (!get_protected_agora()) {
+            return false;
+        }
+        //************ FI
         return true;
     }
 
