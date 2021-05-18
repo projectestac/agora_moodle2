@@ -61,6 +61,12 @@ class config_writer extends config {
      * infinite loop situations caused by the cache throwing exceptions during its initialisation.
      */
     protected function config_save() {
+
+        // XTEC ************ AFEGIT - Disable save of MUC configuration
+        // 2014.11.13 @pferre22
+        return;
+        // ************ FI
+
         global $CFG;
         static $confighash = '';
         $cachefile = static::get_config_file_path();
