@@ -42,6 +42,9 @@ $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';
 $CFG->cronclionly = 1;
 
+// Encryption in https is provided by the load balancer.
+$CFG->sslproxy = true;
+
 // Captcha keys
 $CFG->recaptchapublickey = $agora['recaptchapublickey'];
 $CFG->recaptchaprivatekey = $agora['recaptchaprivatekey'];
