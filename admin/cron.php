@@ -51,6 +51,12 @@ define('NO_OUTPUT_BUFFERING', true);
 require('../config.php');
 require_once($CFG->libdir . '/clilib.php');
 
+// XTEC ************ AFEGIT - Run cron by CLI. Redirects execution to function cron_run() (defined at lib/cronlib.php)
+//                            with the proper parameters for Agora, so the rest of this script is not executed
+// 2014.02.17 @pferre22
+check_cron_run();
+// ************ FI
+
 // extra safety
 \core\session\manager::write_close();
 
