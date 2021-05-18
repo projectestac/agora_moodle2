@@ -102,6 +102,15 @@ class config {
         global $CFG;
         if (!empty($CFG->altcacheconfigpath)) {
             $path = $CFG->altcacheconfigpath;
+
+            // XTEC ************ AFEGIT - Ensure MUC is configured
+            // @pferre22 2015.11.19
+            if (is_dir($path)) {
+                return $path . '/cacheconfig.php';
+            }
+            return $path;
+            // ************* FI
+
             if (is_dir($path) && is_writable($path)) {
                 // Its a writable directory, thats fine.
                 return $path . '/cacheconfig.php';
@@ -133,10 +142,24 @@ class config {
         $this->configmodemappings = [];
         $this->configdefinitionmappings = [];
 
+        // XTEC ************ AFEGIT - Ensure MUC is configured
+        // siteidentifier must be located on settings.php and must be different for each instance
+        // 2014.08.12 @pferre22
+        if(isset($CFG->siteidentifier) && ! empty($CFG->siteidentifier)){
+            $siteidentifier = md5((string)$CFG->siteidentifier);
+        } else {
+        // ************ FI
+
         $siteidentifier = 'unknown';
         if (array_key_exists('siteidentifier', $configuration)) {
             $siteidentifier = $configuration['siteidentifier'];
         }
+
+        // XTEC ************ AFEGIT - Ensure MUC is configured
+        // 2014.08.12 @pferre22
+        }
+        // ************ FI
+
         $this->siteidentifier = $siteidentifier;
 
         // Filter the lock instances.
