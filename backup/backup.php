@@ -105,6 +105,13 @@ switch ($type) {
         throw new \moodle_exception('unknownbackuptype');
 }
 
+// XTEC ************ AFEGIT - Control backup hours
+// 2012.06.04 @aginard
+if (!get_protected_agora() && is_rush_hour()) {
+    print_error('rush_hour', 'local_agora', $CFG->wwwroot . '/course/view.php?id=' . $id);
+}
+// ************ FI
+
 $PAGE->set_title($heading);
 $PAGE->set_heading($heading);
 $PAGE->activityheader->disable();
