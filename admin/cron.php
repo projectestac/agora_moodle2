@@ -52,6 +52,11 @@ require('../config.php');
 require_once($CFG->libdir.'/clilib.php');
 require_once($CFG->libdir.'/cronlib.php');
 
+//XTEC ************ AFEGIT - Run cron by CLI
+//2014.02.17 @pferre22
+check_cron_run();
+//************ FI
+
 // extra safety
 \core\session\manager::write_close();
 
