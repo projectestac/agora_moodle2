@@ -37,6 +37,14 @@ class tool extends base {
         if ($this->name === 'mobile') {
             return false;
         } else {
+
+            // XTEC ************ AFEGIT - Disable uninstalling
+            // 2014.09.09 @pferre22
+            if (!get_protected_agora()) {
+                return false;
+            }
+            //************ FI
+
             return true;
         }
     }
