@@ -110,6 +110,15 @@ class user_bulk_action_form extends moodleform {
                 get_string('bulkadd', 'core_cohort'));
         }
 
+        // XTEC ************ AFEGIT - Add action to capitalize user names
+        // 2021.01.13 @aginard
+        if (has_capability('moodle/user:editprofile', $syscontext)) {
+            $actions['capitalize'] = new action_link(
+                new moodle_url('/admin/user/user_bulk_capitalize.php'),
+                get_string('capitalize','local_agora'));
+        }
+        //************ FI
+
         // Collect all bulk user actions.
         $hook = new \core_user\hook\extend_bulk_user_actions();
 
