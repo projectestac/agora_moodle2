@@ -31,6 +31,13 @@ defined('MOODLE_INTERNAL') || die();
 class gradingform extends base {
 
     public function is_uninstall_allowed() {
+        // XTEC ************ AFEGIT - Disable uninstalling
+        // 2014.09.09 @pferre22
+        if (!get_protected_agora()) {
+            return false;
+        }
+        //************ FI
+
         return true;
     }
 
@@ -39,6 +46,11 @@ class gradingform extends base {
      * This is intended for disabling of plugin, some DB table purging, etc.
      */
     public function uninstall_cleanup() {
+        // XTEC ************ AFEGIT - Disable uninstalling
+        // 2018.05.28 @svallde2
+        if (!get_protected_agora()) {
+        //************ FI
+
         global $DB;
 
         // Find all definitions and templates.
@@ -56,5 +68,10 @@ class gradingform extends base {
         $DB->execute('UPDATE {grading_areas} SET activemethod = NULL WHERE activemethod = ?', [$this->name]);
 
         parent::uninstall_cleanup();
+
+        // XTEC ************ AFEGIT - Disable uninstalling
+        // 2018.05.28 @svallde2
+        }
+        // ************ FI
     }
 }
