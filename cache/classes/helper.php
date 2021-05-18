@@ -670,7 +670,15 @@ class helper {
         $factory = factory::instance();
         $factory->updating_started();
         $config = $factory->create_config_instance(true);
+
+        //XTEC ************ ELIMINAT - Ensure MUC is configured
+        // Never update siteidentifier
+        // 2014.08.12 @pferre22
+        /*
         $siteidentifier = $config->update_site_identifier($siteidentifier);
+        */
+        //************ FI
+
         $factory->updating_finished();
         factory::reset();
         return $siteidentifier;
@@ -683,6 +691,15 @@ class helper {
      */
     public static function get_site_identifier() {
         global $CFG;
+
+        // XTEC ************ ELIMINAT - Ensure MUC is configured
+        // Do not calculate siteidentifier if it is set
+        // 2014.08.12 @pferre22
+        if (isset($CFG->siteidentifier) && !empty($CFG->siteidentifier)) {
+            return md5((string)$CFG->siteidentifier);
+        }
+        // ************ FI
+
         if (!is_null(self::$siteidentifier)) {
             return self::$siteidentifier;
         }
