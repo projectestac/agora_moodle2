@@ -38,6 +38,13 @@ class h5plib extends base {
      * @return bool
      */
     public function is_uninstall_allowed(): bool {
+        // XTEC ************ AFEGIT - Disable uninstalling
+        // 2021.05.18 @aginard
+        if (!get_protected_agora()) {
+            return false;
+        }
+        // ************ FI
+
         return true;
     }
 
