@@ -236,6 +236,15 @@ function edit_module_post_actions($moduleinfo, $course) {
         'courseid' => $course->id,
     ]);
 
+    // XTEC ************ AFEGIT - Added patch for course format "Simple"
+    // 2010.07.12 @aginard
+    // Adds icon to filesystem
+    if (isset($moduleinfo->simple_image)) {
+        require_once($CFG->dirroot . '/course/format/simple/lib.php');
+        simple_update_module_image($moduleinfo);
+    }
+    // ************ FI
+
     // Create parent category if requested and move to correct parent category.
     $component = "mod_{$moduleinfo->modulename}";
     if ($items) {
