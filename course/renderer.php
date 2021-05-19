@@ -739,8 +739,21 @@ class core_course_renderer extends plugin_renderer_base {
      */
     public function availability_info($text, $additionalclasses = '') {
 
+        // XTEC ************ MODIFICAT - Change title for abbreviation
+        // 2019.02.27 @svallde2
+        $additionalclasses = array_filter(explode(' ', $additionalclasses));
+        if (in_array('isrestricted', $additionalclasses)) {
+            $txt = $text;
+        } else {
+            $txt = preg_split("(\,|\s)", $text)[0];
+        }
+        $data = ['text' => $text, 'title' => $txt, 'classes' => $additionalclasses];
+        // ************ ORIGINAL
+        /*
         $data = ['text' => $text, 'classes' => $additionalclasses];
         $additionalclasses = array_filter(explode(' ', $additionalclasses));
+        */
+        // ************ FI
 
         if (in_array('ishidden', $additionalclasses)) {
             $data['ishidden'] = 1;
@@ -911,6 +924,10 @@ class core_course_renderer extends plugin_renderer_base {
             $output .= html_writer::start_tag('div', array('class' => 'activityinstance'));
             $output .= $cmname;
 
+            // XTEC ************ AFEGIT - Move availability label next to activity title
+            // 2019.02.27 @svallde2
+            $output .= $this->course_section_cm_availability($mod, $displayoptions);
+            // ************ FI
 
             // Module can put text after the link (e.g. forum unread)
             $output .= $mod->afterlink;
@@ -961,8 +978,18 @@ class core_course_renderer extends plugin_renderer_base {
             $output .= $this->output->activity_information($mod, $completiondetails, $activitydates);
         }
 
+        // XTEC ************ MODIFICAT - Show availability info (if module is not available)
+        // 2019.02.27 @svallde2
+        // 2020.03.03 @ulises.martinez
+        if ('label' == $mod->modname) {
+            $output .= $this->course_section_cm_availability($mod, $displayoptions);
+        }
+        // ************ ORIGINAL
+        /*
         // Show availability info (if module is not available).
         $output .= $this->course_section_cm_availability($mod, $displayoptions);
+        */
+        // ************ FI
 
         // If there is content AND a link, then display the content here
         // (AFTER any icons). Otherwise it was displayed before
