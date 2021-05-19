@@ -209,6 +209,28 @@ if (!$version or !$release) {
 }
 
 if (!core_tables_exist()) {
+
+    // XTEC ************ AFEGIT - Block access to install functions. Show "site off" message instead.
+    // 2013.12.16 @aginard
+    if (!isset($agora['server']['enviroment']) || ($agora['server']['enviroment'] != 'LOCAL' && $agora['server']['enviroment'] != 'DES')) {
+        $siteoff_file = '../siteoff.html';
+        if (file_exists($siteoff_file)) {
+            include_once($siteoff_file);
+        } else {
+            echo '<html><body>';
+            echo '<div style="text-align:center; font-size:large; border-width:1px; '.
+                 '    border-color:#CCC; border-style:solid; border-radius: 20px; border-collapse: collapse; '.
+                 '    -moz-border-radius:20px; padding:15px; margin: 200px 100px 0px 100px;">';
+            echo '<h2>Servei no disponible</h2>';
+            echo '<p>El servei a qu&egrave; intenteu accedir est&agrave; temporalment fora de servei. Estem treballant per solucionar el problema al m&eacute;s aviat possible. Si us plau proveu d\'accedir-hi m&eacute;s tard.</p>';
+            echo '<p style="font-size:medium">Disculpeu les mol&egrave;sties.</p>';
+            echo '</div></body></html>';
+        }
+        exit(0);
+    }
+    // ************ FI
+
+
     $PAGE->set_pagelayout('maintenance');
     $PAGE->set_popup_notification_allowed(false);
 
