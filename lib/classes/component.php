@@ -632,6 +632,14 @@ $cache = '.var_export($cache, true).';
                     // Always ignore plugins with problematic names here.
                     continue;
                 }
+
+                // XTEC ************ AFEGIT - Only enabled modules must be shown
+                // 2012.11.06 @sarjona
+                if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora($pluginname)) {
+                    continue;
+                }
+                // ************ FI
+
                 $result[$pluginname] = $fulldir.'/'.$pluginname;
                 unset($item);
             }
