@@ -25,7 +25,15 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ MODIFICAT - Check if competencies have been enabled by xtecadmin or let acces to xtecadmin
+// 2018.06.12 @svallde2
+if (get_config('core_competency', 'enabled') || get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if (get_config('core_competency', 'enabled')) {
+*/
+// ************ FI
+
     // Manage competency frameworks page.
     $temp = new admin_externalpage(
         'toollpimportcsv',
