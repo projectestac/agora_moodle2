@@ -126,6 +126,14 @@ class format_topics extends core_courseformat\base {
         } else {
             $sectionno = $section;
         }
+
+        // XTEC ************ AFEGIT - Show current section if none is selected
+        // 2012.08.20 @sarjona
+        if (empty($sectionno)) {
+            $sectionno = -1;
+        }
+        // ************ FI
+
         if ($sectionno !== null) {
             if ($sr !== null) {
                 if ($sr) {
