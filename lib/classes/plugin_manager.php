@@ -202,6 +202,14 @@ class core_plugin_manager {
                 // Invalid component, there must be at least one "_".
                 continue;
             }
+
+            // XTEC ************ AFEGIT - Only enabled modules must be shown
+            // 2012.11.06 @sarjona
+            if (function_exists('is_enabled_in_agora') && (!is_enabled_in_agora($parts[1]) || !is_enabled_in_agora($parts[0]))) {
+                continue;
+            }
+            // ************ FI
+
             // Do not verify here if plugin type and name are valid.
             $this->installedplugins[$parts[0]][$parts[1]] = $version->value;
         }
@@ -308,6 +316,14 @@ class core_plugin_manager {
         foreach ($plugintypes as $type => $typedir) {
             $plugs = core_component::get_plugin_list($type);
             foreach ($plugs as $plug => $fullplug) {
+
+                // XTEC ************ AFEGIT - Only enabled modules must be shown
+                // 2012.11.06 @sarjona
+                if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora($plug)) {
+                    continue;
+                }
+                // ************ FI
+
                 $module = new stdClass();
                 $plugin = new stdClass();
                 $plugin->version = null;
