@@ -25,6 +25,11 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ AFEGIT - Check if competencies have been enabled by xtecadmin or let acces to xtecadmin
+// 2018.06.12 @svallde2
+if (get_config('core_competency', 'enabled') || get_protected_agora()) {
+// ************ FI
+
 // Manage competency frameworks page.
 $temp = new admin_externalpage(
     'toollpimportcsv',
@@ -41,6 +46,11 @@ $temp = new admin_externalpage(
     'moodle/competency:competencymanage'
 );
 $ADMIN->add('competencies', $temp);
+
+// XTEC ************ AFEGIT - Check if competencies have been enabled by xtecadmin or let acces to xtecadmin
+// 2018.06.12 @svallde2
+}
+// ************ FI
 
 // No report settings.
 $settings = null;
