@@ -2,7 +2,18 @@
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.12 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     $optionalsubsystems->add(new admin_setting_configcheckbox('enableoutcomes', new lang_string('enableoutcomes', 'grades'), new lang_string('enableoutcomes_help', 'grades'), 0));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.12 @sarjona
+    }
+    // ************ FI
+
     $optionalsubsystems->add(new admin_setting_configcheckbox('usecomments', new lang_string('enablecomments', 'admin'), new lang_string('configenablecomments', 'admin'), 1));
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('usetags', new lang_string('usetags','admin'),new lang_string('configusetags', 'admin'), '1'));
@@ -43,8 +54,18 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('enablebadges', new lang_string('enablebadges', 'badges'), new lang_string('configenablebadges', 'badges'), 1));
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.12 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     $optionalsubsystems->add(new admin_setting_configcheckbox('enableglobalsearch', new lang_string('enableglobalsearch', 'admin'),
         new lang_string('enableglobalsearch_desc', 'admin'), 0, 1, 0));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.12 @sarjona
+    }
+    // ************ FI
 
     $optionalsubsystems->add(new admin_setting_configcheckbox('allowstealth', new lang_string('allowstealthmodules'),
         new lang_string('allowstealthmodules_help'), 0, 1, 0));
