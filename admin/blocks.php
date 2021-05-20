@@ -192,6 +192,14 @@
                        $OUTPUT->pix_icon('t/lock', $strprotect) . '</a>';
         }
 
+        // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+        // 2016.12.23 @sarjona
+        if (!get_protected_agora() && $blockname === 'progress') {
+            $visible = '';
+            $undeletable = '';
+        }
+        // ************ FI
+
         $row = array(
             $strblockname,
             $blocklist,
