@@ -164,6 +164,11 @@ if ($hassiteconfig) {
     }
 
     // Antivirus plugins.
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.06.09 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     $ADMIN->add('modules', new admin_category('antivirussettings', new lang_string('antiviruses', 'antivirus')));
     $temp = new admin_settingpage('manageantiviruses', new lang_string('antivirussettings', 'antivirus'));
     $temp->add(new admin_setting_manageantiviruses());
@@ -230,6 +235,11 @@ if ($hassiteconfig) {
         /* @var \core\plugininfo\antivirus $plugin */
         $plugin->load_settings($ADMIN, 'antivirussettings', $hassiteconfig);
     }
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.06.09 @sarjona
+    }
+    // ************ FI
 
     // Machine learning backend plugins.
     $ADMIN->add('modules', new admin_category('mlbackendsettings', new lang_string('mlbackendsettings', 'admin')));
@@ -323,6 +333,12 @@ if ($hassiteconfig) {
     }
 
     // Data format settings.
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.16 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     $ADMIN->add('modules', new admin_category('dataformatsettings', new lang_string('dataformats')));
     $temp = new admin_settingpage('managedataformats', new lang_string('managedataformats'));
     $temp->add(new admin_setting_managedataformats());
@@ -334,6 +350,12 @@ if ($hassiteconfig) {
         /** @var \core\plugininfo\dataformat $plugin */
         $plugin->load_settings($ADMIN, 'dataformatsettings', $hassiteconfig);
     }
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.16 @sarjona
+    }
+    // ************ FI
+
 
     //== Portfolio settings ==
     require_once($CFG->libdir. '/portfoliolib.php');
@@ -578,7 +600,15 @@ foreach ($pages as $page) {
     $ADMIN->add('reportplugins', $page);
 }
 
+// XTEC ************ MODIFICAT - Allow access only to xtecadmin user
+// 2016.06.09 @sarjona
+if ($hassiteconfig && get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     // Global Search engine plugins.
     $ADMIN->add('modules', new admin_category('searchplugins', new lang_string('search', 'admin')));
     $temp = new admin_settingpage('manageglobalsearch', new lang_string('globalsearchmanage', 'admin'));
@@ -736,7 +766,16 @@ foreach ($plugins as $plugin) {
 }
 
 // Now add the Cache plugins
+
+// XTEC ************ MODIFICAT - Allow access only to xtecadmin user
+// 2013.04.16 @sarjona
+if ($hassiteconfig && get_protected_agora() ) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     $ADMIN->add('modules', new admin_category('cache', new lang_string('caching', 'cache')));
     $ADMIN->add('cache', new admin_externalpage('cacheconfig', new lang_string('cacheconfig', 'cache'), $CFG->wwwroot .'/cache/admin.php'));
     $ADMIN->add('cache', new admin_externalpage('cachetestperformance', new lang_string('testperformance', 'cache'), $CFG->wwwroot . '/cache/testperformance.php'));
