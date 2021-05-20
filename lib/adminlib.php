@@ -9981,6 +9981,13 @@ class admin_setting_manageexternalservices extends admin_setting {
 
             $edit = "<a href=\"$esurl?id=$service->id\">$stredit</a>";
 
+            // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+            // 2012.07.03 @sarjona
+            if ($auth == 'db' && !get_protected_agora()) {
+                $settings = '';
+            }
+            // ************ FI
+
             // add a row to the table
             $table->data[] = array($displayname, $delete, $functions, $users, $edit);
         }

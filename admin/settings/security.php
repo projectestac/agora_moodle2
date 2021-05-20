@@ -27,6 +27,11 @@ use core_admin\local\settings\filesize;
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     // "ip blocker" settingpage
     $temp = new admin_settingpage('ipblocker', new lang_string('ipblocker', 'admin'));
     $temp->add(new admin_setting_configcheckbox('allowbeforeblock', new lang_string('allowbeforeblock', 'admin'), new lang_string('allowbeforeblockdesc', 'admin'), 0));
@@ -35,6 +40,11 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
     $temp->add(new admin_setting_configiplist('blockedip', new lang_string('blockediplist', 'admin'),
                                                 new lang_string('ipblockersyntax', 'admin'), ''));
     $ADMIN->add('security', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    }
+    // ************ FI
 
     // "sitepolicies" settingpage
     $temp = new admin_settingpage('sitepolicies', new lang_string('sitepolicies', 'admin'));
@@ -160,6 +170,11 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
     $ADMIN->add('security', $temp);
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     // "httpsecurity" settingpage
     $temp = new admin_settingpage('httpsecurity', new lang_string('httpsecurity', 'admin'));
 
@@ -207,6 +222,11 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
             new lang_string('referrerpolicydesc', 'admin'), 'default', $referreroptions));
 
     $ADMIN->add('security', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    }
+    // ************ FI
 
     // "notifications" settingpage
     $temp = new admin_settingpage('notifications', new lang_string('notifications', 'admin'));
