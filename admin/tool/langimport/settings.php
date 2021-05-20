@@ -25,7 +25,15 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ MODIFICAT - Allow access only to xtecadmin user
+// 2013.06.10 @jmiro227
+if ($hassiteconfig & get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     $ADMIN->add('language', new admin_externalpage('toollangimport', get_string('pluginname', 'tool_langimport'), "$CFG->wwwroot/$CFG->admin/tool/langimport/index.php"));
 }
 
