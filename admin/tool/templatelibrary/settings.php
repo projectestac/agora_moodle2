@@ -24,6 +24,12 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die;
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2016.08.16 @sarjona
+if (get_protected_agora()) {
+// ************ FI
+
 // Template library page.
 $temp = new admin_externalpage(
     'tooltemplatelibrary',
@@ -31,3 +37,8 @@ $temp = new admin_externalpage(
     new moodle_url('/admin/tool/templatelibrary/index.php')
 );
 $ADMIN->add('development', $temp);
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2016.08.16 @sarjona
+}
+// ************ FI

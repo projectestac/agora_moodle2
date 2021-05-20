@@ -25,7 +25,17 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2012.06.20 @sarjona
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('reports', new admin_externalpage('reportbackups', get_string('backups', 'admin'), "$CFG->wwwroot/report/backups/index.php",'moodle/backup:backupcourse'));
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2012.06.20 @sarjona
+}
+// ************ FI
 
 // no report settings
 $settings = null;
