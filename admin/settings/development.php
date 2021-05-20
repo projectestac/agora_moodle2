@@ -4,6 +4,11 @@
 
 if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2012.05.23 @sarjona
+if (get_protected_agora()) {
+// ************ FI
+
     // Experimental settings page
     $ADMIN->add('development', new admin_category('experimental', new lang_string('experimental','admin')));
 
@@ -110,4 +115,12 @@ if ($hassiteconfig) { // speedup for non-admins, add all caps used on this page
             "$CFG->wwwroot/$CFG->admin/purgecaches.php"));
 
     $ADMIN->add('development', new admin_externalpage('thirdpartylibs', new lang_string('thirdpartylibs','admin'), "$CFG->wwwroot/$CFG->admin/thirdpartylibs.php"));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.05.23 @sarjona
+    } else {
+        $ADMIN->add('development', new admin_externalpage('purgecaches', get_string('purgecaches','admin'), "$CFG->wwwroot/$CFG->admin/purgecaches.php"));
+    }
+    // ************ FI
+
 } // end of speedup
