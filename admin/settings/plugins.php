@@ -166,6 +166,7 @@ if ($hassiteconfig) {
     // Antivirus plugins.
     // XTEC ************ AFEGIT - Allow access only to xtecadmin user
     // 2016.06.09 @sarjona
+    // 2021.05.20 @aginard
     if (get_protected_agora()) {
     // ************ FI
 
@@ -216,17 +217,18 @@ if ($hassiteconfig) {
         $plugin->load_settings($ADMIN, 'antivirussettings', $hassiteconfig);
     }
 
-    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
-    // 2016.06.09 @sarjona
-    }
-    // ************ FI
-
     // Machine learning backend plugins.
     $ADMIN->add('modules', new admin_category('mlbackendsettings', new lang_string('mlbackendsettings', 'admin')));
     $plugins = core_plugin_manager::instance()->get_plugins_of_type('mlbackend');
     foreach ($plugins as $plugin) {
         $plugin->load_settings($ADMIN, 'mlbackendsettings', $hassiteconfig);
     }
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.06.09 @sarjona
+    // 2021.05.20 @aginard
+    }
+    // ************ FI
 
 /// Filter plugins
     $ADMIN->add('modules', new admin_category('filtersettings', new lang_string('managefilters')));
@@ -293,6 +295,12 @@ if ($hassiteconfig) {
         $plugin->load_settings($ADMIN, 'mediaplayers', $hassiteconfig);
     }
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2016.08.16 @sarjona
+    // 2021.05.20 @aginard
+    if (get_protected_agora()) {
+    // ************ FI
+
     // Payment gateway plugins.
     $ADMIN->add('modules', new admin_category('paymentgateways', new lang_string('type_paygw_plural', 'plugin')));
     $temp = new admin_settingpage('managepaymentgateways', new lang_string('type_paygwmanage', 'plugin'));
@@ -314,11 +322,6 @@ if ($hassiteconfig) {
 
     // Data format settings.
 
-    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
-    // 2016.08.16 @sarjona
-    if (get_protected_agora()) {
-    // ************ FI
-
     $ADMIN->add('modules', new admin_category('dataformatsettings', new lang_string('dataformats')));
     $temp = new admin_settingpage('managedataformats', new lang_string('managedataformats'));
     $temp->add(new admin_setting_managedataformats());
@@ -333,6 +336,7 @@ if ($hassiteconfig) {
 
     // XTEC ************ AFEGIT - Allow access only to xtecadmin user
     // 2016.08.16 @sarjona
+    // 2021.05.20 @aginard
     }
     // ************ FI
 
