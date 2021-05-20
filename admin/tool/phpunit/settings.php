@@ -26,5 +26,17 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2012.08.20 @sarjona
+if (get_protected_agora()) {
+// ************ FI
+
     $ADMIN->add('development', new admin_externalpage('toolphpunit', get_string('pluginname', 'tool_phpunit'), "$CFG->wwwroot/$CFG->admin/tool/phpunit/index.php"));
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2012.08.20 @sarjona
+}
+// ************ FI
+
 }
