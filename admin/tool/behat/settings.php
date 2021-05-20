@@ -26,6 +26,17 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.05.23 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     $url = $CFG->wwwroot . '/' . $CFG->admin . '/tool/behat/index.php';
     $ADMIN->add('development', new admin_externalpage('toolbehat', get_string('pluginname', 'tool_behat'), $url));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.05.23 @sarjona
+    }
+    // ************ FI
 }

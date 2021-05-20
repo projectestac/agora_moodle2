@@ -26,6 +26,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($hassiteconfig) {
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     // System paths.
     $temp = new admin_settingpage('systempaths', new lang_string('systempaths', 'admin'));
     $temp->add(new admin_setting_configexecutable('pathtophp', new lang_string('pathtophp', 'admin'),
@@ -43,6 +49,11 @@ if ($hassiteconfig) {
     $temp->add(new admin_setting_configexecutable('pathtopython', new lang_string('pathtopython', 'admin'),
         new lang_string('pathtopythondesc', 'admin'), ''));
     $ADMIN->add('server', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    }
+    // ************ FI
 
     // Support contact.
     $temp = new admin_settingpage('supportcontact', new lang_string('supportcontact', 'admin'));
@@ -72,6 +83,11 @@ if ($hassiteconfig) {
 
 
     $ADMIN->add('server', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
 
     // Session handling.
     $temp = new admin_settingpage('sessionhandling', new lang_string('sessionhandling', 'admin'));
@@ -648,4 +664,10 @@ if ($hassiteconfig) {
     // Web services > Manage tokens.
     $ADMIN->add('webservicesettings', new admin_externalpage('webservicetokens', new lang_string('managetokens', 'webservice'),
         new moodle_url('/admin/webservice/tokens.php')));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.06.20 @sarjona
+    }
+    // ************ FI
+
 }
