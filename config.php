@@ -23,8 +23,6 @@ $CFG->dboptions = [
     'dbport' => $agora['moodle2']['port'],
 ];
 
-$CFG->langotherroot = MOODLE_BASE . '/langpacks/';
-
 $CFG->directorypermissions = 00777;
 
 $CFG->passwordsaltalt1 = '';
