@@ -135,6 +135,7 @@ if (isset($agora['server']['root']) && !empty($agora['server']['root'])) {
 if (!empty($agora['moodle2']['redis_session_servers'])) {
     $CFG->local_redislock_redis_server = $agora['moodle2']['redis_session_servers'];
     $CFG->lock_factory = '\\local_redislock\\lock\\redis_lock_factory';
+    $CFG->local_redislock_logging = false;
 } else {
     $CFG->lock_factory = '\\core\\lock\\db_record_lock_factory';
 }
