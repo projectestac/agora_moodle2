@@ -1604,6 +1604,13 @@ class manager {
             $classname = get_class($task);
             $taskarg   = escapeshellarg("--execute={$classname}") . " " . escapeshellarg("--force");
 
+            // XTEC ************ AFEGIT - Added param to identify Moodle instance in Agora
+            // 2021.06.15 @aginard
+            if (is_agora()) {
+                $taskarg .= ' ' . escapeshellarg("--ccentre=$CFG->dnscentre");
+            }
+            // ************ FI
+
             // Build the CLI command.
             $command = "{$phpbinary} {$scriptpath} {$taskarg}";
 
