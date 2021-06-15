@@ -41,22 +41,6 @@ function cron_run() {
 
     require_once($CFG->libdir.'/adminlib.php');
 
-    //XTEC ************ AFEGIT - Protect cron to run twice at the same time
-    //2014.02.17 @pferre22
-    $force = optional_param('forcecron', false, PARAM_BOOL);
-    if (!$force) {
-        $cronstart = get_config(null, 'cronstart');
-        $cronperiod = 480; // 8 minutes minimum
-        if ($cronstart + $cronperiod > time()) {
-            echo "Moodle cron was executed recently.\n";
-            exit(0);
-        }
-    } else {
-        echo "Moodle cron forced.\n";
-    }
-    set_config('cronstart', time());
-    //************ FI
-
     if (!empty($CFG->showcronsql)) {
         $DB->set_debug(true);
     }
