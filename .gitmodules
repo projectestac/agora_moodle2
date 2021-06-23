@@ -109,3 +109,6 @@
 [submodule "theme/xtec2020"]
 	path = theme/xtec2020
 	url = https://github.com/projectestac/moodle-theme_xtec2020.git
+[submodule "admin/tool/migratehvp2h5p"]
+	path = admin/tool/migratehvp2h5p
+	url = https://github.com/projectestac/moodle-tool_migratehvp2h5p
