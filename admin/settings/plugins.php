@@ -740,7 +740,16 @@ if ($hassiteconfig) {
 }
 
 // Content bank content types.
+
+// XTEC ************ MODIFICAT - Allow access only to xtecadmin user
+// 2021.06.23 @aginard
+if ($hassiteconfig && get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     $ADMIN->add('modules', new admin_category('contentbanksettings', new lang_string('contentbank')));
     $temp = new admin_settingpage('managecontentbanktypes', new lang_string('managecontentbanktypes'));
     $temp->add(new admin_setting_managecontentbankcontenttypes());

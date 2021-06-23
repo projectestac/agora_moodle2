@@ -2937,12 +2937,24 @@ class global_navigation extends navigation_node {
             }
 
             $params = ['contextid' => $context->id];
+
+            // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+            // 2021.06.23 @aginard
+            if (get_protected_agora()) {
+            // ************ FI
+
             if (has_capability('moodle/contentbank:access', $context)) {
                 $url = new moodle_url('/contentbank/index.php', $params);
                 $node = $coursenode->add(get_string('contentbank'), $url,
                     self::TYPE_CUSTOM, null, 'contentbank', new pix_icon('i/contentbank', ''));
                 $node->showinflatnavigation = true;
             }
+
+            // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+            // 2021.06.23 @aginard
+            }
+            // ************ FI
+
         }
 
         return true;
