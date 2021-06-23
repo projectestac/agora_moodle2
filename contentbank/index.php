@@ -26,6 +26,18 @@ require('../config.php');
 
 require_login();
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2021.06.23 @aginard
+if (!get_protected_agora()) {
+    redirect(
+        new moodle_url('/index.php'),
+        get_string('accessdenied', 'core_admin'),
+        null,
+        \core\output\notification::NOTIFY_ERROR
+    );
+}
+// ************ FI
+
 $contextid    = optional_param('contextid', \context_system::instance()->id, PARAM_INT);
 $search = optional_param('search', '', PARAM_CLEAN);
 $context = context::instance_by_id($contextid, MUST_EXIST);
