@@ -140,6 +140,9 @@ if (!empty($agora['moodle2']['redis_session_servers'])) {
     $CFG->lock_factory = '\\core\\lock\\db_record_lock_factory';
 }
 
+// Use the system temporary directory
+$CFG->localrequestdir = '/tmp';
+
 // if (isset($agora['proxy']['host']) && !empty($agora['proxy']['host'])) {
 //    $CFG->proxyhost = $agora['proxy']['host'];
 //    $CFG->proxyport = $agora['proxy']['port'];
