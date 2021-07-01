@@ -1,6 +1,6 @@
 <?php
 
-require_once(INSTALL_BASE . '/html/config/dblib-mysql.php');
+require_once $agora['server']['root'] . '/html/config/dblib-mysql.php';
 
 global $school_info;
 
@@ -55,7 +55,7 @@ if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['REQUEST_URI'])) {
     }
 }
 
-$CFG->dataroot = INSTALL_BASE . '/' . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
+$CFG->dataroot = $agora['server']['root'] . '/' . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];
 
 if (!empty($agora['server']['temp'])) {
     $CFG->tempdir = $agora['server']['temp'] . '/' . $agora['moodle2']['datadir'] . $agora['moodle2']['userprefix'] . $school_info['id_moodle2'];;
