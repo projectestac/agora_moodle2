@@ -144,11 +144,11 @@ class core_files_renderer extends plugin_renderer_base {
      */
     protected function fm_print_generallayout($fm) {
 
-        // XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files --> REVIEW!
+        // XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
         // 2012.08.24 @sarjona
         global $CFG;
         if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
-            return '<div class="error">' . get_string('diskquotaerror', 'local_agora') . '</div>';
+            return '<div class="fp-content-error"><div class="fp-error">' . get_string('diskquotaerror', 'local_agora') . '</div></div>';
         }
         // ************ FI
 
@@ -428,13 +428,13 @@ class core_files_renderer extends plugin_renderer_base {
      */
     protected function fp_js_template_uploadform() {
 
-        // XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files - REVIEW!
+        // XTEC ************ AFEGIT - If disk quota is exceeded, don't allow upload files
         // 2012.08.24 @sarjona
         global $CFG;
         if (isset($CFG->diskPercent) && ($CFG->diskPercent > 100)) {
-            return '<div class="error">' . get_string('diskquotaerror', 'local_agora') . '</div>';
+            return '<div class="fp-content-error"><div class="fp-error">' . get_string('diskquotaerror', 'local_agora') . '</div></div>';
         }
-        //************ FI
+        // ************ FI
 
         $context = [
             'licensehelpicon' => $this->create_license_help_icon_context()
