@@ -4,6 +4,163 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 23.03.27
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.13+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- GeoGebra: Upgraded module
+- Questionnaire: Upgraded module
+- Wiris: Upgraded all components
+- local_redislock: Added expiration to locks to automatically remove them in case the script doesn't finish correctly
+- H5P: Fix for visual editor doesn't open under certain conditions
+- local_agora: Added changes for IDI
+- Login via IDI. Added language string for user profile field schoolcode.
+- Login via IDI. Don't update the email every time the user logs in.
+- Login via IDI. Use a fake email based on UPN.
+- oAuth2 client: User can have no email in IDI. In that case, will use the UPN as an email.
+- oAuth2 client: Only allow to login to users whose school code in IDI matches the school code of the Moodle site.
+
+
+Changes 22.12.13
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.11+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- completion_progress: Upgraded block
+- local_agora: Added script to configure oAuth2 client for IDI
+- migratehvp2h5p: Upgraded tool
+- oAuth2 client: Fixed save of oAuth2 issuers when acceptrisk is checked
+- oAuth2 client: Ensure method get_issuer exists before calling it. Added exception for client for IDI
+- oAuth2 client: Only xtecadmin can configure oAuth2 client for IDI
+- Theme xtec2020: Fix for collapsible menu using custommenuitems
+- Wiris: Upgraded all components
+
+
+Changes 22.11.15
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.11
+- Updated langpacks
+- oAuth2 client: Modified behavior for login to Azure AD via oAuth2
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Clickedu: Upgraded module
+- Hotpot: Downgraded module
+- GeoGebra: Upgraded module
+- Wiris: Upgraded all components
+
+
+Changes 22.10.04
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.10+
+- Updated langpacks
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Google repository: Fix for error when accessing to files allocated in Google Drive
+- Hotpot: Upgraded module
+- Journal: Upgraded module
+- Ordering: Upgraded question type
+- Questionnaire: Upgraded module
+- Snap!: Added module
+- Wiris: Upgraded all components
+
+
+Changes 22.07.04
+---------------------------------------------------------------------------------------
+- Ignore file size limits in content bank
+
+
+Changes 22.06.30
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.7+
+- Updated langpacks
+- Unlock coursebinenabled
+- attendance: Added module
+- completion_progress: Upgraded block
+- coursequotas: Minor improvements to the report
+- H5P core: Activated for all users
+- HVP: Upgraded module and blocked access to users
+- journal: Upgraded module
+- GeoGebra: Upgraded module
+- migratehvp2h5p: Opened access to site admins
+- questionnaire: Upgraded module
+- Theme xtec2020: Minor improvements
+- Wiris: Upgraded all components
+
+
+Changes 22.02.22
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.5+
+- Updated langpacks
+- Wiris: Upgraded all components
+- HVP: Upgraded module
+- GeoGebra: Upgraded module
+- Remove records in table assignfeedback_editpdf_rot during course reset (MDL-69570)
+- Allowed access to asynchronous backups to all Moodle administrators
+- LTI: Remove extra param added by mod_rewrite in .htaccess
+- Redis: Activated compression in MUC
+
+
+Changes 21.11.15
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.4
+- Updated langpacks
+- Allowed access to asynchronous backups to all Moodle administrators
+- Geogebra: Upgraded version
+- Hot Potatoes: Downgraded module
+- Wiris: Upgraded all components
+- Fixed import of broken multianswer questions (MDL-54724)
+
+
+Changes 21.10.08
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.3+
+- Updated langpacks
+- assignfeedback_editpdf: Remove all fileareas of component assignfeedback_editpdf during course reset (MDL-69570)
+- Atto plugin cloze: Upgraded version
+- Choicegroup: Upgraded version
+- Clickedu: Upgraded version
+- Hot Potatoes: Upgraded module
+- migratehvp2h5p: Removed dependencies to allow mod_hvp reset
+- Ordering: Upgraded question type
+- Questionnaire: Upgraded module
+- Wiris: Upgraded all components to versions 7.27 / 4.3
+
+
+Changes 21.09.02
+---------------------------------------------------------------------------------------
+- Updated langpacks
+- Clickedu: Upgraded version
+- Coursequotas: Fixed variable name that caused incorrect course size values being saved in database
+- Vicens Vives: Upgraded all components
+
+
+Changes 21.07.14
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.1
+- Updated langpacks
+- Content bank: Restricted access to xtecadmin
+- H5P core: Allow access only to xtecadmin
+- H5P module: Upgraded to version 1.22.3
+- Block completion_progress: Upgraded version
+- Alexandria importer: Improved presentation
+- Choicegroup: Upgraded version
+- Clickedu: Upgraded version
+- Geogebra: Upgraded version
+- Jclic: Upgraded version
+- Questionnaire: Upgraded version
+- Upgraded all wiris plugins
+- Question type ordering: Upgraded version
+- Single task execution: Added param to identify Moodle instance in Agora
+- Cron: Removed minimum time between executions
+- Local Agora: Updated MUC for Moodle 3.11
+- Atto plugin cloze: Upgraded version
+- Theme xtec2020: Added compatibility with Moodle 3.11
+- Activate usage of X-SendFile
+
+
 Changes 21.05.20
 ---------------------------------------------------------------------------------------
 - Upgraded module H5P to version 1.22.2
