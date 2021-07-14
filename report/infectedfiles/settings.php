@@ -25,8 +25,18 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (report_infectedfiles)
+// 2021.07.14 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('reports', new admin_externalpage('reportinfectedfiles',
     get_string('infectedfiles', 'report_infectedfiles'),
     "$CFG->wwwroot/report/infectedfiles/index.php"));
 
 $settings = null;
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (report_infectedfiles)
+// 2021.07.14 @aginard
+}
+// ************ FI
