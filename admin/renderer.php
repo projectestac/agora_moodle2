@@ -313,10 +313,21 @@ class core_admin_renderer extends plugin_renderer_base {
         $output .= $this->registration_warning($registered);
         $output .= $this->mobile_configuration_warning($mobileconfigured);
         $output .= $this->forgotten_password_url_warning($invalidforgottenpasswordurl);
+
+        // XTEC ************ AFEGIT - Allow access only to xtecadmin user (Notification page)
+        // 2021.07.14 @aginard
+        if (get_protected_agora()) {
+        // ************ FI
+
         $output .= $this->mnet_deprecation_warning($xmlrpcwarning);
         $output .= $this->userfeedback_encouragement($showfeedbackencouragement);
         $output .= $this->services_and_support_content($showservicesandsupport);
         $output .= $this->campaign_content($showcampaigncontent);
+
+        // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+        // 2021.07.14 @aginard
+        }
+        // ************ FI
 
         //////////////////////////////////////////////////////////////////////////////////////////////////
         ////  IT IS ILLEGAL AND A VIOLATION OF THE GPL TO HIDE, REMOVE OR MODIFY THIS COPYRIGHT NOTICE ///
