@@ -24,7 +24,17 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (report_status)
+// 2021.07.14 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('reports', new admin_externalpage('reportstatus', get_string('pluginname', 'report_status'),
     "$CFG->wwwroot/report/status/index.php", 'report/status:view'));
 
 $settings = null;
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (report_status)
+// 2021.07.14 @aginard
+}
+// ************ FI
