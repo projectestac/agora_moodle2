@@ -24,7 +24,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (MoodleNet)
+// 2021.07.14 @aginard
+    if ($hassiteconfig && get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     // Create a MoodleNet category.
     $ADMIN->add('root', new admin_category('moodlenet', get_string('pluginname', 'tool_moodlenet')));
     // Our settings page.
