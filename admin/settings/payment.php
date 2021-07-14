@@ -22,8 +22,18 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (Payment)
+// 2021.07.14 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('payment', new admin_externalpage(
     'paymentaccounts',
     new lang_string('paymentaccounts', 'payment'),
     new moodle_url("/payment/accounts.php"),
     ['moodle/payment:manageaccounts', 'moodle/payment:viewpayments']));
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user
+// 2021.07.14 @aginard
+}
+// ************ FI
