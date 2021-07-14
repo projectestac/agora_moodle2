@@ -24,7 +24,16 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user (MoodleNet)
+// 2021.07.14 @aginard
+if ($hassiteconfig && get_protected_agora()) {
+// ************ ORIGINAL
+/*
 if ($hassiteconfig) {
+*/
+// ************ FI
+
     // Add an enable subsystem setting to the "Advanced features" settings page.
     $optionalsubsystems = $ADMIN->locate('optionalsubsystems');
     $optionalsubsystems->add(new admin_setting_configcheckbox('tool_moodlenet/enablemoodlenet',
