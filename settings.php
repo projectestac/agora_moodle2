@@ -76,6 +76,9 @@ $CFG->disablecourseajax = 0;
 // Backups
 $CFG->backup_auto_active = 0;
 
+// Tell Moodle not to be worried if cron executes every 10 minutes
+$CFG->expectedcronfrequency = 600;
+
 // These variable define DEFAULT block variables for new courses
 $CFG->defaultblocks_override = ':calendar_month,activity_modules';
 
