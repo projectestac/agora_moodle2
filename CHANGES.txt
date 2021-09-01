@@ -3,6 +3,13 @@ Release notes for Agora-Moodle2 (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+Changes 21.09.02
+---------------------------------------------------------------------------------------
+- Updated langpacks
+- Clickedu: Upgraded version
+- Coursequotas: Fixed variable name that caused incorrect course size values being saved in database
+- Vicens Vives: Upgraded all components
+
 
 Changes 21.07.14
 ---------------------------------------------------------------------------------------
