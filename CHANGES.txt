@@ -3,6 +3,22 @@ Release notes for Agora-Moodle2 (https://agora.xtec.cat)
 More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
+
+Changes 21.10.08
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.3+
+- Updated langpacks
+- assignfeedback_editpdf: Remove all fileareas of component assignfeedback_editpdf during course reset (MDL-69570)
+- Atto plugin cloze: Upgraded version
+- Choicegroup: Upgraded version
+- Clickedu: Upgraded version
+- Hot Potatoes: Upgraded module
+- migratehvp2h5p: Removed dependencies to allow mod_hvp reset
+- Ordering: Upgraded question type
+- Questionnaire: Upgraded module
+- Wiris: Upgraded all components to versions 7.27 / 4.3
+
+
 Changes 21.09.02
 ---------------------------------------------------------------------------------------
 - Updated langpacks
