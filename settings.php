@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . '/local/agora/lib.php';
+require_once __DIR__ . '/local/agora/lib.php';
 
 get_debug();
 
@@ -83,8 +83,8 @@ $CFG->expectedcronfrequency = 600;
 $CFG->defaultblocks_override = ':calendar_month,activity_modules';
 
 // Language parameters
-$CFG->langotherroot = dirname(__FILE__) . '/langpacks/';
-$CFG->langlocalroot = dirname(__FILE__) . '/langpacks/';
+$CFG->langotherroot = __DIR__ . '/langpacks/';
+$CFG->langlocalroot = __DIR__ . '/langpacks/';
 $CFG->skiplangupgrade = true;
 
 // Only allow some of the languages
@@ -93,7 +93,7 @@ if (!$CFG->iseoi) {
 }
 
 // Path of the cacheconfig.php file, to have only one MUC file for Àgora (instead of having one for each site in moodledata/usuX/muc/config.php).
-$CFG->altcacheconfigpath = dirname(__FILE__) . '/local/agora/muc/';
+$CFG->altcacheconfigpath = __DIR__ . '/local/agora/muc/';
 $CFG->siteidentifier = $CFG->dbuser;
 
 // Cache servers configuration for MUC, used in custom cacheconfig.php
