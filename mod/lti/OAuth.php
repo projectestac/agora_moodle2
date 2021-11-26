@@ -147,6 +147,13 @@ abstract class OAuthSignatureMethod_HMAC extends OAuthSignatureMethod {
         $lastcomputedsignature = false;
 
         $basestring = $request->get_signature_base_string();
+
+        // XTEC ************ AFEGIT - Remove extra param added by mod_rewrite in .htaccess
+        // 2021.11.26 @aginard
+        global $CFG;
+        $basestring = str_replace('%3D%26ccentre%3D' . $CFG->dnscentre . '%26', '', $basestring);
+        // ************ FI
+
         $request->base_string = $basestring;
 
         $key_parts = array(
