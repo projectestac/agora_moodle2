@@ -489,6 +489,11 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
 
     $ADMIN->add('backups', $temp);
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.05.23 @sarjona
+    if (get_protected_agora()) {
+    // ************ FI
+
     // Create a page for automated backups configuration and defaults.
     $temp = new admin_settingpage('automated', new lang_string('automatedsetup','backup'), 'moodle/backup:backupcourse');
 
@@ -751,6 +756,11 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) {
         array(1 => get_string('yes'), 0 => get_string('no'))));
 
     $ADMIN->add('backups', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user
+    // 2012.05.23 @sarjona
+    }
+    // ************ FI
 
     // Create a page for asynchronous backup and restore configuration and defaults.
     $temp = new admin_settingpage('asyncgeneralsettings', new lang_string('asyncgeneralsettings', 'backup'));
