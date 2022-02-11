@@ -15,6 +15,13 @@ if (($section == 'messagesettingairnotifier') && !get_protected_agora()) {
 }
 // ************ FI
 
+// XTEC ************ AFEGIT - Purge theme cache when updating theme settings.
+// 2022.02.11 @aginard
+if (strpos($section, 'themesetting') === 0) {
+    purge_caches('theme');
+}
+// ************ FI
+
 /// no guest autologin
 require_login(0, false);
 $PAGE->set_context(context_system::instance());
