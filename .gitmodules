@@ -61,9 +61,6 @@
 [submodule "mod/hotpot"]
 	path = mod/hotpot
 	url = https://github.com/gbateson/moodle-mod_hotpot.git
-[submodule "mod/hvp"]
-	path = mod/hvp
-	url = https://github.com/h5p/h5p-moodle-plugin.git
 [submodule "mod/jclic"]
 	path = mod/jclic
 	url = https://github.com/projectestac/moodle-mod_jclic.git
