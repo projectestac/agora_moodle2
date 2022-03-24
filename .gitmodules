@@ -103,3 +103,6 @@
 [submodule "admin/tool/migratehvp2h5p"]
 	path = admin/tool/migratehvp2h5p
 	url = https://github.com/projectestac/moodle-tool_migratehvp2h5p
+[submodule "mod/hvp"]
+	path = mod/hvp
+	url = https://github.com/projectestac/moodle-hvp.git
