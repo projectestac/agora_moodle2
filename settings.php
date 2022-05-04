@@ -42,9 +42,6 @@ $CFG->timezone = 99; // Changed by default to Server's local time
 $CFG->cronremotepassword = '';
 $CFG->cronclionly = 1;
 
-// Activate X-SendFile
-$CFG->xsendfile = 'X-Sendfile';
-
 // Captcha keys
 $CFG->recaptchapublickey = $agora['recaptchapublickey'];
 $CFG->recaptchaprivatekey = $agora['recaptchaprivatekey'];
