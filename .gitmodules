@@ -112,3 +112,6 @@
 [submodule "mod/hvp"]
 	path = mod/hvp
 	url = https://github.com/projectestac/moodle-hvp.git
+[submodule "mod/attendance"]
+	path = mod/attendance
+	url = https://github.com/danmarsden/moodle-mod_attendance.git
