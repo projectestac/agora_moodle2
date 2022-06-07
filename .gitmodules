@@ -109,3 +109,6 @@
 [submodule "mod/attendance"]
 	path = mod/attendance
 	url = https://github.com/danmarsden/moodle-mod_attendance.git
+[submodule "question/type/wq"]
+	path = question/type/wq
+	url = https://github.com/projectestac/moodle-qtype_wq.git
