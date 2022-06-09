@@ -167,7 +167,7 @@ $CFG->forced_plugin_settings = [
         'backup_auto_min_kept' => 1,
     ],
     'tool_recyclebin' => [
-        'coursebinenable' => 1,
+//        'coursebinenable' => 1,
         'coursebinexpiry' => 604800,
         'categorybinenable' => 1,
         'categorybinexpiry' => 604800,
