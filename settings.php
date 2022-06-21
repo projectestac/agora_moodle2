@@ -26,7 +26,6 @@ $CFG->updatenotifybuilds = false;
 $CFG->core_media_enable_mp3 = false;
 $CFG->core_media_enable_html5audio = true;
 $CFG->core_media_enable_html5video = true;
-$CFG->repositorygetfiletimeout = 300;
 $CFG->alternateloginurl = '';
 $CFG->mymoodleredirect = false;
 $CFG->enablestats = false;
