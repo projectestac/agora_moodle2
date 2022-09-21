@@ -112,3 +112,6 @@
 [submodule "question/type/wq"]
 	path = question/type/wq
 	url = https://github.com/projectestac/moodle-qtype_wq.git
+[submodule "mod/assign/submission/snap"]
+	path = mod/assign/submission/snap
+	url = https://github.com/jguille2/moodle-assignsubmission_snap.git
