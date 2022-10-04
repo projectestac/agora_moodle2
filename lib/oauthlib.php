@@ -511,6 +511,18 @@ abstract class oauth2_client extends curl {
     public function get_login_url() {
 
         $callbackurl = self::callback_url();
+
+        // XTEC ************ AFEGIT - Modified behavior for login to Azure AD via oAuth2. Agora is a multisite
+        //                            system and only can have an Azure AD app, so all Moodle sites share the
+        //                            same return URL (https://domain/portal/oidc.php). The script oidc.php redirects
+        //                            the request to the proper Moodle site.
+        // 2022.10.04 @aginard
+        if ($this->get_issuer()->get('servicetype') === 'microsoft') {
+            global $agora;
+            $callbackurl = new \moodle_url($agora['server']['server'] . '/portal/oidc.php');
+        }
+        // ************ FI
+
         $defaultparams = [
             'client_id' => $this->clientid,
             'response_type' => 'code',
@@ -555,6 +567,18 @@ abstract class oauth2_client extends curl {
      */
     public function upgrade_token($code) {
         $callbackurl = self::callback_url();
+
+        // XTEC ************ AFEGIT - Modified behavior for login to Azure AD via oAuth2. Agora is a multisite
+        //                            system and only can have an Azure AD app, so all Moodle sites share the
+        //                            same return URL (https://domain/portal/oidc.php). The script oidc.php redirects
+        //                            the request to the proper Moodle site.
+        // 2022.10.04 @aginard
+        if ($this->get_issuer()->get('servicetype') === 'microsoft') {
+            global $agora;
+            $callbackurl = new \moodle_url($agora['server']['server'] . '/portal/oidc.php');
+        }
+        // ************ FI
+
         $params = array('code' => $code,
             'grant_type' => 'authorization_code',
             'redirect_uri' => $callbackurl->out(false),
