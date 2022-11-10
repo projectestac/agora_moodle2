@@ -4,6 +4,19 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 22.11.15
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 3.11.11
+- Updated langpacks
+- oAuth2 client: Modified behavior for login to Azure AD via oAuth2
+- Attendance: Upgraded module
+- Choicegroup: Upgraded module
+- Clickedu: Upgraded module
+- Hotpot: Downgraded module
+- GeoGebra: Upgraded module
+- Wiris: Upgraded all components
+
+
 Changes 22.10.04
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 3.11.10+
