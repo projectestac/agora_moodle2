@@ -439,6 +439,52 @@ class auth extends \auth_plugin_base {
             redirect(new moodle_url('/login/index.php'));
         }
 
+        // XTEC ************ AFEGIT - Login via IDI. Only users associated to the site code can log in.
+        // 2023.01.12 @aginard
+        if (is_agora()) {
+            $iditext = get_string('IDI', 'local_agora');
+            $isIDI = method_exists($client, 'get_issuer') && is_number(strpos($client->get_issuer()->get('loginpagename'), $iditext));
+            if ($isIDI) {
+                if (empty($userinfo['schoolcode'])) {
+                    $event = \core\event\user_login_failed::create([
+                        'other' => [
+                            'username' => $userinfo['username'],
+                            'reason' => get_string('codenotinidi', 'local_agora'),
+                        ],
+                    ]);
+                    $event->trigger();
+                    $SESSION->loginerrormsg = get_string('codenotinididetail', 'local_agora', [
+                        'username' => $userinfo['username'],
+                        'firstname' => $userinfo['firstname'],
+                        'lastname' => $userinfo['lastname'],
+                    ]);
+                    $client->log_out();
+                    redirect(new moodle_url('/login/index.php'));
+                } else {
+                    $canlogin = is_numeric(strpos($userinfo['schoolcode'], $CFG->center));
+                    if (!$canlogin) {
+                        $event = \core\event\user_login_failed::create([
+                            'other' => [
+                                'username' => $userinfo['username'],
+                                'reason' => get_string('codenotmatchidi', 'local_agora'),
+                            ],
+                        ]);
+                        $event->trigger();
+                        $SESSION->loginerrormsg = get_string('codenotmatchididetail', 'local_agora', [
+                            'username' => $userinfo['username'],
+                            'firstname' => $userinfo['firstname'],
+                            'code' => $userinfo['schoolcode'],
+                            'lastname' => $userinfo['lastname'],
+                            'center' => $CFG->center,
+                        ]);
+                        $client->log_out();
+                        redirect(new moodle_url('/login/index.php'));
+                    }
+                }
+            }
+        }
+        // ************ FI
+
         $userinfo['username'] = trim(core_text::strtolower($userinfo['username']));
         $oauthemail = $userinfo['email'];
 
@@ -606,6 +652,13 @@ class auth extends \auth_plugin_base {
                 } else {
                     // Create a new confirmed account.
                     $newuser = \auth_oauth2\api::create_new_confirmed_account($userinfo, $issuer);
+
+                    // XTEC ************ AFEGIT - Update data from oAuth2 to user profile fields. Default profile fields are updated
+                    //                            out-of-the-box.
+                    // 2023.01.17 @aginard
+                    $schoolcode = $userinfo['schoolcode'];
+                    // ************ FI
+
                     $userinfo = get_complete_user_data('id', $newuser->id);
                     // No redirect, we will complete this login.
                 }
@@ -620,6 +673,13 @@ class auth extends \auth_plugin_base {
         $this->set_extrauserinfo((array)$rawuserinfo);
 
         complete_user_login($user, $this->get_extrauserinfo());
+
+        // XTEC ************ AFEGIT - Update data from oAuth2 to user profile fields. Default profile fields are updated
+        //                            out-of-the-box.
+        // 2023.01.17 @aginard
+        $this->update_user(['schoolcode' => $schoolcode], $user);
+        // ************ FI
+
         $this->update_picture($user);
         redirect($redirecturl);
     }
