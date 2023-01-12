@@ -65,6 +65,10 @@ class core_user {
         'firstname',
         'lastname',
         'email',
+        // XTEC ************ AFEGIT - Added user profile field for IDI.
+        // 2023.01.13 @aginard
+        'schoolcode',
+        // ************ FI
         'city',
         'country',
         'lang',
