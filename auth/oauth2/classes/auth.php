@@ -427,13 +427,14 @@ class auth extends \auth_plugin_base {
             redirect(new moodle_url('/login/index.php'));
         }
 
-        // XTEC ************ AFEGIT - Login via IDI. User can have no email in IDI. In that case, will use the UPN as an email.
+        // XTEC ************ AFEGIT - Login via IDI. User can have no email in IDI. In that case, will use a
+        //                            fake email based on the UPN.
         // 2023.02.14 @aginard
         if (is_agora()) {
             $iditext = get_string('IDI', 'local_agora');
             $isIDI = method_exists($client, 'get_issuer') && is_number(strpos($client->get_issuer()->get('loginpagename'), $iditext));
             if ($isIDI && empty($userinfo['email']) && !empty($userinfo['username'])) {
-                $userinfo['email'] = $userinfo['username'];
+                $userinfo['email'] = str_replace('@', '.', trim(core_text::strtolower($userinfo['username']))) . '@xtec.invalid';
             }
         }
         // ************ FI
