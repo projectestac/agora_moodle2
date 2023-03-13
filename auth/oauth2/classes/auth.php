@@ -538,6 +538,12 @@ class auth extends \auth_plugin_base {
                 redirect(new moodle_url('/login/index.php'));
             } else if ($mappeduser && ($mappeduser->confirmed || !$issuer->get('requireconfirmation'))) {
                 // Update user fields.
+
+                // XTEC ************ AFEGIT - Login via IDI. Don't update the email every time the user logs in.
+                // 2023.03.13 @aginard
+                unset($userinfo['email']);
+                // ************ FI
+
                 $userinfo = $this->update_user($userinfo, $mappeduser);
                 $userwasmapped = true;
             } else {
