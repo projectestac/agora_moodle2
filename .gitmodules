@@ -115,3 +115,6 @@
 [submodule "mod/assign/submission/snap"]
 	path = mod/assign/submission/snap
 	url = https://github.com/jguille2/moodle-assignsubmission_snap.git
+[submodule "local/redislock"]
+	path = local/redislock
+	url = https://github.com/projectestac/moodle-local_redislock.git
