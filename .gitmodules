@@ -115,3 +115,6 @@
 [submodule "local/redislock"]
 	path = local/redislock
 	url = https://github.com/projectestac/moodle-local_redislock.git
+[submodule "theme/xtecboost"]
+	path = theme/xtecboost
+	url = https://github.com/projectestac/moodle-theme_xtecboost.git
