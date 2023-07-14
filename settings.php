@@ -148,11 +148,11 @@ if (!empty($agora['moodle2']['redis_session_servers'])) {
 //    $CFG->proxypassword = $agora['proxy']['pass'];
 //}
 
-$CFG->customusermenuitems = "grades,grades|/grade/report/mygrades.php|grades
-    messages,message|/message/index.php|message
-    badges,badges|/badges/mybadges.php|award
-    calendar,calendar|/calendar/view.php|i/calendar
-    preferences,moodle|/user/preferences.php|preferences";
+$CFG->customusermenuitems = 'profile,moodle|/user/profile.php
+messages,message|/message/index.php
+grades,grades|/grade/report/mygrades.php
+badges,badges|/badges/mybadges.php
+calendar,core_calendar|/calendar/view.php?view=month';
 
 $CFG->forced_plugin_settings = [
     'logstore_standard' => [
