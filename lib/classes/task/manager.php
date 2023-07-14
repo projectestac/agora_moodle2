@@ -997,6 +997,14 @@ class manager {
 
         foreach ($records as $record) {
 
+            // XTEC ************ AFEGIT - Don't run tasks from components disabled in Àgora
+            // 2023.07.14 @aginard
+            $componentend = explode('_', $record->component);
+            if (isset($componentend[1]) && is_string($componentend[1]) && !is_enabled_in_agora($componentend[1])) {
+                continue;
+            }
+            // ************ FI
+
             $task = self::scheduled_task_from_record($record);
             // Safety check in case the task in the DB does not match a real class (maybe something was uninstalled).
             // Also check to see if task is disabled or enabled after applying overrides.
