@@ -9,10 +9,10 @@ $CFG->isagora = true;
 $CFG->iseoi = $agora['iseoi'];
 $CFG->isodissea = false;
 $CFG->isalexandria = false;
-$CFG->center = $school_info['clientCode'] ?? $school_info['id_moodle2'];
+$CFG->center = $school_info['code'] ?? $school_info['id_moodle'];
 
 // The following line calculates correctly the diskPercent (uploading files will be disabled when diskPercent >= 100)
-$CFG->diskPercent = $school_info['diskPercent_moodle2'] ?? 0;
+$CFG->diskPercent = $school_info['diskPercent_moodle'] ?? 0;
 $CFG->userquota = 0;  // Block private files
 
 // Force values for standard Moodle params to ensure proper values
