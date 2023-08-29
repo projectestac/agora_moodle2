@@ -5685,6 +5685,14 @@ function email_to_user($user, $from, $subject, $messagetext, $messagehtml = '', 
         return true; // This is not an error.
     }
 
+    // XTEC ************ AFEGIT - Don't try to send email to no.valid domain.
+    // 2023.08.29 @aginard
+    if (substr($user->email, -8) === 'no.valid') {
+        debugging("email_to_user: User $user->id (".fullname($user).") email domain ($user->email) is invalid! Not sending.");
+        return true; // This is not an error.
+    }
+    // ************ FI
+
     // If the user is a remote mnet user, parse the email text for URL to the
     // wwwroot and modify the url to direct the user's browser to login at their
     // home site (identity provider - idp) before hitting the link itself.
