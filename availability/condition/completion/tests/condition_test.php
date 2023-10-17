@@ -198,9 +198,16 @@ final class condition_test extends \advanced_testcase {
         // Create an assignment - we need to have something that can be graded
         // so as to test the PASS/FAIL states. Set it up to be completed based
         // on its grade item.
-        $assignrow = $this->getDataGenerator()->create_module('assign', [
-                        'course' => $course->id, 'name' => 'Assign!',
-                        'completion' => COMPLETION_TRACKING_AUTOMATIC]);
+        $assignrow = $this->getDataGenerator()->create_module(
+            'assign',
+            [
+                'course' => $course->id,
+                'name' => 'Assign!',
+                'completion' => COMPLETION_TRACKING_AUTOMATIC,
+                'completionusegrade' => 1,
+                'completionpassgrade' => 1,
+            ],
+        );
         $DB->set_field('course_modules', 'completiongradeitemnumber', 0,
                 ['id' => $assignrow->cmid]);
         // As we manually set the field here, we are going to need to reset the modinfo cache.
@@ -423,8 +430,11 @@ final class condition_test extends \advanced_testcase {
         // so as to test the PASS/FAIL states. Set it up to be completed based
         // on its grade item.
         $assignrow = $this->getDataGenerator()->create_module('assign', [
-            'course' => $course->id, 'name' => 'Assign!',
-            'completion' => COMPLETION_TRACKING_AUTOMATIC
+            'course' => $course->id,
+            'name' => 'Assign!',
+            'completion' => COMPLETION_TRACKING_AUTOMATIC,
+            'completionusegrade' => 1,
+            'completionpassgrade' => 1,
         ]);
         $DB->set_field('course_modules', 'completiongradeitemnumber', 0,
                 ['id' => $assignrow->cmid]);
@@ -456,7 +466,7 @@ final class condition_test extends \advanced_testcase {
             $completion->update_state($activities[$mark], COMPLETION_COMPLETE);
         }
 
-        // Set opprevious WITH non existent previous activity.
+        // Set previous WITH non existent previous activity.
         $info = new \core_availability\mock_info_module($user->id, $activities[$activity]);
         $cond = new condition((object)[
             'cm' => (int)$prevvalue, 'e' => $condition
