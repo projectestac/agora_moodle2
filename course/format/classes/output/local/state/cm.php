@@ -111,9 +111,16 @@ class cm implements renderable {
         $completioninfo = new completion_info($course);
         $data->istrackeduser = $this->istrackeduser ?? $completioninfo->is_tracked_user($USER->id);
         if ($data->istrackeduser && $completioninfo->is_enabled($cm)) {
-            $completiondata = new \core_completion\cm_completion_details($completioninfo, $cm, $USER->id, false);
-            $data->completionstate = $completiondata->get_overall_completion();
-            $data->isoverallcomplete = $completiondata->is_overall_complete();
+            $completiondata = $completioninfo->get_data($cm);
+            $haspassgrade = $cm->completionpassgrade;
+            $isfail = $completiondata->completionstate == COMPLETION_COMPLETE_FAIL;
+            $ispass = $completiondata->completionstate == COMPLETION_COMPLETE_PASS;
+            if (!$haspassgrade && ($isfail || $ispass)) {
+                // Any grade is required, so fail/pass states are considered completed.
+                $data->completionstate = COMPLETION_COMPLETE;
+            } else {
+                $data->completionstate = $completiondata->completionstate;
+            }
         }
 
         $data->allowstealth = !empty($CFG->allowstealth) && $format->allow_stealth_module_visibility($cm, $section);
