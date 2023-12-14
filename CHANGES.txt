@@ -4,6 +4,13 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 23.12.18
+---------------------------------------------------------------------------------------
+- Updated langpacks
+- lesson: Fixed Matching questions does not match with expected response (MDL-79937)
+- Theme xtecboost: Fixed scroll in list of conversations
+
+
 Changes 23.11.28
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.1.6+
