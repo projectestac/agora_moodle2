@@ -4,6 +4,15 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 24.01.25
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 4.1.8+
+- Updated langpacks
+- GeoGebra: Upgraded module
+- langs: Removed limitation by code
+- Wiris: Upgraded all components
+
+
 Changes 23.12.18
 ---------------------------------------------------------------------------------------
 - Updated langpacks
