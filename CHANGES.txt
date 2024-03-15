@@ -4,6 +4,17 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 24.03.19
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 4.1.9+
+- Updated langpacks
+- Hot Potatoes: Upgraded module and question format
+- local_agora: Updated script to configure oAuth2 client for IDI
+- tool_oauth2: Fixed loading of form to create a custom service
+- Theme xtecboost: Reduced the size of the icons of the activities in the course view
+- Wiris: Upgraded all components
+
+
 Changes 24.01.25
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.1.8+
