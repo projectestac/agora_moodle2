@@ -118,3 +118,6 @@
 [submodule "theme/xtecboost"]
 	path = theme/xtecboost
 	url = https://github.com/projectestac/moodle-theme_xtecboost.git
+[submodule "blocks/configurable_reports"]
+	path = blocks/configurable_reports
+	url = https://github.com/jleyva/moodle-block_configurablereports.git
