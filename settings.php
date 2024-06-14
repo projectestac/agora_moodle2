@@ -150,6 +150,13 @@ badges,badges|/badges/mybadges.php
 calendar,core_calendar|/calendar/view.php?view=month';
 
 $CFG->forced_plugin_settings = [
+    'block_configurable_reports' => [
+        'sqlsecurity' => true,
+        'dbhost' => '',
+        'dbname' => '',
+        'dbuser' => '',
+        'dbpass' => '',
+    ],
     'logstore_standard' => [
         'loglifetime' => 365 * 2,
     ],
