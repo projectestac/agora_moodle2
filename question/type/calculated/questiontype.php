@@ -1105,8 +1105,19 @@ class qtype_calculated extends question_type {
                 $correcttrue = new stdClass();
                 $correcttrue->correct = $formattedanswer->answer;
                 $correcttrue->true = '';
+
+                // XTEC ************ MODIFICAT - Calculated question fails when the answer has negative numbers.
+                //                               https://tracker.moodle.org/browse/MDL-76024
+                // 2024.09.17 @aginard
+                if ((float)$formattedanswer->answer < $answer->min ||
+                    (float)$formattedanswer->answer > $answer->max) {
+                // ************ ORIGINAL
+                /*
                 if ($formattedanswer->answer < $answer->min ||
                         $formattedanswer->answer > $answer->max) {
+                */
+                // ************ FI
+
                     $comment->outsidelimit = true;
                     $comment->answers[$key] = $key;
                     $comment->stranswers[$key] .=
