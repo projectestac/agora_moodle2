@@ -94,6 +94,14 @@ class activity_management_table extends plugin_management_table {
      */
     protected function col_activities(stdClass $row): string {
         global $DB, $OUTPUT;
+
+        // XTEC ************ AFEGIT - Only enabled modules must be shown in module list.
+        // 2024.10.15 @aginard
+        if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora(substr($row->plugin, 4))) {
+            return 0;
+        }
+        // ************ FI
+
         try {
             $count = $DB->count_records_select($row->plugininfo->name, "course <> 0");
         } catch (dml_exception $e) {

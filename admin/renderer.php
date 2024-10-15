@@ -1847,6 +1847,14 @@ class core_admin_renderer extends plugin_renderer_base {
             }
 
             foreach ($plugins as $name => $plugin) {
+
+                // XTEC ************ AFEGIT - Only enabled modules must be shown in plugin list.
+                // 2024.10.15 @aginard
+                if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora($plugin->name)) {
+                    continue;
+                }
+                // ************ FI
+
                 $component = "{$plugin->type}_{$plugin->name}";
 
                 $row = new html_table_row();
