@@ -242,6 +242,14 @@ abstract class plugin_management_table extends flexible_table implements dynamic
     public function out(): void {
         $plugintype = $this->get_plugintype();
         foreach ($this->plugins as $plugininfo) {
+
+            // XTEC ************ AFEGIT - Only enabled modules must be shown in module list.
+            // 2024.10.15 @aginard
+            if (function_exists('is_enabled_in_agora') && !is_enabled_in_agora($plugininfo->name)) {
+                continue;
+            }
+            // ************ FI
+
             $plugin = "{$plugintype}_{$plugininfo->name}";
             $rowdata = (object) [
                 'plugin' => $plugin,
