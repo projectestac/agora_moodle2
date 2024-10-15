@@ -121,3 +121,6 @@
 [submodule "blocks/configurable_reports"]
 	path = blocks/configurable_reports
 	url = https://github.com/jleyva/moodle-block_configurablereports.git
+[submodule "course/format/multitopic"]
+	path = course/format/multitopic
+	url = https://github.com/james-cnz/moodle-format_multitopic.git
