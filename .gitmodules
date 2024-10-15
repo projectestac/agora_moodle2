@@ -124,3 +124,6 @@
 [submodule "course/format/multitopic"]
 	path = course/format/multitopic
 	url = https://github.com/james-cnz/moodle-format_multitopic.git
+[submodule "course/format/tiles"]
+	path = course/format/tiles
+	url = https://bitbucket.org/dw8/moodle-format_tiles.git
