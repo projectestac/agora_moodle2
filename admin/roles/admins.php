@@ -37,6 +37,13 @@ if (!is_siteadmin()) {
     die;
 }
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+if (!get_protected_agora()) {
+    die();
+}
+// ************ FI
+
 $admisselector = new core_role_admins_existing_selector();
 
 if (array_key_exists('siteadmins', $CFG->config_php_settings)) {
