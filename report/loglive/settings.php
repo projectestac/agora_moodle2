@@ -26,9 +26,19 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 // Just a link to course report.
 $ADMIN->add('reports', new admin_externalpage('reportloglive', get_string('pluginname', 'report_loglive'),
         "$CFG->wwwroot/report/loglive/index.php", 'report/loglive:view'));
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+}
+// ************ FI
 
 // No report settings.
 $settings = null;

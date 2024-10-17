@@ -24,6 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('reports',
     new admin_externalpage(
         'reportthemeusage',
@@ -32,6 +37,11 @@ $ADMIN->add('reports',
         'moodle/site:config',
     ),
 );
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+}
+// ************ FI
 
 // No report settings.
 $settings = null;
