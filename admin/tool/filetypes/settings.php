@@ -25,7 +25,19 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    if (get_protected_agora()) {
+    // ************ FI
+
     $ADMIN->add('server', new admin_externalpage('tool_filetypes',
             new lang_string('pluginname', 'tool_filetypes'),
             $CFG->wwwroot . '/admin/tool/filetypes/index.php'));
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    }
+    // ************ FI
+
 }

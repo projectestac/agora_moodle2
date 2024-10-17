@@ -23,4 +23,14 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+if (get_protected_agora()) {
+// ************ FI
+
 $ADMIN->add('language', new admin_externalpage('toolcustomlang', get_string('pluginname', 'tool_customlang'), "$CFG->wwwroot/$CFG->admin/tool/customlang/index.php", 'tool/customlang:view'));
+
+// XTEC ************ AFEGIT - Allow access only to xtecadmin.
+// 2024.10.16 @aginard
+}
+// ************ FI
