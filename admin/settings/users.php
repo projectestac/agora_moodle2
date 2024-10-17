@@ -268,9 +268,20 @@ if ($hassiteconfig
 
     $ADMIN->add('roles', $temp);
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    if (get_protected_agora()) {
+    // ************ FI
+
     if (is_siteadmin()) {
         $ADMIN->add('roles', new admin_externalpage('admins', new lang_string('siteadministrators', 'role'), "$CFG->wwwroot/$CFG->admin/roles/admins.php"));
     }
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    }
+    // ************ FI
+
     $ADMIN->add('roles', new admin_externalpage('defineroles', new lang_string('defineroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/manage.php", 'moodle/role:manage'));
     $ADMIN->add('roles', new admin_externalpage('assignroles', new lang_string('assignglobalroles', 'role'), "$CFG->wwwroot/$CFG->admin/roles/assign.php?contextid=".$systemcontext->id, 'moodle/role:assign'));
     $ADMIN->add('roles', new admin_externalpage('checkpermissions', new lang_string('checkglobalpermissions', 'role'), "$CFG->wwwroot/$CFG->admin/roles/check.php?contextid=".$systemcontext->id, array('moodle/role:assign', 'moodle/role:safeoverride', 'moodle/role:override', 'moodle/role:manage')));
