@@ -275,12 +275,22 @@ if ($hassiteconfig or has_any_capability($capabilities, $systemcontext)) { // sp
     $page = new admin_externalpage('managetags', new lang_string('managetags', 'tag'), $url, 'moodle/tag:manage', $hidden);
     $ADMIN->add('appearance', $page);
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    if (get_protected_agora()) {
+    // ************ FI
+
     $temp = new admin_settingpage('additionalhtml', new lang_string('additionalhtml', 'admin'));
     $temp->add(new admin_setting_heading('additionalhtml_heading', new lang_string('additionalhtml_heading', 'admin'), new lang_string('additionalhtml_desc', 'admin')));
     $temp->add(new admin_setting_configtextarea('additionalhtmlhead', new lang_string('additionalhtmlhead', 'admin'), new lang_string('additionalhtmlhead_desc', 'admin'), '', PARAM_RAW));
     $temp->add(new admin_setting_configtextarea('additionalhtmltopofbody', new lang_string('additionalhtmltopofbody', 'admin'), new lang_string('additionalhtmltopofbody_desc', 'admin'), '', PARAM_RAW));
     $temp->add(new admin_setting_configtextarea('additionalhtmlfooter', new lang_string('additionalhtmlfooter', 'admin'), new lang_string('additionalhtmlfooter_desc', 'admin'), '', PARAM_RAW));
     $ADMIN->add('appearance', $temp);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin.
+    // 2024.10.16 @aginard
+    }
+    // ************ FI
 
     $setting = new admin_setting_configcheckbox('cachetemplates', new lang_string('cachetemplates', 'admin'),
         new lang_string('cachetemplates_help', 'admin'), 1);
