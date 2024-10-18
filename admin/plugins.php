@@ -44,6 +44,12 @@ $confirminstallupdate = optional_param('confirminstallupdate', false, PARAM_BOOL
 require_admin();
 $syscontext = context_system::instance();
 
+// XTEC ************ AFEGIT - Allow access only to xtecadmin user.
+// 2024.10.17 @aginard
+if (!get_protected_agora()) {
+    $uninstall = '';
+}
+
 // URL params we want to maintain on redirects.
 $pageurl = new moodle_url('/admin/plugins.php');
 
