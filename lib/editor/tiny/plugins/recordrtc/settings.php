@@ -43,6 +43,11 @@ if ($ADMIN->fulltree) {
         $settings->add($setting);
     }
 
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user.
+    // 2023.07.14 @aginard
+    if (get_protected_agora()) {
+    // ************ FI
+
     // Types allowed.
     $options = [
         \tiny_recordrtc\constants::TINYRECORDRTC_AUDIO_TYPE => new lang_string('onlyaudio', 'tiny_recordrtc'),
@@ -51,12 +56,28 @@ if ($ADMIN->fulltree) {
     ];
     $name = get_string('allowedtypes', 'tiny_recordrtc');
     $desc = get_string('allowedtypes_desc', 'tiny_recordrtc');
+
+    // XTEC ************ MODIFICAT - Set TinyMCE default value for RTC to only audio.
+    // 2023.07.14 @aginard
+    $default = [
+        \tiny_recordrtc\constants::TINYRECORDRTC_AUDIO_TYPE => 1,
+    ];
+    // ************ ORIGINAL
+    /*
     $default = [
         \tiny_recordrtc\constants::TINYRECORDRTC_AUDIO_TYPE => 1,
         \tiny_recordrtc\constants::TINYRECORDRTC_VIDEO_TYPE => 1,
     ];
+    */
+    // ************ FI
+
     $setting = new admin_setting_configmulticheckbox('tiny_recordrtc/allowedtypes', $name, $desc, $default, $options);
     $settings->add($setting);
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user.
+    // 2023.07.14 @aginard
+    }
+    // ************ FI
 
     // Audio bitrate.
     $name = get_string('audiobitrate', 'tiny_recordrtc');
