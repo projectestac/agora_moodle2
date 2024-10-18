@@ -40,14 +40,6 @@ class mlbackend extends base {
      * @return bool
      */
     public function is_uninstall_allowed() {
-
-        // XTEC ************ AFEGIT - Disable uninstalling
-        // 2021.05.18 @aginard
-        if (!get_protected_agora()) {
-            return false;
-        }
-        // ************ FI
-
         return !\core_analytics\manager::is_mlbackend_used('mlbackend_' . $this->name);
     }
 

@@ -2108,6 +2108,13 @@ class plugin_manager {
             return false;
         }
 
+        // XTEC ************ AFEGIT - Only xtecadmin can uninstall plugins.
+        // 2024.10.17 @aginard
+        if (!get_protected_agora()) {
+            return false;
+        }
+        // ************ FI
+
         if (!$pluginfo->is_uninstall_allowed()) {
             // The plugin's plugininfo class declares it should not be uninstalled.
             return false;
