@@ -124,3 +124,6 @@
 [submodule "course/format/tiles"]
 	path = course/format/tiles
 	url = https://bitbucket.org/dw8/moodle-format_tiles.git
+[submodule "lib/editor/tiny/plugins/wiris"]
+	path = lib/editor/tiny/plugins/wiris
+	url = https://github.com/wiris/moodle-tiny_wiris.git
