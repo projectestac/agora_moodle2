@@ -133,3 +133,6 @@
 [submodule "lib/editor/tiny/plugins/fontsize"]
 	path = lib/editor/tiny/plugins/fontsize
 	url = https://github.com/mediamaisteri/moodle-tiny_fontsize.git
+[submodule "lib/editor/tiny/plugins/fontcolor"]
+	path = lib/editor/tiny/plugins/fontcolor
+	url = https://github.com/bfh/moodle-tiny_fontcolor.git
