@@ -130,3 +130,6 @@
 [submodule "lib/editor/tiny/plugins/cloze"]
 	path = lib/editor/tiny/plugins/cloze
 	url = https://github.com/srobotta/moodle-tiny_cloze.git
+[submodule "lib/editor/tiny/plugins/fontsize"]
+	path = lib/editor/tiny/plugins/fontsize
+	url = https://github.com/mediamaisteri/moodle-tiny_fontsize.git
