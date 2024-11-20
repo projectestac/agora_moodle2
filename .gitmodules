@@ -127,3 +127,6 @@
 [submodule "lib/editor/tiny/plugins/wiris"]
 	path = lib/editor/tiny/plugins/wiris
 	url = https://github.com/wiris/moodle-tiny_wiris.git
+[submodule "lib/editor/tiny/plugins/cloze"]
+	path = lib/editor/tiny/plugins/cloze
+	url = https://github.com/srobotta/moodle-tiny_cloze.git
