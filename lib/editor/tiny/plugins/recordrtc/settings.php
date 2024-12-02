@@ -43,11 +43,6 @@ if ($ADMIN->fulltree) {
         $settings->add($setting);
     }
 
-    // XTEC ************ AFEGIT - Allow access only to xtecadmin user.
-    // 2023.07.14 @aginard
-    if (get_protected_agora()) {
-    // ************ FI
-
     // Types allowed.
     $options = [
         'both' => new lang_string('audioandvideo', 'tiny_recordrtc'),
@@ -68,11 +63,6 @@ if ($ADMIN->fulltree) {
 
     $setting = new admin_setting_configselect('tiny_recordrtc/allowedtypes', $name, $desc, $default, $options);
     $settings->add($setting);
-
-    // XTEC ************ AFEGIT - Allow access only to xtecadmin user.
-    // 2023.07.14 @aginard
-    }
-    // ************ FI
 
     // Audio bitrate.
     $name = get_string('audiobitrate', 'tiny_recordrtc');
