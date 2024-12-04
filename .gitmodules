@@ -136,3 +136,6 @@
 [submodule "lib/editor/tiny/plugins/fontcolor"]
 	path = lib/editor/tiny/plugins/fontcolor
 	url = https://github.com/bfh/moodle-tiny_fontcolor.git
+[submodule "lib/editor/tiny/plugins/fontfamily"]
+	path = lib/editor/tiny/plugins/fontfamily
+	url = https://github.com/mediamaisteri/moodle-tiny_fontfamily.git
