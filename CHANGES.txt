@@ -4,6 +4,20 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 25.02.04
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 4.4.5+
+- Updated langpacks
+- Completion: Ignore pass/fail when only Require grade defined (MDL-75582)
+- Question duplication: Partial reversion of MDL-77625
+- cloze: Upgraded tiny plugin
+- fontsize: Upgraded tiny plugin
+- Local Àgora: Added script to activate filter multilang and configure TinyMCE plugins
+- Theme xtecboost: Replaced twitter logo by X logo. Improved footer styles
+- Tiles: Upgraded course format
+- Wiris: Upgraded all components
+
+
 Changes 24.12.23
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.4.5+
