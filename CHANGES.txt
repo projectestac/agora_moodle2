@@ -9,6 +9,7 @@ Changes 25.02.04
 - Upgraded Moodle to version 4.4.5+
 - Updated langpacks
 - Completion: Ignore pass/fail when only Require grade defined (MDL-75582)
+- Question duplication: Partial reversion of MDL-77625
 - cloze: Upgraded tiny plugin
 - fontsize: Upgraded tiny plugin
 - Local Àgora: Added script to activate filter multilang and configure TinyMCE plugins
