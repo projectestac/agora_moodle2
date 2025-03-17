@@ -142,3 +142,6 @@
 [submodule "report/questionbankoverview"]
 	path = report/questionbankoverview
 	url = https://github.com/projectestac/moodle-report_questionbankoverview.git
+[submodule "question/bank/purgecategory"]
+	path = question/bank/purgecategory
+	url = https://github.com/vadimonus/moodle-qbank_purgecategory.git
