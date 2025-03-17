@@ -139,3 +139,6 @@
 [submodule "lib/editor/tiny/plugins/fontfamily"]
 	path = lib/editor/tiny/plugins/fontfamily
 	url = https://github.com/mediamaisteri/moodle-tiny_fontfamily.git
+[submodule "report/questionbankoverview"]
+	path = report/questionbankoverview
+	url = https://github.com/projectestac/moodle-report_questionbankoverview.git
