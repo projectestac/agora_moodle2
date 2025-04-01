@@ -111,7 +111,7 @@ class post extends db_table_vault {
         stdClass $user,
         int $discussionid,
         bool $canseeprivatereplies,
-        string $orderby = 'created ASC, id ASC'
+        string $orderby = 'created ASC'
     ): array {
         return $this->get_from_discussion_ids($user, [$discussionid], $canseeprivatereplies, $orderby);
     }
@@ -232,7 +232,7 @@ class post extends db_table_vault {
         stdClass $user,
         post_entity $post,
         bool $canseeprivatereplies,
-        string $orderby = 'created ASC, id ASC'
+        string $orderby = 'created ASC'
     ): array {
         $alias = $this->get_table_alias();
 
@@ -439,15 +439,19 @@ class post extends db_table_vault {
         ] = $this->get_private_reply_sql($user, $canseeprivatereplies, "mp");
 
         $sql = "
-            SELECT p.*
-            FROM {" . self::TABLE . "} p
+            SELECT posts.*
+            FROM {" . self::TABLE . "} posts
             JOIN (
-                SELECT mp.discussion, mp.created, MAX(mp.id) AS latestpostid
-                FROM {" . self::TABLE . "} mp
-                WHERE mp.discussion {$insql} {$privatewhere}
-                GROUP BY mp.discussion, mp.created
-                HAVING mp.created = MAX(mp.created)
-            ) lp on lp.discussion = p.discussion AND lp.latestpostid = p.id";
+                SELECT p.discussion, MAX(p.id) as latestpostid
+                FROM {" . self::TABLE . "} p
+                JOIN (
+                    SELECT mp.discussion, MAX(mp.created) AS created
+                      FROM {" . self::TABLE . "} mp
+                     WHERE mp.discussion {$insql} {$privatewhere}
+                  GROUP BY mp.discussion
+                ) lp ON lp.discussion = p.discussion AND lp.created = p.created
+            GROUP BY p.discussion
+          ) plp on plp.discussion = posts.discussion AND plp.latestpostid = posts.id";
 
         $records = $this->get_db()->get_records_sql($sql, array_merge($params, $privateparams));
         $entities = $this->transform_db_records_to_entities($records);
@@ -497,14 +501,13 @@ class post extends db_table_vault {
 
         $sql = "
             SELECT p.*
-            FROM {" . self::TABLE . "} p
-            JOIN (
-                SELECT mp.discussion, mp.created, MIN(mp.id) AS firstpostid
-                FROM {" . self::TABLE . "} mp
-                WHERE mp.discussion {$insql}
-                GROUP BY mp.discussion, mp.created
-                HAVING mp.created = MIN(mp.created)
-            ) fp ON fp.discussion = p.discussion AND fp.firstpostid = p.id";
+              FROM {" . self::TABLE . "} p
+              JOIN (
+                SELECT mp.discussion, MIN(mp.created) AS created
+                  FROM {" . self::TABLE . "} mp
+                 WHERE mp.discussion {$insql}
+              GROUP BY mp.discussion
+              ) lp ON lp.discussion = p.discussion AND lp.created = p.created";
 
         $records = $this->get_db()->get_records_sql($sql, $params);
         return $this->transform_db_records_to_entities($records);
@@ -523,7 +526,7 @@ class post extends db_table_vault {
         int $discussionid,
         int $userid,
         bool $canseeprivatereplies,
-        string $orderby = 'created ASC, id ASC'
+        string $orderby = 'created ASC'
     ): array {
         $user = $this->get_db()->get_record('user', ['id' => (int)$userid], '*', IGNORE_MISSING);
 
