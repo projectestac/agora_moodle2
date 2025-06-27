@@ -145,3 +145,6 @@
 [submodule "question/bank/purgecategory"]
 	path = question/bank/purgecategory
 	url = https://github.com/vadimonus/moodle-qbank_purgecategory.git
+[submodule "lib/editor/tiny/plugins/c4l"]
+	path = lib/editor/tiny/plugins/c4l
+	url = https://github.com/reskit/moodle-tiny_c4l.git
