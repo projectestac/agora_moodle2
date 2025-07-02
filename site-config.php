@@ -6,12 +6,6 @@ global $school_info;
 
 $centre = getSchoolInfo('Moodle');
 
-// Check for special status of the services
-if (isset($school_info['status_moodle']) && ($school_info['status_moodle'] !== 'active')) {
-    header('Location: ' . WWWROOT . 'error.php?s=moodle&' . $school_info['status_moodle'] . '=' . $centre);
-    exit;
-}
-
 // Check for subdomain
 if (!empty($school_info['url_type']) && ($school_info['url_type'] === 'subdomain') && !empty($school_info['url_host'])) {
     $CFG->wwwroot = $agora['server']['html'] . 'moodle';
