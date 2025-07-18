@@ -148,6 +148,3 @@
 [submodule "lib/editor/tiny/plugins/c4l"]
 	path = lib/editor/tiny/plugins/c4l
 	url = https://github.com/reskit/moodle-tiny_c4l.git
-[submodule "theme/boost_union"]
-	path = theme/boost_union
-	url = https://github.com/moodle-an-hochschulen/moodle-theme_boost_union.git
