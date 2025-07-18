@@ -4,6 +4,15 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 25.07.21
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 4.4.9+
+- Updated langpacks
+- boost_union: Allow access only to xtecadmin
+- journal: Rolled back a few comments to fix error in module
+- xtecboost: favicon: Added support for setting in core_admin | favicon
+
+
 Changes 25.07.07
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.4.9+
