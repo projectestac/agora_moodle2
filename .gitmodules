@@ -151,3 +151,6 @@
 [submodule "theme/boost_union"]
 	path = theme/boost_union
 	url = https://github.com/projectestac/moodle-theme_boost_union.git
+[submodule "question/type/coderunner"]
+	path = question/type/coderunner
+	url = https://github.com/trampgeek/moodle-qtype_coderunner.git
