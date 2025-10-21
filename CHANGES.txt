@@ -4,6 +4,20 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 25.10.22
+---------------------------------------------------------------------------------------
+- Updated langpacks
+- choicegroup: Updated module
+- Coderunner behaviour: Added submodule
+- Coderunner question type: Added submodule
+- completion_progress: Updated block
+- multitopic: Updated course format
+- tiny_fontcolor: Updated editor plugin
+- tiny_cloze: Updated editor plugin
+- Wiris: Updated all components
+- xtecboost: Updated logo for Departament d'Educació
+
+
 Changes 25.10.07
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.4.11
