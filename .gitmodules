@@ -157,3 +157,6 @@
 [submodule "question/behaviour/adaptive_adapted_for_coderunner"]
 	path = question/behaviour/adaptive_adapted_for_coderunner
 	url = https://github.com/trampgeek/moodle-qbehaviour_adaptive_adapted_for_coderunner.git
+[submodule "blocks/grade_me"]
+	path = blocks/grade_me
+	url = https://github.com/remotelearner/moodle-block_grade_me.git
