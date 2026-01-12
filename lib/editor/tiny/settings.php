@@ -59,6 +59,14 @@ if ($ADMIN->fulltree) {
 $ADMIN->add('editortiny', $settings);
 
 foreach (core_plugin_manager::instance()->get_plugins_of_type('tiny') as $plugin) {
+
+    // XTEC ************ AFEGIT - Allow access only to xtecadmin user (tiny_fontcolor).
+    // 2026.01.12 @aginard
+    if ('fontcolor' === $plugin->name && !get_protected_agora()) {
+        continue;
+    }
+    // ***************** FI
+
     /** @var \editor_tiny\plugininfo\tiny $plugin */
     $plugin->load_settings($ADMIN, 'editortiny', $hassiteconfig);
 }
