@@ -4,6 +4,15 @@ More information on each of the fixes can be found in the project
 development home at https://github.com/projectestac/agora_moodle2
 
 
+Changes 26.01.27
+---------------------------------------------------------------------------------------
+- Upgraded Moodle to version 4.5.8+
+- Updated langpacks
+- Boost Union: Upgraded theme
+- Simple: Upgraded course format
+- Tiles: Upgraded course format
+
+
 Changes 26.01.13
 ---------------------------------------------------------------------------------------
 - Upgraded Moodle to version 4.5.8+
