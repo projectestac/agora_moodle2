@@ -160,3 +160,9 @@
 [submodule "blocks/grade_me"]
 	path = blocks/grade_me
 	url = https://github.com/remotelearner/moodle-block_grade_me.git
+[submodule "blocks/importrubric"]
+	path = blocks/importrubric
+	url = https://github.com/ingrichardrangel/moodle-block_importrubric.git
+[submodule "local/customgradingform_renderer"]
+	path = local/customgradingform_renderer
+	url = https://github.com/ingrichardrangel/moodle-local_customgradingform_renderer.git
