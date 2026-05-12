@@ -112,13 +112,6 @@ if (!empty($agora['moodle2']['redis_session_servers'])) {
     $CFG->session_redis_prefix = $CFG->redis_prefix . 'sess_'; // Optional, default is don't set one
     $CFG->session_redis_acquire_lock_timeout = 120;
     $CFG->session_redis_lock_expire = 7200;
-
-    // Move locking. Default location is moodledata
-    $CFG->local_redislock_redis_server = $agora['moodle2']['redis_session_servers'];
-    $CFG->lock_factory = '\\local_redislock\\lock\\redis_lock_factory';
-    $CFG->local_redislock_logging = false;
-} else {
-    $CFG->lock_factory = '\\core\\lock\\db_record_lock_factory';
 }
 
 // MUC configuration
