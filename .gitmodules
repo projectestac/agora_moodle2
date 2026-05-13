@@ -166,3 +166,6 @@
 [submodule "local/customgradingform_renderer"]
 	path = local/customgradingform_renderer
 	url = https://github.com/ingrichardrangel/moodle-local_customgradingform_renderer.git
+[submodule "mod/board"]
+	path = mod/board
+	url = https://github.com/brickfield/moodle-mod_board.git
