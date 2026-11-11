@@ -169,3 +169,6 @@
 [submodule "mod/board"]
 	path = mod/board
 	url = https://github.com/brickfield/moodle-mod_board.git
+[submodule "question/type/geogebra"]
+	path = question/type/geogebra
+	url = https://github.com/bycs-lp/moodle-qtype_geogebra.git
